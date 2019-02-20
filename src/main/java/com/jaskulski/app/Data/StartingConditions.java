@@ -10,4 +10,10 @@ public class StartingConditions {
 
     private double squareSide = 0;
     private double fieldLean = 0;
+
+    class Slope{
+        private double side = 0;
+        private double slopeWidth = 0;
+        private double slopeTilt = 0;
+    }
 }

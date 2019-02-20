@@ -8,16 +8,17 @@ public class UIParameters {
     public static Font fontSmall;
     public static Font fontTiny;
 
-    public static Dimension screenDim; // = Toolkit.getDefaultToolkit().getScreenSize();
-    public static int frameWidth; // = Scheme.SCREEN_DIM.width/5;
-    public static int frameHeight; // = Scheme.SCREEN_DIM.height*2/5;
+    public static Dimension screenDim;
+    public static int frameWidth;
+    public static int frameHeight;
 
     public static void setScreenDim(){
-
+        screenDim = Toolkit.getDefaultToolkit().getScreenSize();
     }
 
     public static void setFrameSize(){
-
+        frameWidth = screenDim.width/5;
+        frameHeight = screenDim.height*2/5;
     }
 
     public static void initializeFonts(){
@@ -26,5 +27,11 @@ public class UIParameters {
         fontMedium = new Font ("Palatino", Font.BOLD, fontSize/2);
         fontSmall = new Font ("Arial", Font.PLAIN, fontSize/2);
         fontTiny = new Font ("Arial", Font.PLAIN, fontSize/3);
+    }
+
+    public static void initializeParameters(){
+        setScreenDim();
+        setFrameSize();
+        initializeFonts();
     }
 }

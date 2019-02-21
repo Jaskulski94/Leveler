@@ -8,19 +8,19 @@ public class UIParameters {
     public static Font fontSmall;
     public static Font fontTiny;
 
-    public static Dimension screenDim;
-    public static Dimension frameDim;
+    public static Dimension dimScreen;
+    public static Dimension dimFrame;
     public static int frameWidth;
     public static int frameHeight;
 
     public static void setScreenDim(){
-        screenDim = Toolkit.getDefaultToolkit().getScreenSize();
+        dimScreen = Toolkit.getDefaultToolkit().getScreenSize();
     }
 
     public static void setFrameSize(){
-        frameWidth = screenDim.width/3;
-        frameHeight = screenDim.height*2/3;
-        frameDim = new Dimension(frameWidth, frameHeight);
+        frameWidth = dimScreen.width/3;
+        frameHeight = dimScreen.height*2/3;
+        dimFrame = new Dimension(frameWidth, frameHeight);
     }
 
     public static void initializeFonts(){

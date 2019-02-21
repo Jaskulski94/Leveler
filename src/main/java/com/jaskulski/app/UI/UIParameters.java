@@ -9,6 +9,7 @@ public class UIParameters {
     public static Font fontTiny;
 
     public static Dimension screenDim;
+    public static Dimension frameDim;
     public static int frameWidth;
     public static int frameHeight;
 
@@ -17,8 +18,9 @@ public class UIParameters {
     }
 
     public static void setFrameSize(){
-        frameWidth = screenDim.width/5;
-        frameHeight = screenDim.height*2/5;
+        frameWidth = screenDim.width/3;
+        frameHeight = screenDim.height*2/3;
+        frameDim = new Dimension(frameWidth, frameHeight);
     }
 
     public static void initializeFonts(){

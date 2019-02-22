@@ -8,7 +8,6 @@ public class UILauncher extends JFrame {
         this.setSize(UIParameters.dimFrame);
 
         ProjectStarter projectStarter = new ProjectStarter();
-        projectStarter.newOrLoadProject();
         this.add(projectStarter);
 
         this.setVisible(true);

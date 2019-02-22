@@ -24,7 +24,7 @@ public class UIParameters {
     }
 
     public static void initializeFonts(){
-        int fontSize = frameHeight/14;
+        int fontSize = frameHeight/20;
         fontBig = new Font ("Palatino", Font.BOLD, fontSize);
         fontMedium = new Font ("Palatino", Font.BOLD, fontSize/2);
         fontSmall = new Font ("Arial", Font.PLAIN, fontSize/2);

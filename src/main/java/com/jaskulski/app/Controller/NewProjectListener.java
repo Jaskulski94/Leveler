@@ -6,6 +6,10 @@ import java.awt.event.ActionListener;
 public class NewProjectListener implements ActionListener {
 
         public void actionPerformed(ActionEvent arg0){
+                createNewProject();
+        }
+
+        public void createNewProject(){
 
         }
 }

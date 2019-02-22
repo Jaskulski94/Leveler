@@ -4,13 +4,16 @@ import com.jaskulski.app.Controller.LoadProjectListener;
 import com.jaskulski.app.Controller.NewProjectListener;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class ProjectStarter extends JPanel {
 
     public ProjectStarter(){
-        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        this.setLayout(new GridLayout(3, 1));
         JLabel lblTitle = new JLabel("Niwelator");
-        lblTitle.setFont(UIParameters.fontMedium);
+        lblTitle.setFont(UIParameters.fontBig);
+        lblTitle.setHorizontalAlignment(JLabel.CENTER);
+        lblTitle.setVerticalAlignment(JLabel.CENTER);
         this.add(lblTitle);
 
         WhiteButton btnNewProject = new WhiteButton("Stwórz nowy projekt");

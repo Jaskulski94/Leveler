@@ -13,5 +13,6 @@ public class NewProjectListener implements ActionListener {
 
         public void createNewProject(){
                 NewProjectNamerFrame newProjectNamer = new NewProjectNamerFrame();
+
         }
 }

@@ -2,12 +2,12 @@ package com.jaskulski.app.UI;
 
 import javax.swing.*;
 
-public class UILauncher extends JFrame {
+public class UILauncherFrame extends JFrame {
 
     public void initializeUI(){
         this.setSize(UIParameters.dimFrame);
 
-        ProjectStarter projectStarter = new ProjectStarter();
+        ProjectStarterPanel projectStarter = new ProjectStarterPanel();
         this.add(projectStarter);
 
         this.setVisible(true);

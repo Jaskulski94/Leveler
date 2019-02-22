@@ -6,9 +6,9 @@ import com.jaskulski.app.Controller.NewProjectListener;
 import javax.swing.*;
 import java.awt.*;
 
-public class ProjectStarter extends JPanel {
+public class ProjectStarterPanel extends JPanel {
 
-    public ProjectStarter(){
+    public ProjectStarterPanel(){
         this.setLayout(new GridLayout(3, 1));
         JLabel lblTitle = new JLabel("Niwelator");
         lblTitle.setFont(UIParameters.fontBig);

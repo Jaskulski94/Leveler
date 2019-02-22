@@ -1,6 +1,6 @@
 package com.jaskulski.app;
 
-import com.jaskulski.app.UI.UILauncher;
+import com.jaskulski.app.UI.UILauncherFrame;
 import com.jaskulski.app.UI.UIParameters;
 
 public class Application {
@@ -8,7 +8,7 @@ public class Application {
 
         UIParameters.initializeParameters();
 
-        UILauncher launcher = new UILauncher();
+        UILauncherFrame launcher = new UILauncherFrame();
         launcher.initializeUI();
 
     }

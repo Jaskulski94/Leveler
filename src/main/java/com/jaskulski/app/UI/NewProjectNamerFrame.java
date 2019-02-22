@@ -1,5 +1,8 @@
 package com.jaskulski.app.UI;
 
+import com.jaskulski.app.Controller.NewProjectListener;
+import com.jaskulski.app.Controller.NewProjectNamerListener;
+
 import javax.swing.*;
 
 public class NewProjectNamerFrame extends JFrame {
@@ -11,6 +14,7 @@ public class NewProjectNamerFrame extends JFrame {
         this.add(txtProjectName);
 
         WhiteButton btnSetName = new WhiteButton("Nowy projekt");
+        btnSetName.addActionListener(new NewProjectNamerListener(txtProjectName.getText()));
         this.add(btnSetName);
 
         this.setVisible(true);

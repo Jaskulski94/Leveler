@@ -9,37 +9,37 @@ public class NewProjectInitiatorPanel extends JPanel {
     public NewProjectInitiatorPanel(){
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS ));
 
-        JLabel titleLabel = new JLabel("Założenia techniczne");
-        this.add(titleLabel);
+        JLabel lblTitle = new JLabel("Założenia techniczne");
+        this.add(lblTitle);
         this.add(new JLabel(" "));
 
         JLabel sidesLabel = new JLabel("Boki boiska");
         this.add(sidesLabel);
 
-        JPanel slopesPanel = new JPanel();
-        slopesPanel.setLayout(new BoxLayout(slopesPanel, BoxLayout.X_AXIS));
+        JPanel pnlSlopes = new JPanel();
+        pnlSlopes.setLayout(new BoxLayout(pnlSlopes, BoxLayout.X_AXIS));
 
-        SlopeInitiator aSlopePanel = new SlopeInitiator();
-        slopesPanel.add(aSlopePanel);
-        SlopeInitiator bSlopePanel = new SlopeInitiator();
-        slopesPanel.add(bSlopePanel);
+        SlopeInitiator pnlASlope = new SlopeInitiator();
+        pnlSlopes.add(pnlASlope);
+        SlopeInitiator pnlBSlope = new SlopeInitiator();
+        pnlSlopes.add(pnlBSlope);
 
-        this.add(slopesPanel);
-
-        this.add(new JLabel(" "));
-        JLabel squaresLabel = new JLabel("Bok kwadratu siatki");
-        this.add(squaresLabel);
-        JTextField squaresField = new JTextField("10");
-        this.add(squaresField);
+        this.add(pnlSlopes);
 
         this.add(new JLabel(" "));
-        JLabel leanLabel = new JLabel("Pochylenie płaszczyzny boiska");
-        this.add(leanLabel);
-        JTextField leanField = new JTextField("1");
-        this.add(leanField);
+        JLabel lblSquares = new JLabel("Bok kwadratu siatki");
+        this.add(lblSquares);
+        JTextField txtSquares = new JTextField("10");
+        this.add(txtSquares);
 
-        WhiteButton startingConditionsButton = new WhiteButton("Dalej");
-        this.add(startingConditionsButton);
+        this.add(new JLabel(" "));
+        JLabel lblLean = new JLabel("Pochylenie płaszczyzny boiska");
+        this.add(lblLean);
+        JTextField txtField = new JTextField("1");
+        this.add(txtField);
+
+        WhiteButton btnStartingConditions= new WhiteButton("Dalej");
+        this.add(btnStartingConditions);
 
     //    startingConditionsButton.addActionListener(new StartingConditionsListener(this));
 
@@ -62,25 +62,25 @@ public class NewProjectInitiatorPanel extends JPanel {
             this.setBorder(blackBorder);
 
             this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-            this.add(new JLabel("slope"));
+            this.add(new JLabel("Zbocze"));
 
-            JTextField sideField = new JTextField("100");
-            this.add(sideField);
+            JTextField txtSide = new JTextField("100");
+            this.add(txtSide);
             this.add(new JLabel(" "));
             this.add(new JLabel("Rodzaj skarpy:"));
 
-            ButtonGroup buttonGroup = new ButtonGroup();
-            JRadioButton slopeWidthButton = new JRadioButton("Szerokość skarpy");
-            JRadioButton slopeTiltButton = new JRadioButton("Kąt nachylenia");
-            buttonGroup.add(slopeTiltButton);
-            buttonGroup.add(slopeWidthButton);
+            ButtonGroup btnGroup = new ButtonGroup();
+            JRadioButton rBtnSlopeWidth = new JRadioButton("Szerokość skarpy");
+            JRadioButton rBtnSlopeTilt = new JRadioButton("Kąt nachylenia");
+            btnGroup.add(rBtnSlopeTilt);
+            btnGroup.add(rBtnSlopeWidth);
 
-            this.add(slopeWidthButton);
-            this.add(slopeTiltButton);
+            this.add(rBtnSlopeWidth);
+            this.add(rBtnSlopeTilt);
             this.add(new JLabel("Wartość:"));
 
-            JTextField slopeValueField = new JTextField("1");
-            this.add(slopeValueField);
+            JTextField txtSlopeValue = new JTextField("1");
+            this.add(txtSlopeValue);
         }
         
     }

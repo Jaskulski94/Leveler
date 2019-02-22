@@ -9,15 +9,15 @@ public class UILauncherFrame extends JFrame {
 
         ProjectStarterPanel projectStarter = new ProjectStarterPanel(this);
         this.add(projectStarter);
-
         this.setVisible(true);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
     public void changePanel (JPanel panel1){
-        this.remove(this.getComponent(0));
+        this.getContentPane().removeAll();
         this.add(panel1);
         this.repaint();
+        this.setVisible(true);
     }
 
 }

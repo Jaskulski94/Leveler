@@ -36,4 +36,16 @@ public class UIParameters {
         setFrameSize();
         initializeFonts();
     }
+
+    public static void setFontToAll (Component component, Font font)
+    {
+        component.setFont (font);
+        if (component instanceof Container)
+        {
+            for (Component child: ((Container) component).getComponents())
+            {
+                setFontToAll(child, font);
+            }
+        }
+    }
 }

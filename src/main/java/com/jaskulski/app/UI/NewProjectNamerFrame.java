@@ -9,10 +9,8 @@ import java.awt.event.WindowEvent;
 public class NewProjectNamerFrame extends JFrame {
 
     public JTextField txtProjectName;
- //   public ProjectStarterPanel psPanel;
 
     public NewProjectNamerFrame(){
- //       this.psPanel = psPanel1;
 
         this.setSize(600, 300);
         this.setLayout(new GridLayout(2, 1));

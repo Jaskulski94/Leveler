@@ -21,7 +21,7 @@ public class ProjectStarterPanel extends JPanel {
         lblTitle.setVerticalAlignment(JLabel.CENTER);
         this.add(lblTitle);
 
-        ChangePanelListener cpListener = new ChangePanelListener(UILauncher, new JPanel());
+        ChangePanelListener cpListener = new ChangePanelListener(UILauncher, new NewProjectInitiatorPanel());
 
         WhiteButton btnNewProject = new WhiteButton("Stwórz nowy projekt");
         btnNewProject.addActionListener(new NewProjectListener());

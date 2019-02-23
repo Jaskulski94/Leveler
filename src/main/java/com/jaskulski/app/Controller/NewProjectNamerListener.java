@@ -15,9 +15,7 @@ import java.nio.file.Files;
 
 public class NewProjectNamerListener implements ActionListener {
 
-    NewProjectNamerFrame npnFrame;
-    String txt;
-    String projectName;
+    private NewProjectNamerFrame npnFrame;
 
     public NewProjectNamerListener (NewProjectNamerFrame npnFrame1){
         this.npnFrame = npnFrame1;
@@ -27,7 +25,9 @@ public class NewProjectNamerListener implements ActionListener {
         createDirectory();
     }
 
-    public void createDirectory(){
+    private void createDirectory(){
+        String txt;
+        String projectName;
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy_MM_dd");
         LocalDate localDate = LocalDate.now();
         String date = dtf.format(localDate);

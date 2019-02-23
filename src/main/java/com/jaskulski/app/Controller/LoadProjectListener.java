@@ -9,16 +9,16 @@ public class LoadProjectListener implements ActionListener {
         loadDataFromSelected();
     }
 
-    public void loadDataFromSelected(){
+    private void loadDataFromSelected(){
         loadStartingConditions();
         loadTerrainMatrix();
     }
 
-    public void loadStartingConditions(){
+    private void loadStartingConditions(){
 
     }
 
-    public void loadTerrainMatrix(){
+    private void loadTerrainMatrix(){
 
     }
 }

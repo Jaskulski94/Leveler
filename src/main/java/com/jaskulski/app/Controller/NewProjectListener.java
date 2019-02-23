@@ -11,7 +11,7 @@ public class NewProjectListener implements ActionListener {
                 createNewProject();
         }
 
-        public void createNewProject(){
+        private void createNewProject(){
                 NewProjectNamerFrame newProjectNamer = new NewProjectNamerFrame();
 
         }

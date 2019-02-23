@@ -13,17 +13,17 @@ public class UIParameters {
     public static int frameWidth;
     public static int frameHeight;
 
-    public static void setScreenDim(){
+    private static void setScreenDim(){
         dimScreen = Toolkit.getDefaultToolkit().getScreenSize();
     }
 
-    public static void setFrameSize(){
+    private static void setFrameSize(){
         frameWidth = dimScreen.width/3;
         frameHeight = dimScreen.height*2/3;
         dimFrame = new Dimension(frameWidth, frameHeight);
     }
 
-    public static void initializeFonts(){
+    private static void initializeFonts(){
         int fontSize = frameHeight/20;
         fontBig = new Font ("Palatino", Font.BOLD, fontSize);
         fontMedium = new Font ("Palatino", Font.BOLD, fontSize/2);

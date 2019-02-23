@@ -9,10 +9,9 @@ import java.awt.event.ActionListener;
 
 public class NewProjectInitiatorListener implements ActionListener {
 
-    public NewProjectInitiatorPanel npiPanel;
-    public StartingConditions startingConditions;
-    public double side, slopeWidth, slopeTilt;
-
+    private NewProjectInitiatorPanel npiPanel;
+    private StartingConditions startingConditions;
+    private double side, slopeWidth, slopeTilt;
 
     public NewProjectInitiatorListener(NewProjectInitiatorPanel npiPanel1) {
         this.npiPanel = npiPanel1;
@@ -23,7 +22,7 @@ public class NewProjectInitiatorListener implements ActionListener {
         setStartingConditions();
     }
 
-    public void setStartingConditions() {
+    private void setStartingConditions() {
         try {
             getSlopeValues(npiPanel.getSlopeA());
             setSlopeValues(startingConditions.getSlopeA());
@@ -33,18 +32,21 @@ public class NewProjectInitiatorListener implements ActionListener {
 
             startingConditions.setSquareSide(npiPanel.getTxtSquares());
             startingConditions.setFieldLean(npiPanel.getTxtField());
+
+            startingConditions.printAll();
+
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Błąd: Zły typ wprowadzonych danych");
         }
     }
 
-    public void getSlopeValues(NewProjectInitiatorPanel.SlopeInitiator slope1) throws NumberFormatException {
+    private void getSlopeValues(NewProjectInitiatorPanel.SlopeInitiator slope1) throws NumberFormatException {
         side = slope1.getSide();
         slopeWidth = slope1.getSlopeWidth();
         slopeTilt = slope1.getSlopeTilt();
     }
 
-    public void setSlopeValues(StartingConditions.Slope slope1) {
+    private void setSlopeValues(StartingConditions.Slope slope1) {
         slope1.setSide(side);
         slope1.setSlopeWidth(slopeWidth);
         slope1.setSlopeTilt(slopeTilt);

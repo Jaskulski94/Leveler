@@ -5,7 +5,6 @@ import com.jaskulski.app.Controller.NewProjectInitiatorListener;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
-import java.util.zip.DataFormatException;
 
 public class NewProjectInitiatorPanel extends JPanel {
 

@@ -60,6 +60,8 @@ public class NewProjectInitiatorPanel extends JPanel {
         startingConditionsButton.setFont(Scheme.fontBig);*/
 
     //    this.setVisible(true);
+
+        setCenterAlignment(this);
     }
 
     public SlopeInitiator getSlopeA(){
@@ -132,6 +134,18 @@ public class NewProjectInitiatorPanel extends JPanel {
 
         public double getSlopeTilt() throws DataFormatException {
             return getSlopeValue(rBtnSlopeTilt);
+        }
+    }
+
+    private void setCenterAlignment (JComponent component) {
+        component.setAlignmentX(Component.CENTER_ALIGNMENT);
+        component.setAlignmentY(Component.CENTER_ALIGNMENT);
+        if (component instanceof Container)
+        {
+            for (Component child: ((Container) component).getComponents())
+            {
+                setCenterAlignment((JComponent) child);
+            }
         }
     }
 }

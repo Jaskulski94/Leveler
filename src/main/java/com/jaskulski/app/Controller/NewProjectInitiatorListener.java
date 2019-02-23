@@ -6,7 +6,6 @@ import com.jaskulski.app.UI.NewProjectInitiatorPanel;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.zip.DataFormatException;
 
 public class NewProjectInitiatorListener implements ActionListener {
 
@@ -34,13 +33,12 @@ public class NewProjectInitiatorListener implements ActionListener {
 
             startingConditions.setSquareSide(npiPanel.getTxtSquares());
             startingConditions.setFieldLean(npiPanel.getTxtField());
-        } catch (DataFormatException e) {
+        } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Błąd: Zły typ wprowadzonych danych");
         }
-     //   startingConditions.printAll();
     }
 
-    public void getSlopeValues(NewProjectInitiatorPanel.SlopeInitiator slope1) throws DataFormatException {
+    public void getSlopeValues(NewProjectInitiatorPanel.SlopeInitiator slope1) throws NumberFormatException {
         side = slope1.getSide();
         slopeWidth = slope1.getSlopeWidth();
         slopeTilt = slope1.getSlopeTilt();

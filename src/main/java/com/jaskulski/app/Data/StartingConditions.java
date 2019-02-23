@@ -30,12 +30,6 @@ public class StartingConditions {
         private double side = 0;
         private double slopeWidth = 0;
         private double slopeTilt = 0;
-
-        /*public void setSlopeValues (double side1, double slopeWidth1, double slopeTilt1){
-            this.side = side1;
-            this.slopeWidth = slopeWidth1;
-            this.slopeTilt = slopeTilt1;
-        }*/
     }
 
     public void printAll(){

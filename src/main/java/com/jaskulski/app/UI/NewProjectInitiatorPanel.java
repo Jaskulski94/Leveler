@@ -9,10 +9,10 @@ import java.util.zip.DataFormatException;
 
 public class NewProjectInitiatorPanel extends JPanel {
 
-    SlopeInitiator pnlASlope;
-    SlopeInitiator pnlBSlope;
-    JTextField txtSquares;
-    JTextField txtField;
+    private SlopeInitiator pnlASlope;
+    private SlopeInitiator pnlBSlope;
+    private JTextField txtSquares;
+    private JTextField txtField;
 
     public NewProjectInitiatorPanel(){
         this.setLayout(new BoxLayout(this,  BoxLayout.PAGE_AXIS ));
@@ -53,13 +53,6 @@ public class NewProjectInitiatorPanel extends JPanel {
         UIParameters.setFontToAll(this, UIParameters.fontSmall);
         lblTitle.setFont(UIParameters.fontBig);
         lblSides.setFont(UIParameters.fontMedium);
-        /*titleLabel.setFont(Scheme.fontBig);
-        sidesLabel.setFont(Scheme.fontMedium);
-        squaresLabel.setFont(Scheme.fontMedium);
-        leanLabel.setFont(Scheme.fontMedium);
-        startingConditionsButton.setFont(Scheme.fontBig);*/
-
-    //    this.setVisible(true);
 
         setCenterAlignment(this);
     }
@@ -78,6 +71,18 @@ public class NewProjectInitiatorPanel extends JPanel {
 
     public double getTxtField(){
         return Double.parseDouble(txtField.getText());
+    }
+
+    private void setCenterAlignment (JComponent component) {
+        component.setAlignmentX(Component.CENTER_ALIGNMENT);
+        component.setAlignmentY(Component.CENTER_ALIGNMENT);
+        if (component instanceof Container)
+        {
+            for (Component child: ((Container) component).getComponents())
+            {
+                setCenterAlignment((JComponent) child);
+            }
+        }
     }
 
     public class SlopeInitiator extends JPanel {
@@ -114,11 +119,11 @@ public class NewProjectInitiatorPanel extends JPanel {
             this.add(txtSlopeValue);
         }
 
-        public double getSide() throws DataFormatException {
+        public double getSide() throws NumberFormatException {
             return Double.parseDouble(txtSide.getText());
         }
 
-        public double getSlopeValue(JRadioButton jrButton1) throws DataFormatException {
+        public double getSlopeValue(JRadioButton jrButton1) throws NumberFormatException {
             double value;
             if (jrButton1.isSelected()) {
                 value = Double.parseDouble(txtSlopeValue.getText());
@@ -128,24 +133,12 @@ public class NewProjectInitiatorPanel extends JPanel {
             return value;
         }
 
-        public double getSlopeWidth() throws DataFormatException {
+        public double getSlopeWidth() throws NumberFormatException {
             return getSlopeValue(rBtnSlopeWidth);
         }
 
-        public double getSlopeTilt() throws DataFormatException {
+        public double getSlopeTilt() throws NumberFormatException {
             return getSlopeValue(rBtnSlopeTilt);
-        }
-    }
-
-    private void setCenterAlignment (JComponent component) {
-        component.setAlignmentX(Component.CENTER_ALIGNMENT);
-        component.setAlignmentY(Component.CENTER_ALIGNMENT);
-        if (component instanceof Container)
-        {
-            for (Component child: ((Container) component).getComponents())
-            {
-                setCenterAlignment((JComponent) child);
-            }
         }
     }
 }

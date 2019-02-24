@@ -1,8 +1,5 @@
 package com.jaskulski.app.Data;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class SquareGrid {
 
     public Square[] squares;

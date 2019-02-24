@@ -38,6 +38,5 @@ public class StartingConditions {
         System.out.println(slopeA.side+" "+slopeA.slopeWidth+" "+slopeA.slopeTilt);
         System.out.println("Slope B:");
         System.out.println(slopeB.side+" "+slopeB.slopeWidth+" "+slopeB.slopeTilt);
-
     }
 }

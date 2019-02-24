@@ -20,6 +20,8 @@ public class NewProjectInitiatorListener implements ActionListener {
     public void actionPerformed(ActionEvent actionEvent) {
         startingConditions = new StartingConditions();
         setStartingConditions();
+
+        //serialize startingConditions
     }
 
     private void setStartingConditions() {

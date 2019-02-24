@@ -2,8 +2,10 @@ package com.jaskulski.app.Data;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 @Data
-public class StartingConditions {
+public class StartingConditions implements Serializable {
 
     public Slope slopeA = new Slope();
     public Slope slopeB = new Slope();

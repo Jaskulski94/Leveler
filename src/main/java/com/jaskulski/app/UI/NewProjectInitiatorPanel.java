@@ -45,9 +45,9 @@ public class NewProjectInitiatorPanel extends JPanel {
         this.add(txtField);
 
         WhiteButton btnStartingConditions= new WhiteButton("Dalej");
+        btnStartingConditions.addActionListener(new NewProjectInitiatorListener(this));
         this.add(btnStartingConditions);
 
-        btnStartingConditions.addActionListener(new NewProjectInitiatorListener(this));
 
         UIParameters.setFontToAll(this, UIParameters.fontSmall);
         lblTitle.setFont(UIParameters.fontBig);

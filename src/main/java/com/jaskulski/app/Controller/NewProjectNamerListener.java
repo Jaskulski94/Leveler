@@ -1,5 +1,6 @@
 package com.jaskulski.app.Controller;
 
+import com.jaskulski.app.Data.StartingConditions;
 import com.jaskulski.app.UI.NewProjectNamerFrame;
 
 import javax.swing.*;
@@ -27,18 +28,20 @@ public class NewProjectNamerListener implements ActionListener {
 
     private void createDirectory() {
         String txt;
+        String basicPath = "src/main/java/com/jaskulski/app/ProjectsFiles/";
         String projectName;
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy_MM_dd");
         LocalDate localDate = LocalDate.now();
         String date = dtf.format(localDate);
         txt = npnFrame.txtProjectName.getText();
         projectName = txt + "_" + date;
-        Path path = Paths.get("src/main/java/com/jaskulski/app/ProjectsFiles/" + projectName);
+        Path path = Paths.get(basicPath + projectName);
 
         try {
             Files.createDirectories(path);
             JOptionPane.showMessageDialog(null, "Stworzono folder nowego projektu");
-            npnFrame.changeWindow();
+            StartingConditions.setCurrentProject(path);
+            npnFrame.closeWindow();
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Wystąpił problem przy tworzeniu folderu");
         }

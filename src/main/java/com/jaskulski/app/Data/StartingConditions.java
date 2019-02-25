@@ -2,10 +2,13 @@ package com.jaskulski.app.Data;
 
 import lombok.Data;
 
+import java.nio.file.Path;
 import java.io.Serializable;
 
 @Data
 public class StartingConditions implements Serializable {
+
+    public static Path currentProject;
 
     public Slope slopeX = new Slope();
     public Slope slopeY = new Slope();
@@ -15,6 +18,10 @@ public class StartingConditions implements Serializable {
 
     public int sizeX;
     public int sizeY;
+
+    public static void setCurrentProject(Path currentProject1){
+        StartingConditions.currentProject = currentProject1;
+    }
 
     public void setSlopeValues(Slope slope1, double side1, double slopeWidth1, double slopeTilt1) {
         slope1.side = side1;

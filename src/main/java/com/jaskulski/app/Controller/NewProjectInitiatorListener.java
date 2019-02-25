@@ -12,6 +12,7 @@ public class NewProjectInitiatorListener implements ActionListener {
     private NewProjectInitiatorPanel npiPanel;
     private StartingConditions startingConditions;
     private double side, slopeWidth, slopeTilt;
+    int sizeX, sizeY;
 
     public NewProjectInitiatorListener(NewProjectInitiatorPanel npiPanel1) {
         this.npiPanel = npiPanel1;
@@ -21,16 +22,18 @@ public class NewProjectInitiatorListener implements ActionListener {
         startingConditions = new StartingConditions();
         setStartingConditions();
 
+        getSizes();
+
         //serialize startingConditions
     }
 
     private void setStartingConditions() {
         try {
             getSlopeValues(npiPanel.getSlopeA());
-            setSlopeValues(startingConditions.getSlopeA());
+            setSlopeValues(startingConditions.getSlopeX());
 
             getSlopeValues(npiPanel.getSlopeB());
-            setSlopeValues(startingConditions.getSlopeB());
+            setSlopeValues(startingConditions.getSlopeY());
 
             startingConditions.setSquareSide(npiPanel.getTxtSquares());
             startingConditions.setFieldLean(npiPanel.getTxtField());
@@ -52,5 +55,24 @@ public class NewProjectInitiatorListener implements ActionListener {
         slope1.setSide(side);
         slope1.setSlopeWidth(slopeWidth);
         slope1.setSlopeTilt(slopeTilt);
+    }
+
+    private void getSizes(){
+        startingConditions.setSizes();
+        sizeX = startingConditions.getSizeX();
+        sizeY = startingConditions.getSizeY();
+
+        checkIfDivisible(startingConditions.slopeX);
+        checkIfDivisible(startingConditions.slopeY);
+    }
+
+    private void checkIfDivisible (StartingConditions.Slope slope1){
+        double checkedSize = slope1.getSide() / startingConditions.getSquareSide();
+        String slopeName = slope1.getClass().getName();
+        String warningText1 = "Ostrzeżenie: Długość boku "+slopeName+" nie jest podzielna przez długość boku kwadratu siatki.";
+        String warningText2 = "Ilość kwadratów siatki została zaokrąglona w dół.";
+        if (!(checkedSize == Math.floor(checkedSize))){
+            JOptionPane.showMessageDialog(null, warningText1+"\n"+warningText2);
+        }
     }
 }

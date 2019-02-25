@@ -48,7 +48,6 @@ public class NewProjectInitiatorPanel extends JPanel {
         btnStartingConditions.addActionListener(new NewProjectInitiatorListener(this));
         this.add(btnStartingConditions);
 
-
         UIParameters.setFontToAll(this, UIParameters.fontSmall);
         lblTitle.setFont(UIParameters.fontBig);
         lblSides.setFont(UIParameters.fontMedium);

@@ -4,6 +4,7 @@ import com.jaskulski.app.Data.StartingConditions;
 
 import javax.swing.*;
 import java.io.*;
+import java.nio.file.Path;
 
 public class StartingConditionsHandler {
     StartingConditions startingConditions;
@@ -12,17 +13,23 @@ public class StartingConditionsHandler {
         this.startingConditions = startingConditions1;
     }
 
-    public void serializeStartingConditions (String name1){
-        String path = "src/main/java/com/jaskulski/app/ProjectsFiles/";
+    public void serializeStartingConditions (){
+        Path path = StartingConditions.currentProject;
 
-        String error = "Błąd: Wystąpił problem przy zapisywaniu do pliku";
+        String error1 = "Błąd: Wystąpił problem przy tworzeniu nowego pliku";
+        String error2 = "Błąd: Wystąpił problem przy zapisywaniu do pliku";
+
         try {
-            FileOutputStream fileOStream = new FileOutputStream(name1);
+            File serFile = new File(path+"StartingConditions.ser");
+            FileOutputStream fileOStream = new FileOutputStream(serFile);
             ObjectOutputStream objectOStream = new ObjectOutputStream(fileOStream);
-        } catch (FileNotFoundException e){
-            JOptionPane.showMessageDialog(null, error);
-        } catch (IOException e){
 
+            objectOStream.writeObject(startingConditions);
+            objectOStream.close();
+        } catch (FileNotFoundException e){
+            JOptionPane.showMessageDialog(null, error1);
+        } catch (IOException e){
+            JOptionPane.showMessageDialog(null, error2);
         }
     }
 

@@ -11,7 +11,7 @@ public class ProjectStarterPanel extends JPanel {
 
     UILauncherFrame UILauncher;
 
-    public ProjectStarterPanel(UILauncherFrame UILauncher1){
+    public ProjectStarterPanel(UILauncherFrame UILauncher1) {
         this.UILauncher = UILauncher1;
 
         this.setLayout(new GridLayout(3, 1));

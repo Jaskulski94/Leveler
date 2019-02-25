@@ -13,37 +13,34 @@ public class UIParameters {
     public static int frameWidth;
     public static int frameHeight;
 
-    private static void setScreenDim(){
+    private static void setScreenDim() {
         dimScreen = Toolkit.getDefaultToolkit().getScreenSize();
     }
 
-    private static void setFrameSize(){
-        frameWidth = dimScreen.width/3;
-        frameHeight = dimScreen.height*2/3;
+    private static void setFrameSize() {
+        frameWidth = dimScreen.width / 3;
+        frameHeight = dimScreen.height * 2 / 3;
         dimFrame = new Dimension(frameWidth, frameHeight);
     }
 
-    private static void initializeFonts(){
-        int fontSize = frameHeight/20;
-        fontBig = new Font ("Palatino", Font.BOLD, fontSize);
-        fontMedium = new Font ("Palatino", Font.BOLD, fontSize/2);
-        fontSmall = new Font ("Arial", Font.PLAIN, fontSize/2);
-        fontTiny = new Font ("Arial", Font.PLAIN, fontSize/3);
+    private static void initializeFonts() {
+        int fontSize = frameHeight / 20;
+        fontBig = new Font("Palatino", Font.BOLD, fontSize);
+        fontMedium = new Font("Palatino", Font.BOLD, fontSize / 2);
+        fontSmall = new Font("Arial", Font.PLAIN, fontSize / 2);
+        fontTiny = new Font("Arial", Font.PLAIN, fontSize / 3);
     }
 
-    public static void initializeParameters(){
+    public static void initializeParameters() {
         setScreenDim();
         setFrameSize();
         initializeFonts();
     }
 
-    public static void setFontToAll (Component component, Font font)
-    {
-        component.setFont (font);
-        if (component instanceof Container)
-        {
-            for (Component child: ((Container) component).getComponents())
-            {
+    public static void setFontToAll(Component component, Font font) {
+        component.setFont(font);
+        if (component instanceof Container) {
+            for (Component child : ((Container) component).getComponents()) {
                 setFontToAll(child, font);
             }
         }

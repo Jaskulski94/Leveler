@@ -10,7 +10,7 @@ public class NewProjectNamerFrame extends JFrame {
 
     public JTextField txtProjectName;
 
-    public NewProjectNamerFrame(){
+    public NewProjectNamerFrame() {
 
         this.setSize(600, 300);
         this.setLayout(new GridLayout(2, 1));
@@ -26,7 +26,7 @@ public class NewProjectNamerFrame extends JFrame {
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
 
-    public void changeWindow(){
+    public void changeWindow() {
         this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
     }
 }

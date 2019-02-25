@@ -57,7 +57,7 @@ public class NewProjectInitiatorListener implements ActionListener {
         slope1.setSlopeTilt(slopeTilt);
     }
 
-    private void getSizes(){
+    private void getSizes() {
         startingConditions.setSizes();
         sizeX = startingConditions.getSizeX();
         sizeY = startingConditions.getSizeY();
@@ -66,13 +66,13 @@ public class NewProjectInitiatorListener implements ActionListener {
         checkIfDivisible(startingConditions.slopeY);
     }
 
-    private void checkIfDivisible (StartingConditions.Slope slope1){
+    private void checkIfDivisible(StartingConditions.Slope slope1) {
         double checkedSize = slope1.getSide() / startingConditions.getSquareSide();
         String slopeName = slope1.getClass().getName();
-        String warningText1 = "Ostrzeżenie: Długość boku "+slopeName+" nie jest podzielna przez długość boku kwadratu siatki.";
+        String warningText1 = "Ostrzeżenie: Długość boku " + slopeName + " nie jest podzielna przez długość boku kwadratu siatki.";
         String warningText2 = "Ilość kwadratów siatki została zaokrąglona w dół.";
-        if (!(checkedSize == Math.floor(checkedSize))){
-            JOptionPane.showMessageDialog(null, warningText1+"\n"+warningText2);
+        if (!(checkedSize == Math.floor(checkedSize))) {
+            JOptionPane.showMessageDialog(null, warningText1 + "\n" + warningText2);
         }
     }
 }

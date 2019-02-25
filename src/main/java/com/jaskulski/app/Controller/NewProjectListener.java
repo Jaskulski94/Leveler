@@ -7,12 +7,12 @@ import java.awt.event.ActionListener;
 
 public class NewProjectListener implements ActionListener {
 
-        public void actionPerformed(ActionEvent arg0){
-                createNewProject();
-        }
+    public void actionPerformed(ActionEvent arg0) {
+        createNewProject();
+    }
 
-        private void createNewProject(){
-                NewProjectNamerFrame newProjectNamer = new NewProjectNamerFrame();
+    private void createNewProject() {
+        NewProjectNamerFrame newProjectNamer = new NewProjectNamerFrame();
 
-        }
+    }
 }

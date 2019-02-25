@@ -13,8 +13,8 @@ public class NewProjectInitiatorPanel extends JPanel {
     private JTextField txtSquares;
     private JTextField txtField;
 
-    public NewProjectInitiatorPanel(){
-        this.setLayout(new BoxLayout(this,  BoxLayout.PAGE_AXIS ));
+    public NewProjectInitiatorPanel() {
+        this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
         JLabel lblTitle = new JLabel("Założenia techniczne");
         this.add(lblTitle);
         this.add(new JLabel(" "));
@@ -44,7 +44,7 @@ public class NewProjectInitiatorPanel extends JPanel {
         txtField = new JTextField("1");
         this.add(txtField);
 
-        WhiteButton btnStartingConditions= new WhiteButton("Dalej");
+        WhiteButton btnStartingConditions = new WhiteButton("Dalej");
         btnStartingConditions.addActionListener(new NewProjectInitiatorListener(this));
         this.add(btnStartingConditions);
 
@@ -55,29 +55,27 @@ public class NewProjectInitiatorPanel extends JPanel {
         setCenterAlignment(this);
     }
 
-    public SlopeInitiator getSlopeA(){
+    public SlopeInitiator getSlopeA() {
         return pnlASlope;
     }
 
-    public SlopeInitiator getSlopeB(){
+    public SlopeInitiator getSlopeB() {
         return pnlBSlope;
     }
 
-    public double getTxtSquares(){
+    public double getTxtSquares() {
         return Double.parseDouble(txtSquares.getText());
     }
 
-    public double getTxtField(){
+    public double getTxtField() {
         return Double.parseDouble(txtField.getText());
     }
 
-    private void setCenterAlignment (JComponent component) {
+    private void setCenterAlignment(JComponent component) {
         component.setAlignmentX(Component.CENTER_ALIGNMENT);
         component.setAlignmentY(Component.CENTER_ALIGNMENT);
-        if (component instanceof Container)
-        {
-            for (Component child: ((Container) component).getComponents())
-            {
+        if (component instanceof Container) {
+            for (Component child : ((Container) component).getComponents()) {
                 setCenterAlignment((JComponent) child);
             }
         }

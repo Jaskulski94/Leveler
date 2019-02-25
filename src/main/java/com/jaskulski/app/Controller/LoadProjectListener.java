@@ -5,20 +5,20 @@ import java.awt.event.ActionListener;
 
 public class LoadProjectListener implements ActionListener {
 
-    public void actionPerformed(ActionEvent arg0){
+    public void actionPerformed(ActionEvent arg0) {
         loadDataFromSelected();
     }
 
-    private void loadDataFromSelected(){
+    private void loadDataFromSelected() {
         loadStartingConditions();
         loadTerrainMatrix();
     }
 
-    private void loadStartingConditions(){
+    private void loadStartingConditions() {
 
     }
 
-    private void loadTerrainMatrix(){
+    private void loadTerrainMatrix() {
 
     }
 }

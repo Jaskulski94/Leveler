@@ -17,7 +17,7 @@ public class NewProjectNamerListener implements ActionListener {
 
     private NewProjectNamerFrame npnFrame;
 
-    public NewProjectNamerListener (NewProjectNamerFrame npnFrame1){
+    public NewProjectNamerListener(NewProjectNamerFrame npnFrame1) {
         this.npnFrame = npnFrame1;
     }
 
@@ -25,21 +25,21 @@ public class NewProjectNamerListener implements ActionListener {
         createDirectory();
     }
 
-    private void createDirectory(){
+    private void createDirectory() {
         String txt;
         String projectName;
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy_MM_dd");
         LocalDate localDate = LocalDate.now();
         String date = dtf.format(localDate);
         txt = npnFrame.txtProjectName.getText();
-        projectName = txt+"_"+date;
-        Path path = Paths.get("src/main/java/com/jaskulski/app/ProjectsFiles/"+projectName);
+        projectName = txt + "_" + date;
+        Path path = Paths.get("src/main/java/com/jaskulski/app/ProjectsFiles/" + projectName);
 
-        try{
+        try {
             Files.createDirectories(path);
             JOptionPane.showMessageDialog(null, "Stworzono folder nowego projektu");
             npnFrame.changeWindow();
-        } catch (IOException e){
+        } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Wystąpił problem przy tworzeniu folderu");
         }
     }

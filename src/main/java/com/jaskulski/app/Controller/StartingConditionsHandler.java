@@ -7,13 +7,11 @@ import java.io.*;
 import java.nio.file.Path;
 
 public class StartingConditionsHandler {
-    StartingConditions startingConditions;
 
-    public StartingConditionsHandler(StartingConditions startingConditions1) {
-        this.startingConditions = startingConditions1;
+    public StartingConditionsHandler() {
     }
 
-    public void serializeStartingConditions (){
+    public void serializeStartingConditions (StartingConditions startingConditions){
         Path path = StartingConditions.currentProject;
 
         String error1 = "Błąd: Wystąpił problem przy tworzeniu nowego pliku";
@@ -32,5 +30,4 @@ public class StartingConditionsHandler {
             JOptionPane.showMessageDialog(null, error2);
         }
     }
-
 }

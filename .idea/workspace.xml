@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fe5b6da9-1def-491d-8811-139f66ba1e09" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jaskulski/app/UI/NewProjectInitiatorPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jaskulski/app/UI/NewProjectInitiatorPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jaskulski/app/UI/ProjectStarterPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jaskulski/app/UI/ProjectStarterPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jaskulski/app/UI/SquareGridPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jaskulski/app/UI/SquareGridPanel.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -40,8 +38,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/jaskulski/app/UI/SquareGridPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+            <state relative-caret-position="374">
+              <caret line="22" column="9" lean-forward="true" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -52,7 +50,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/jaskulski/app/UI/NewProjectInitiatorPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="799">
+            <state relative-caret-position="-119">
               <caret line="53" column="87" lean-forward="true" selection-start-line="53" selection-start-column="87" selection-end-line="53" selection-end-column="87" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -282,7 +280,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551216038342" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551216230827" />
     <property name="jdk.selected.JAVA_MODULE" value="10" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -526,16 +524,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jaskulski/app/Controller/NewProjectNamerListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jaskulski/app/Data/SquareGrid.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -559,19 +547,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jaskulski/app/Controller/StartingConditionsHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="15" column="45" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jaskulski/app/UI/NewProjectInitiatorPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
+        <state relative-caret-position="-119">
           <caret line="53" column="87" lean-forward="true" selection-start-line="53" selection-start-column="87" selection-end-line="53" selection-end-column="87" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -589,10 +567,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jaskulski/app/Controller/NewProjectNamerListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jaskulski/app/Controller/StartingConditionsHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="15" column="45" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jaskulski/app/UI/SquareGridPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+        <state relative-caret-position="374">
+          <caret line="22" column="9" lean-forward="true" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

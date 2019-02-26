@@ -12,7 +12,8 @@ public class NewProjectInitiatorListener implements ActionListener {
     private NewProjectInitiatorPanel npiPanel;
     private StartingConditions startingConditions;
     private double side, slopeWidth, slopeTilt;
-    int sizeX, sizeY;
+    private int sizeX, sizeY;
+    private StartingConditionsHandler startingConditionsHandler = new StartingConditionsHandler();
 
     public NewProjectInitiatorListener(NewProjectInitiatorPanel npiPanel1) {
         this.npiPanel = npiPanel1;

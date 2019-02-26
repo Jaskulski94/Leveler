@@ -13,9 +13,12 @@ public class SquareGridPanel extends JPanel {
 
         this.setLayout(new GridLayout(sizeY, sizeY));
 
+        txtSquares = new JTextField[sizeX][sizeY];
+
         for(int i = 0; i<sizeX; i++){
             for(int j = 0; j<sizeY; j++){
                 txtSquares[i][j] = new JTextField();
+                txtSquares[i][j].setFont(UIParameters.fontMedium);
                 this.add(txtSquares[i][j]);
             }
         }

@@ -25,7 +25,7 @@ public class NewProjectInitiatorListener implements ActionListener {
 
         getSizes();
 
-        //serialize startingConditions
+        startingConditionsHandler.serializeStartingConditions(startingConditions);
     }
 
     private void setStartingConditions() {

@@ -51,7 +51,7 @@ public class NewProjectInitiatorPanel extends JPanel {
         this.add(txtField);
 
         WhiteButton btnStartingConditions = new WhiteButton("Dalej");
-        btnStartingConditions.addActionListener(new NewProjectInitiatorListener(this));
+        btnStartingConditions.addActionListener(new NewProjectInitiatorListener(UILauncher, this));
         btnStartingConditions.addActionListener(new ChangePanelListener(UILauncher, squareGridPanel = new SquareGridPanel(5, 5)));
         this.add(btnStartingConditions);
 

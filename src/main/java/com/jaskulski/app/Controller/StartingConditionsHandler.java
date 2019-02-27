@@ -1,15 +1,19 @@
 package com.jaskulski.app.Controller;
 
 import com.jaskulski.app.Data.StartingConditions;
+import com.jaskulski.app.UI.ProjectStarterPanel;
+import com.jaskulski.app.UI.SquareGridPanel;
+import com.jaskulski.app.UI.UILauncherFrame;
 
 import javax.swing.*;
 import java.io.*;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 
 public class StartingConditionsHandler {
+    private UILauncherFrame UILauncher;
 
-    public StartingConditionsHandler() {
+    public StartingConditionsHandler(UILauncherFrame UILauncher1) {
+        this.UILauncher = UILauncher1;
     }
 
     public void serializeStartingConditions (StartingConditions startingConditions){
@@ -66,11 +70,14 @@ public class StartingConditionsHandler {
 
             objectIStream.close();
             JOptionPane.showMessageDialog(null, message);
+            UILauncher.changePanel(new SquareGridPanel(startingConditions.getSizeX(), startingConditions.getSizeY()));
 
         } catch (ClassNotFoundException e){
             JOptionPane.showMessageDialog(null, error1);
+            UILauncher.changePanel(new ProjectStarterPanel(UILauncher));
         } catch (IOException e){
             JOptionPane.showMessageDialog(null, error2);
+            UILauncher.changePanel(new ProjectStarterPanel(UILauncher));
         }
     }
 }

@@ -29,7 +29,7 @@ public class ProjectStarterPanel extends JPanel {
         this.add(btnNewProject);
 
         WhiteButton btnLoadProject = new WhiteButton("Otwórz istniejący projekt");
-        btnLoadProject.addActionListener(new LoadProjectListener());
+        btnLoadProject.addActionListener(new LoadProjectListener(UILauncher));
         btnLoadProject.addActionListener(cpListener);
         this.add(btnLoadProject);
 

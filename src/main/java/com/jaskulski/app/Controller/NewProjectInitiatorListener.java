@@ -2,6 +2,7 @@ package com.jaskulski.app.Controller;
 
 import com.jaskulski.app.Data.StartingConditions;
 import com.jaskulski.app.UI.NewProjectInitiatorPanel;
+import com.jaskulski.app.UI.UILauncherFrame;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -12,11 +13,14 @@ public class NewProjectInitiatorListener implements ActionListener {
     private NewProjectInitiatorPanel npiPanel;
     private StartingConditions startingConditions;
     private double side, slopeWidth, slopeTilt;
+    UILauncherFrame UILauncher;
     private int sizeX, sizeY;
-    private StartingConditionsHandler startingConditionsHandler = new StartingConditionsHandler();
+    private StartingConditionsHandler startingConditionsHandler;
 
-    public NewProjectInitiatorListener(NewProjectInitiatorPanel npiPanel1) {
+    public NewProjectInitiatorListener(UILauncherFrame UILauncher1, NewProjectInitiatorPanel npiPanel1) {
         this.npiPanel = npiPanel1;
+        this.UILauncher = UILauncher1;
+        startingConditionsHandler = new StartingConditionsHandler(UILauncher);
     }
 
     public void actionPerformed(ActionEvent actionEvent) {

@@ -4,11 +4,12 @@ import lombok.Data;
 
 import java.nio.file.Path;
 import java.io.Serializable;
+import java.nio.file.Paths;
 
 @Data
 public class StartingConditions implements Serializable {
 
-    public static Path currentProject;
+    public static Path currentProject = Paths.get("src/main/java/com/jaskulski/app/ProjectsFiles/");
 
     public Slope slopeX = new Slope();
     public Slope slopeY = new Slope();
@@ -51,7 +52,7 @@ public class StartingConditions implements Serializable {
     }
 
     @Data
-    public class Slope {
+    public class Slope implements Serializable{
         private double side = 0;
         private double slopeWidth = 0;
         private double slopeTilt = 0;

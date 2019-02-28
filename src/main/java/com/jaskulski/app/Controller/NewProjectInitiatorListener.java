@@ -2,6 +2,7 @@ package com.jaskulski.app.Controller;
 
 import com.jaskulski.app.Data.StartingConditions;
 import com.jaskulski.app.UI.NewProjectInitiatorPanel;
+import com.jaskulski.app.UI.SquareGridPanel;
 import com.jaskulski.app.UI.UILauncherFrame;
 
 import javax.swing.*;
@@ -42,6 +43,9 @@ public class NewProjectInitiatorListener implements ActionListener {
 
             startingConditions.setSquareSide(npiPanel.getTxtSquares());
             startingConditions.setFieldLean(npiPanel.getTxtField());
+
+            getSizes();
+            UILauncher.changePanel(new SquareGridPanel(sizeX, sizeY));
 
             startingConditions.printAll();
 

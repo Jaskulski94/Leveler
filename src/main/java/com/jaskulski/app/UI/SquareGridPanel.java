@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class SquareGridPanel extends JPanel {
-    int sizeX, sizeY;
+    private int sizeX, sizeY;
     JTextField[][] txtSquares;
     JLabel[][] lblIndex;
 
@@ -22,7 +22,7 @@ public class SquareGridPanel extends JPanel {
                 txtSquares[i][j] = new JTextField();
                 this.add(txtSquares[i][j]);
 
-                String index = Integer.toString(i+1) + ", "+ Integer.toString(j+1);
+                String index = (i+1) + "-" + (j+1);
                 lblIndex[i][j] = new JLabel(index);
                 this.add(lblIndex[i][j]);
             }

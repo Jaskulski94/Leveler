@@ -11,9 +11,14 @@ import java.nio.file.Path;
 
 public class StartingConditionsHandler {
     private UILauncherFrame UILauncher;
+    private StartingConditions startingConditions;
 
     public StartingConditionsHandler(UILauncherFrame UILauncher1) {
         this.UILauncher = UILauncher1;
+    }
+
+    public void getStartingConditions (StartingConditions startingConditions1){
+        this.startingConditions = startingConditions1;
     }
 
     public void serializeStartingConditions (StartingConditions startingConditions){
@@ -79,5 +84,16 @@ public class StartingConditionsHandler {
             JOptionPane.showMessageDialog(null, error2);
             UILauncher.changePanel(new ProjectStarterPanel(UILauncher));
         }
+    }
+
+    public boolean checkIfDivisible (StartingConditions.Slope slope1){
+        double checkedSize = slope1.getSide() / startingConditions.getSquareSide();
+        boolean divisible;
+        if (checkedSize == Math.floor(checkedSize)) {
+            divisible = true;
+        } else{
+            divisible = false;
+        }
+        return divisible;
     }
 }

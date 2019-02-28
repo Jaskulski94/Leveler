@@ -13,7 +13,7 @@ public class NewProjectInitiatorListener implements ActionListener {
     private NewProjectInitiatorPanel npiPanel;
     private StartingConditions startingConditions;
     private double side, slopeWidth, slopeTilt;
-    UILauncherFrame UILauncher;
+    private UILauncherFrame UILauncher;
     private int sizeX, sizeY;
     private StartingConditionsHandler startingConditionsHandler;
 
@@ -67,16 +67,16 @@ public class NewProjectInitiatorListener implements ActionListener {
         sizeX = startingConditions.getSizeX();
         sizeY = startingConditions.getSizeY();
 
-        checkIfDivisible(startingConditions.slopeX);
-        checkIfDivisible(startingConditions.slopeY);
+        checkIfDivisible(startingConditions.slopeX, "X");
+        checkIfDivisible(startingConditions.slopeY, "Y");
     }
 
-    private void checkIfDivisible(StartingConditions.Slope slope1) {
-        double checkedSize = slope1.getSide() / startingConditions.getSquareSide();
-        String slopeName = slope1.getClass().getName();
-        String warningText1 = "Ostrzeżenie: Długość boku " + slopeName + " nie jest podzielna przez długość boku kwadratu siatki.";
+    private void checkIfDivisible(StartingConditions.Slope slope1, String sideName) {
+        String warningText1 = "Ostrzeżenie: Długość boku " + sideName + " nie jest podzielna przez długość boku kwadratu siatki.";
         String warningText2 = "Ilość kwadratów siatki została zaokrąglona w dół.";
-        if (!(checkedSize == Math.floor(checkedSize))) {
+
+        startingConditionsHandler.getStartingConditions(startingConditions);
+        if (!startingConditionsHandler.checkIfDivisible(slope1)){
             JOptionPane.showMessageDialog(null, warningText1 + "\n" + warningText2);
         }
     }

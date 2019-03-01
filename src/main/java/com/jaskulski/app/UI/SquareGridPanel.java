@@ -42,6 +42,7 @@ public class SquareGridPanel extends JPanel {
         addTextFields();
 
         WhiteButton btnPrevious = new WhiteButton("Cofnij");
+        WhiteButton btnShowCS = new WhiteButton("Założenia");
         WhiteButton btnSave = new WhiteButton("Zapisz zmiany");
         WhiteButton btnNext = new WhiteButton("Dalej");
 
@@ -56,12 +57,14 @@ public class SquareGridPanel extends JPanel {
         GBC.gridwidth = 1;
         pnlButtons.add(btnPrevious, GBC);
         GBC.gridx++;
+        pnlButtons.add(btnShowCS, GBC);
+        GBC.gridx++;
         pnlButtons.add(btnSave, GBC);
         GBC.gridx++;
         pnlButtons.add(btnNext, GBC);
 
-        UIParameters.setFontToAll(this, UIParameters.fontMedium);
-
+        UIParameters.setFontToAll(this, UIParameters.fontSmall);
+        UIParameters.setFontToAll(pnlButtons, UIParameters.fontMedium);
     }
 
     public void addTextFields(){

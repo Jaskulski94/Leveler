@@ -34,6 +34,7 @@ public class SquareGridPanel extends JPanel {
                 String index = (i+1) + "-" + (j+1);
                 lblIndex[i][j] = new JLabel(index);
                 this.add(lblIndex[i][j], GBC);
+                lblIndex[i][j].setVisible(true);
             }
         }
         UIParameters.setFontToAll(this, UIParameters.fontMedium);

@@ -1,6 +1,5 @@
 package com.jaskulski.app.UI;
 
-import com.jaskulski.app.Controller.ChangePanelListener;
 import com.jaskulski.app.Controller.NewProjectInitiatorListener;
 
 import javax.swing.*;
@@ -15,7 +14,6 @@ public class NewProjectInitiatorPanel extends JPanel {
     private JTextField txtField;
 
     private UILauncherFrame UILauncher;
-    private SquareGridPanel squareGridPanel;
 
     public NewProjectInitiatorPanel(UILauncherFrame UILauncher1) {
         this.UILauncher = UILauncher1;
@@ -52,7 +50,6 @@ public class NewProjectInitiatorPanel extends JPanel {
 
         WhiteButton btnStartingConditions = new WhiteButton("Dalej");
         btnStartingConditions.addActionListener(new NewProjectInitiatorListener(UILauncher, this));
-    //    btnStartingConditions.addActionListener(new ChangePanelListener(UILauncher, squareGridPanel = new SquareGridPanel(5, 5)));
         this.add(btnStartingConditions);
 
         UIParameters.setFontToAll(this, UIParameters.fontSmall);

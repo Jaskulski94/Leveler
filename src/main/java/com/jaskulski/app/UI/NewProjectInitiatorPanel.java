@@ -12,10 +12,17 @@ public class NewProjectInitiatorPanel extends JPanel {
     private SlopeInitiator pnlBSlope;
     private JTextField txtSquares;
     private JTextField txtField;
-
     private UILauncherFrame UILauncher;
 
     public NewProjectInitiatorPanel(UILauncherFrame UILauncher1) {
+        initiateProject(UILauncher1);
+    }
+
+    public NewProjectInitiatorPanel(){
+        initiateProject(new UILauncherFrame());
+    }
+
+    public void initiateProject(UILauncherFrame UILauncher1){
         this.UILauncher = UILauncher1;
 
         this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));

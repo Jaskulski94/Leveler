@@ -96,4 +96,6 @@ public class StartingConditionsHandler {
         }
         return divisible;
     }
+
+
 }

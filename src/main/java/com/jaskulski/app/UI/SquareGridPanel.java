@@ -25,20 +25,6 @@ public class SquareGridPanel extends JPanel {
         txtSquares = new JTextField[sizeX][sizeY];
         lblIndex = new JLabel[sizeX][sizeY];
 
-        /*for(int i = 0; i<sizeX; i++){
-            for(int j = 0; j<sizeY; j++){
-                GBC.gridx = i;
-                GBC.gridy = j;
-                txtSquares[i][j] = new JTextField();
-                this.add(txtSquares[i][j], GBC);
-
-                String index = (i+1) + "-" + (j+1);
-                lblIndex[i][j] = new JLabel(index);
-                this.add(lblIndex[i][j], GBC);
-                lblIndex[i][j].setVisible(true);
-            }
-        }*/
-
         addTextFields();
 
         WhiteButton btnPrevious = new WhiteButton("Cofnij");

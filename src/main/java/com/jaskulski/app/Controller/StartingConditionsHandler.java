@@ -17,6 +17,8 @@ public class StartingConditionsHandler {
         this.UILauncher = UILauncher1;
     }
 
+    public StartingConditionsHandler(){}
+
     public void getStartingConditions (StartingConditions startingConditions1){
         this.startingConditions = startingConditions1;
     }

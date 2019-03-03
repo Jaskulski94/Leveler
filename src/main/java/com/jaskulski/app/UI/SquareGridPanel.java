@@ -1,5 +1,7 @@
 package com.jaskulski.app.UI;
 
+import com.jaskulski.app.Controller.ShowSCListener;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -31,6 +33,8 @@ public class SquareGridPanel extends JPanel {
         WhiteButton btnShowCS = new WhiteButton("Założenia");
         WhiteButton btnSave = new WhiteButton("Zapisz zmiany");
         WhiteButton btnNext = new WhiteButton("Dalej");
+
+        btnShowCS.addActionListener(new ShowSCListener());
 
         JPanel pnlButtons = new JPanel();
         pnlButtons.setLayout(new GridBagLayout());

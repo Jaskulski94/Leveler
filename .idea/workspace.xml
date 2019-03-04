@@ -3,13 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="fe5b6da9-1def-491d-8811-139f66ba1e09" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jaskulski/app/Controller/LoadProjectListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jaskulski/app/Controller/LoadProjectListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jaskulski/app/Controller/NewProjectNamerListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jaskulski/app/Controller/NewProjectNamerListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jaskulski/app/Controller/ShowSCListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jaskulski/app/Controller/ShowSCListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jaskulski/app/Controller/StartingConditionsHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jaskulski/app/Controller/StartingConditionsHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jaskulski/app/Data/StartingConditions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jaskulski/app/Data/StartingConditions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jaskulski/app/UI/ShowSCFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jaskulski/app/UI/ShowSCFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jaskulski/app/UI/SquareGridPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jaskulski/app/UI/SquareGridPanel.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/domain/target/" />
@@ -45,8 +39,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/jaskulski/app/Controller/StartingConditionsHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="98" column="58" selection-start-line="98" selection-start-column="58" selection-end-line="98" selection-end-column="58" />
+            <state relative-caret-position="212">
+              <caret line="135" lean-forward="true" selection-start-line="135" selection-end-line="135" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -81,7 +75,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/jaskulski/app/Controller/NewProjectInitiatorListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
+            <state relative-caret-position="765">
               <caret line="48" selection-start-line="48" selection-end-line="48" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -264,25 +258,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="ProjectsFiles" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Leveler" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Leveler" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="ProjectsFiles" type="462c0819:PsiDirectoryNode" />
-              <item name="Mela2000_2019_03_05" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Leveler" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Leveler" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="UI" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -292,7 +267,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551863118314" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551864159104" />
     <property name="jdk.selected.JAVA_MODULE" value="10" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -563,16 +538,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jaskulski/app/Controller/NewProjectInitiatorListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="48" selection-start-line="48" selection-end-line="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jaskulski/app/Controller/LoadProjectListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="407">
@@ -595,16 +560,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jaskulski/app/Data/StartingConditions.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="42" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jaskulski/app/Controller/ShowSCListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -615,10 +570,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jaskulski/app/Controller/NewProjectInitiatorListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="48" selection-start-line="48" selection-end-line="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jaskulski/app/Data/StartingConditions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="42" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jaskulski/app/Controller/StartingConditionsHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="98" column="58" selection-start-line="98" selection-start-column="58" selection-end-line="98" selection-end-column="58" />
+        <state relative-caret-position="212">
+          <caret line="135" lean-forward="true" selection-start-line="135" selection-end-line="135" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

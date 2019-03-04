@@ -6,6 +6,7 @@ import com.jaskulski.app.UI.SquareGridPanel;
 import com.jaskulski.app.UI.UILauncherFrame;
 
 import javax.swing.*;
+import java.awt.event.WindowEvent;
 import java.io.*;
 import java.nio.file.Path;
 
@@ -19,6 +20,7 @@ public class StartingConditionsHandler {
 
     public StartingConditionsHandler(){
         this.UILauncher = new UILauncherFrame();
+        UILauncher.dispatchEvent(new WindowEvent(UILauncher, WindowEvent.WINDOW_CLOSING));
     }
 
     public void getStartingConditions (StartingConditions startingConditions1){

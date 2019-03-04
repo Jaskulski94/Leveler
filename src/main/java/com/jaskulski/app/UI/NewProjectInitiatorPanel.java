@@ -12,17 +12,67 @@ public class NewProjectInitiatorPanel extends JPanel {
     private SlopeInitiator pnlBSlope;
     private JTextField txtSquares;
     private JTextField txtField;
-    private UILauncherFrame UILauncher;
+    public UILauncherFrame UILauncher;
 
     public NewProjectInitiatorPanel(UILauncherFrame UILauncher1) {
-        initiateProject(UILauncher1);
+        initiateProjectWithUILauncher(UILauncher1);
     }
 
     public NewProjectInitiatorPanel(){
-        initiateProject(new UILauncherFrame());
+        initiateProject();
     }
 
-    public void initiateProject(UILauncherFrame UILauncher1){
+    public void initiateProjectWithUILauncher(UILauncherFrame UILauncher1){
+        this.UILauncher = UILauncher1;
+
+        initiateProject();
+
+        WhiteButton btnStartingConditions = new WhiteButton("Dalej");
+        btnStartingConditions.addActionListener(new NewProjectInitiatorListener(UILauncher, this));
+        this.add(btnStartingConditions);
+        setCenterAlignment(this);
+
+    }
+
+    public void initiateProject(){
+        this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
+        JLabel lblTitle = new JLabel("Założenia techniczne");
+        this.add(lblTitle);
+        this.add(new JLabel(" "));
+
+        JLabel lblSides = new JLabel("Boki boiska");
+        this.add(lblSides);
+
+        JPanel pnlSlopes = new JPanel();
+        pnlSlopes.setLayout(new BoxLayout(pnlSlopes, BoxLayout.X_AXIS));
+
+        pnlASlope = new SlopeInitiator();
+        pnlSlopes.add(pnlASlope);
+        pnlBSlope = new SlopeInitiator();
+        pnlSlopes.add(pnlBSlope);
+
+        this.add(pnlSlopes);
+
+        this.add(new JLabel(" "));
+        JLabel lblSquares = new JLabel("Bok kwadratu siatki");
+        this.add(lblSquares);
+        txtSquares = new JTextField("10");
+        this.add(txtSquares);
+
+        this.add(new JLabel(" "));
+        JLabel lblLean = new JLabel("Pochylenie płaszczyzny boiska");
+        this.add(lblLean);
+        txtField = new JTextField("1");
+        this.add(txtField);
+
+        UIParameters.setFontToAll(this, UIParameters.fontSmall);
+        lblTitle.setFont(UIParameters.fontBig);
+        lblSides.setFont(UIParameters.fontMedium);
+
+        setCenterAlignment(this);
+    }
+
+/*    public void initiateProject(UILauncherFrame UILauncher1){
         this.UILauncher = UILauncher1;
 
         this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
@@ -64,7 +114,7 @@ public class NewProjectInitiatorPanel extends JPanel {
         lblSides.setFont(UIParameters.fontMedium);
 
         setCenterAlignment(this);
-    }
+    }*/
 
     public SlopeInitiator getSlopeA() {
         return pnlASlope;

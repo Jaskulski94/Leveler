@@ -34,14 +34,19 @@ public class SquareGridPanel extends JPanel {
         WhiteButton btnSave = new WhiteButton("Zapisz zmiany");
         WhiteButton btnNext = new WhiteButton("Dalej");
 
-        btnShowCS.addActionListener(new ShowSCListener());
+    //    btnShowCS.addActionListener(new ShowSCListener());
 
         JPanel pnlButtons = new JPanel();
         pnlButtons.setLayout(new GridBagLayout());
 
         GBC.gridy++;
         GBC.gridx = 0;
-        GBC.gridwidth = sizeY;
+
+        int[][] dim = gridBagLayout.getLayoutDimensions();
+        int columns = dim[0].length;
+
+        GBC.gridwidth = columns;
+        GBC.fill = GridBagConstraints.BOTH;
 
         this.add(pnlButtons, GBC);
         GBC.gridwidth = 1;

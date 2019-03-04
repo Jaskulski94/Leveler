@@ -35,10 +35,10 @@ public class NewProjectNamerListener implements ActionListener {
         String date = dtf.format(localDate);
         txt = npnFrame.txtProjectName.getText();
         projectName = txt + "_" + date;
-        Path path = Paths.get(basicPath + projectName);
+        String path = basicPath + projectName;
 
         try {
-            Files.createDirectories(path);
+            Files.createDirectories(Paths.get(path));
             JOptionPane.showMessageDialog(null, "Stworzono folder nowego projektu");
             StartingConditions.setCurrentProject(path);
             npnFrame.closeWindow();

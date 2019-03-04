@@ -27,7 +27,7 @@ public class LoadProjectListener implements ActionListener {
     }
 
     private void loadStartingConditions() {
-        startingConditionsHandler.deserializeStartingConditions(startingConditions);
+        startingConditionsHandler.deserializeSCFromChooser(startingConditions);
     }
 
     private void loadTerrainMatrix() {

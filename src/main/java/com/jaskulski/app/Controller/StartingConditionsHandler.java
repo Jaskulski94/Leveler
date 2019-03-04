@@ -9,6 +9,7 @@ import javax.swing.*;
 import java.awt.event.WindowEvent;
 import java.io.*;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class StartingConditionsHandler {
     private UILauncherFrame UILauncher;
@@ -19,8 +20,9 @@ public class StartingConditionsHandler {
     }
 
     public StartingConditionsHandler(){
-        this.UILauncher = new UILauncherFrame();
-        UILauncher.dispatchEvent(new WindowEvent(UILauncher, WindowEvent.WINDOW_CLOSING));
+        //maybe useless, check later
+        /*this.UILauncher = new UILauncherFrame();
+        UILauncher.dispatchEvent(new WindowEvent(UILauncher, WindowEvent.WINDOW_CLOSING));*/
     }
 
     public void getStartingConditions (StartingConditions startingConditions1){
@@ -28,7 +30,7 @@ public class StartingConditionsHandler {
     }
 
     public void serializeStartingConditions (StartingConditions startingConditions){
-        Path path = StartingConditions.currentProject;
+        String path = StartingConditions.currentProject;
 
         String error1 = "Błąd: Wystąpił problem przy tworzeniu nowego pliku";
         String error2 = "Błąd: Wystąpił problem przy zapisywaniu do pliku";
@@ -54,10 +56,8 @@ public class StartingConditionsHandler {
         }
     }
 
-    public void deserializeStartingConditions (StartingConditions startingConditions){
-
-        Path path = StartingConditions.currentProject;
-        String pathString = path.toString();
+    public void deserializeSCFromChooser(StartingConditions startingConditions) {
+        String pathString = StartingConditions.projectsDir;
         File selectedFile = new File(pathString);
 
         JFileChooser fileChooser = new JFileChooser();
@@ -69,9 +69,22 @@ public class StartingConditionsHandler {
             selectedFile = fileChooser.getSelectedFile();
         }
 
+        StartingConditions.currentProject += selectedFile.getParentFile().getName();
+        deserializeStartingConditions(selectedFile, startingConditions);
+    }
+
+    public void deserializeSCFromFixedPath (StartingConditions startingConditions) {
+        String pathString = StartingConditions.currentProject + "/StartingConditions.ser";
+        File selectedFile = new File(pathString);
+
+        deserializeStartingConditions(selectedFile, startingConditions);
+    }
+
+        public void deserializeStartingConditions (File selectedFile, StartingConditions startingConditions){
         String error1 = "Błąd: Nie można wczytać danych tego projektu";
         String error2 = "Błąd: Wystąpił problem przy odczytywaniu z pliku";
         String message = "Odczytano dane z pliku";
+
         try {
             FileInputStream fileIStream = new FileInputStream(selectedFile);
             ObjectInputStream objectIStream = new ObjectInputStream(fileIStream);
@@ -90,6 +103,7 @@ public class StartingConditionsHandler {
             JOptionPane.showMessageDialog(null, error2);
             UILauncher.changePanel(new ProjectStarterPanel(UILauncher));
         }
+
     }
 
     public boolean checkIfDivisible (StartingConditions.Slope slope1){

@@ -2,14 +2,12 @@ package com.jaskulski.app.Data;
 
 import lombok.Data;
 
-import java.nio.file.Path;
 import java.io.Serializable;
-import java.nio.file.Paths;
 
 @Data
 public class StartingConditions implements Serializable {
-
-    public static Path currentProject = Paths.get("src/main/java/com/jaskulski/app/ProjectsFiles/");
+    public static final String projectsDir = "src/main/java/com/jaskulski/app/ProjectsFiles/";
+    public static String currentProject = "src/main/java/com/jaskulski/app/ProjectsFiles/";
 
     public Slope slopeX = new Slope();
     public Slope slopeY = new Slope();
@@ -20,7 +18,7 @@ public class StartingConditions implements Serializable {
     public int sizeX;
     public int sizeY;
 
-    public static void setCurrentProject(Path currentProject1){
+    public static void setCurrentProject(String currentProject1){
         StartingConditions.currentProject = currentProject1;
     }
 

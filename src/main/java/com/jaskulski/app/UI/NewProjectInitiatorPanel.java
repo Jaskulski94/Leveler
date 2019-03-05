@@ -8,10 +8,10 @@ import java.awt.*;
 
 public class NewProjectInitiatorPanel extends JPanel {
 
-    private SlopeInitiator pnlASlope;
-    private SlopeInitiator pnlBSlope;
-    private JTextField txtSquares;
-    private JTextField txtField;
+    public SlopeInitiator pnlASlope;
+    public SlopeInitiator pnlBSlope;
+    public JTextField txtSquares;
+    public JTextField txtField;
     public UILauncherFrame UILauncher;
 
     public NewProjectInitiatorPanel(UILauncherFrame UILauncher1) {

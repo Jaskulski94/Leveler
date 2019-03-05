@@ -95,7 +95,7 @@ public class StartingConditionsHandler {
         }
     }*/
 
-    public void deserializeSCFromChooser(StartingConditions startingConditions) {
+    public StartingConditions deserializeSCFromChooser() {
         String pathString = StartingConditions.projectsDir;
         File selectedFile = new File(pathString);
 
@@ -109,23 +109,25 @@ public class StartingConditionsHandler {
         }
 
         StartingConditions.currentProject += selectedFile.getParentFile().getName();
-        deserializeStartingConditions(selectedFile, startingConditions);
+        StartingConditions startingConditions = deserializeStartingConditions(selectedFile);
+        return startingConditions;
     }
 
-    public void deserializeSCFromFixedPath (StartingConditions startingConditions) {
+    public StartingConditions deserializeSCFromFixedPath () {
         String pathString = StartingConditions.currentProject + "/StartingConditions.ser";
         File selectedFile = new File(pathString);
 
-        deserializeStartingConditions(selectedFile, startingConditions);
+        StartingConditions startingConditions = deserializeSCWithoutUI(selectedFile);
+        return startingConditions;
     }
 
-        public void deserializeStartingConditions (File selectedFile, StartingConditions startingConditions){
+    public StartingConditions deserializeStartingConditions (File selectedFile){
         String error1 = "Błąd: Nie można wczytać danych tego projektu";
         String error2 = "Błąd: Wystąpił problem przy odczytywaniu z pliku";
         String message = "Odczytano dane z pliku";
 
         try {
-            startingConditions = tryDeserializationSC(selectedFile);
+            StartingConditions startingConditions = tryDeserializationSC(selectedFile);
 
             JOptionPane.showMessageDialog(null, message);
             UILauncher.changePanel(new SquareGridPanel(startingConditions.getSizeX(), startingConditions.getSizeY()));
@@ -137,7 +139,19 @@ public class StartingConditionsHandler {
             JOptionPane.showMessageDialog(null, error2);
             UILauncher.changePanel(new ProjectStarterPanel(UILauncher));
         }
+        return startingConditions;
+    }
 
+    public StartingConditions deserializeSCWithoutUI(File selectedFile){
+        String error = "Błąd odczytu danych";
+
+        try {
+            StartingConditions startingConditions = tryDeserializationSC(selectedFile);
+
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, error);
+        }
+        return startingConditions;
     }
 
     public StartingConditions tryDeserializationSC (File selectedFile) throws FileNotFoundException, IOException, ClassNotFoundException{

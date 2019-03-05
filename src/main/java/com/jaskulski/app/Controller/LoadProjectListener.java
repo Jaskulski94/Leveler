@@ -8,9 +8,9 @@ import java.awt.event.ActionListener;
 
 public class LoadProjectListener implements ActionListener {
 
-    UILauncherFrame UILauncher;
-    StartingConditions startingConditions = new StartingConditions();
-    StartingConditionsHandler startingConditionsHandler;
+    private UILauncherFrame UILauncher;
+    private StartingConditions startingConditions;
+    private StartingConditionsHandler startingConditionsHandler;
 
     public LoadProjectListener (UILauncherFrame UILauncher1){
         this.UILauncher = UILauncher1;
@@ -27,7 +27,7 @@ public class LoadProjectListener implements ActionListener {
     }
 
     private void loadStartingConditions() {
-        startingConditionsHandler.deserializeSCFromChooser(startingConditions);
+        startingConditions = startingConditionsHandler.deserializeSCFromChooser();
     }
 
     private void loadTerrainMatrix() {

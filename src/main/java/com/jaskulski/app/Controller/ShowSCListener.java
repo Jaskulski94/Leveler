@@ -8,11 +8,14 @@ import java.awt.event.ActionListener;
 
 public class ShowSCListener implements ActionListener {
 
-    private StartingConditions startingConditions;
+    public StartingConditions startingConditions;
 
     public void actionPerformed(ActionEvent actionEvent) {
         StartingConditionsHandler startingConditionsHandler = new StartingConditionsHandler();
-        startingConditions = startingConditionsHandler.deserializeSCFromFixedPath();
+
+        startingConditionsHandler.setStartingConditions(startingConditionsHandler.deserializeSCFromFixedPath());
+        this.startingConditions = startingConditionsHandler.getStartingConditions();
+    //    startingConditions = startingConditionsHandler.deserializeSCFromFixedPath();
         ShowSCFrame showSCFrame = new ShowSCFrame(startingConditions);
     }
 }

@@ -13,7 +13,7 @@ import java.nio.file.Paths;
 
 public class StartingConditionsHandler {
     private UILauncherFrame UILauncher;
-    private StartingConditions startingConditions;
+    private StartingConditions startingConditionsBU;
 
     public StartingConditionsHandler(UILauncherFrame UILauncher1) {
         this.UILauncher = UILauncher1;
@@ -25,8 +25,12 @@ public class StartingConditionsHandler {
         UILauncher.dispatchEvent(new WindowEvent(UILauncher, WindowEvent.WINDOW_CLOSING));*/
     }
 
-    public void getStartingConditions (StartingConditions startingConditions1){
-        this.startingConditions = startingConditions1;
+    public void setStartingConditions(StartingConditions startingConditions1){
+        this.startingConditionsBU = startingConditions1;
+    }
+
+    public StartingConditions getStartingConditions(){
+        return startingConditionsBU;
     }
 
     public void serializeStartingConditions (StartingConditions startingConditions){
@@ -125,9 +129,9 @@ public class StartingConditionsHandler {
         String error1 = "Błąd: Nie można wczytać danych tego projektu";
         String error2 = "Błąd: Wystąpił problem przy odczytywaniu z pliku";
         String message = "Odczytano dane z pliku";
-
+        StartingConditions startingConditions = new StartingConditions();
         try {
-            StartingConditions startingConditions = tryDeserializationSC(selectedFile);
+            startingConditions = tryDeserializationSC(selectedFile);
 
             JOptionPane.showMessageDialog(null, message);
             UILauncher.changePanel(new SquareGridPanel(startingConditions.getSizeX(), startingConditions.getSizeY()));
@@ -144,9 +148,9 @@ public class StartingConditionsHandler {
 
     public StartingConditions deserializeSCWithoutUI(File selectedFile){
         String error = "Błąd odczytu danych";
-
+        StartingConditions startingConditions = new StartingConditions();
         try {
-            StartingConditions startingConditions = tryDeserializationSC(selectedFile);
+            startingConditions = tryDeserializationSC(selectedFile);
 
         } catch (Exception e){
             JOptionPane.showMessageDialog(null, error);
@@ -162,13 +166,24 @@ public class StartingConditionsHandler {
         StartingConditions startingConditions = (StartingConditions) inputObject;
 
         objectIStream.close();
-
+    //    this.startingConditions = startingConditions;
         return startingConditions;
     }
 
 
-    public boolean checkIfDivisible (StartingConditions.Slope slope1){
+    /*public boolean checkIfDivisible (StartingConditions.Slope slope1){
         double checkedSize = slope1.getSide() / startingConditions.getSquareSide();
+        boolean divisible;
+        if (checkedSize == Math.floor(checkedSize)) {
+            divisible = true;
+        } else{
+            divisible = false;
+        }
+        return divisible;
+    }*/
+
+    public boolean isDivisible (StartingConditions startingConditions1, StartingConditions.Slope slope1){
+        double checkedSize = slope1.getSide() / startingConditions1.getSquareSide();
         boolean divisible;
         if (checkedSize == Math.floor(checkedSize)) {
             divisible = true;

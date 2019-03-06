@@ -12,7 +12,7 @@ public class LoadProjectListener implements ActionListener {
     private StartingConditions startingConditions;
     private StartingConditionsHandler startingConditionsHandler;
 
-    public LoadProjectListener (UILauncherFrame UILauncher1){
+    public LoadProjectListener(UILauncherFrame UILauncher1) {
         this.UILauncher = UILauncher1;
         startingConditionsHandler = new StartingConditionsHandler(UILauncher);
     }

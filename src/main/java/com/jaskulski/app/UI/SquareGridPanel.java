@@ -11,7 +11,7 @@ public class SquareGridPanel extends JPanel {
     private JLabel[][] lblIndex;
     private GridBagConstraints GBC;
 
-    public SquareGridPanel(int size1, int size2){
+    public SquareGridPanel(int size1, int size2) {
         this.sizeX = size1;
         this.sizeY = size2;
 
@@ -62,15 +62,15 @@ public class SquareGridPanel extends JPanel {
         UIParameters.setFontToAll(pnlButtons, UIParameters.fontMedium);
     }
 
-    public void addTextFields(){
-        for(int i = 0; i<sizeX; i++){
-            for(int j = 0; j<sizeY; j++){
+    public void addTextFields() {
+        for (int i = 0; i < sizeX; i++) {
+            for (int j = 0; j < sizeY; j++) {
                 GBC.gridx = i;
                 GBC.gridy = j;
                 txtSquares[i][j] = new JTextField();
                 this.add(txtSquares[i][j], GBC);
 
-                String index = (i+1) + "-" + (j+1);
+                String index = (i + 1) + "-" + (j + 1);
                 lblIndex[i][j] = new JLabel(index);
                 this.add(lblIndex[i][j], GBC);
                 lblIndex[i][j].setVisible(true);

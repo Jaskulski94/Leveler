@@ -18,11 +18,11 @@ public class NewProjectInitiatorPanel extends JPanel {
         initiateProjectWithUILauncher(UILauncher1);
     }
 
-    public NewProjectInitiatorPanel(){
+    public NewProjectInitiatorPanel() {
         initiateProject();
     }
 
-    public void initiateProjectWithUILauncher(UILauncherFrame UILauncher1){
+    public void initiateProjectWithUILauncher(UILauncherFrame UILauncher1) {
         this.UILauncher = UILauncher1;
 
         initiateProject();
@@ -34,7 +34,7 @@ public class NewProjectInitiatorPanel extends JPanel {
 
     }
 
-    public void initiateProject(){
+    public void initiateProject() {
         this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
         JLabel lblTitle = new JLabel("Założenia techniczne");
         this.add(lblTitle);

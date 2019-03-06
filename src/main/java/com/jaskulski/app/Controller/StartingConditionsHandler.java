@@ -6,10 +6,8 @@ import com.jaskulski.app.UI.SquareGridPanel;
 import com.jaskulski.app.UI.UILauncherFrame;
 
 import javax.swing.*;
-import java.awt.event.WindowEvent;
 import java.io.*;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+
 
 public class StartingConditionsHandler {
     private UILauncherFrame UILauncher;
@@ -19,30 +17,27 @@ public class StartingConditionsHandler {
         this.UILauncher = UILauncher1;
     }
 
-    public StartingConditionsHandler(){
-        //maybe useless, check later
-        /*this.UILauncher = new UILauncherFrame();
-        UILauncher.dispatchEvent(new WindowEvent(UILauncher, WindowEvent.WINDOW_CLOSING));*/
+    public StartingConditionsHandler() {
     }
 
-    public void setStartingConditions(StartingConditions startingConditions1){
+    public void setStartingConditions(StartingConditions startingConditions1) {
         this.startingConditionsBU = startingConditions1;
     }
 
-    public StartingConditions getStartingConditions(){
+    public StartingConditions getStartingConditions() {
         return startingConditionsBU;
     }
 
-    public void serializeStartingConditions (StartingConditions startingConditions){
+    public void serializeStartingConditions(StartingConditions startingConditions) {
         String path = StartingConditions.currentProject;
 
         String error1 = "Błąd: Wystąpił problem przy tworzeniu nowego pliku";
         String error2 = "Błąd: Wystąpił problem przy zapisywaniu do pliku";
         String message = "Stworzono nowy plik";
         try {
-            File serFile = new File(path+"/StartingConditions.ser");
+            File serFile = new File(path + "/StartingConditions.ser");
 
-            if(serFile.createNewFile()){
+            if (serFile.createNewFile()) {
                 JOptionPane.showMessageDialog(null, message);
             }
 
@@ -53,51 +48,12 @@ public class StartingConditionsHandler {
             objectOStream.flush();
 
             objectOStream.close();
-        } catch (FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             JOptionPane.showMessageDialog(null, error1);
-        } catch (IOException e){
+        } catch (IOException e) {
             JOptionPane.showMessageDialog(null, error2);
         }
     }
-
-
-        /*public void deserializeSCFromChooser(StartingConditions startingConditions){
-
-        Path path = StartingConditions.currentProject;
-        String pathString = path.toString();
-        File selectedFile = new File(pathString);
-
-        JFileChooser fileChooser = new JFileChooser();
-        fileChooser.setCurrentDirectory(selectedFile);
-
-        int returnValue = fileChooser.showOpenDialog(null);
-
-        if (returnValue == JFileChooser.APPROVE_OPTION) {
-            selectedFile = fileChooser.getSelectedFile();
-        }
-
-        String error1 = "Błąd: Nie można wczytać danych tego projektu";
-        String error2 = "Błąd: Wystąpił problem przy odczytywaniu z pliku";
-        String message = "Odczytano dane z pliku";
-        try {
-            FileInputStream fileIStream = new FileInputStream(selectedFile);
-            ObjectInputStream objectIStream = new ObjectInputStream(fileIStream);
-
-            Object inputObject = objectIStream.readObject();
-            startingConditions = (StartingConditions) inputObject;
-
-            objectIStream.close();
-            JOptionPane.showMessageDialog(null, message);
-            UILauncher.changePanel(new SquareGridPanel(startingConditions.getSizeX(), startingConditions.getSizeY()));
-
-        } catch (ClassNotFoundException e){
-            JOptionPane.showMessageDialog(null, error1);
-            UILauncher.changePanel(new ProjectStarterPanel(UILauncher));
-        } catch (IOException e){
-            JOptionPane.showMessageDialog(null, error2);
-            UILauncher.changePanel(new ProjectStarterPanel(UILauncher));
-        }
-    }*/
 
     public StartingConditions deserializeSCFromChooser() {
         String pathString = StartingConditions.projectsDir;
@@ -117,7 +73,7 @@ public class StartingConditionsHandler {
         return startingConditions;
     }
 
-    public StartingConditions deserializeSCFromFixedPath () {
+    public StartingConditions deserializeSCFromFixedPath() {
         String pathString = StartingConditions.currentProject + "/StartingConditions.ser";
         File selectedFile = new File(pathString);
 
@@ -125,7 +81,7 @@ public class StartingConditionsHandler {
         return startingConditions;
     }
 
-    public StartingConditions deserializeStartingConditions (File selectedFile){
+    public StartingConditions deserializeStartingConditions(File selectedFile) {
         String error1 = "Błąd: Nie można wczytać danych tego projektu";
         String error2 = "Błąd: Wystąpił problem przy odczytywaniu z pliku";
         String message = "Odczytano dane z pliku";
@@ -136,29 +92,29 @@ public class StartingConditionsHandler {
             JOptionPane.showMessageDialog(null, message);
             UILauncher.changePanel(new SquareGridPanel(startingConditions.getSizeX(), startingConditions.getSizeY()));
 
-        } catch (ClassNotFoundException e){
+        } catch (ClassNotFoundException e) {
             JOptionPane.showMessageDialog(null, error1);
             UILauncher.changePanel(new ProjectStarterPanel(UILauncher));
-        } catch (IOException e){
+        } catch (IOException e) {
             JOptionPane.showMessageDialog(null, error2);
             UILauncher.changePanel(new ProjectStarterPanel(UILauncher));
         }
         return startingConditions;
     }
 
-    public StartingConditions deserializeSCWithoutUI(File selectedFile){
+    public StartingConditions deserializeSCWithoutUI(File selectedFile) {
         String error = "Błąd odczytu danych";
         StartingConditions startingConditions = new StartingConditions();
         try {
             startingConditions = tryDeserializationSC(selectedFile);
 
-        } catch (Exception e){
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, error);
         }
         return startingConditions;
     }
 
-    public StartingConditions tryDeserializationSC (File selectedFile) throws FileNotFoundException, IOException, ClassNotFoundException{
+    public StartingConditions tryDeserializationSC(File selectedFile) throws FileNotFoundException, IOException, ClassNotFoundException {
         FileInputStream fileIStream = new FileInputStream(selectedFile);
         ObjectInputStream objectIStream = new ObjectInputStream(fileIStream);
 
@@ -166,7 +122,7 @@ public class StartingConditionsHandler {
         StartingConditions startingConditions = (StartingConditions) inputObject;
 
         objectIStream.close();
-    //    this.startingConditions = startingConditions;
+        //    this.startingConditions = startingConditions;
         return startingConditions;
     }
 
@@ -182,12 +138,12 @@ public class StartingConditionsHandler {
         return divisible;
     }*/
 
-    public boolean isDivisible (StartingConditions startingConditions1, StartingConditions.Slope slope1){
+    public boolean isDivisible(StartingConditions startingConditions1, StartingConditions.Slope slope1) {
         double checkedSize = slope1.getSide() / startingConditions1.getSquareSide();
         boolean divisible;
         if (checkedSize == Math.floor(checkedSize)) {
             divisible = true;
-        } else{
+        } else {
             divisible = false;
         }
         return divisible;

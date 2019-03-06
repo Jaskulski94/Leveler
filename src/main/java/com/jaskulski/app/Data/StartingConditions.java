@@ -18,7 +18,7 @@ public class StartingConditions implements Serializable {
     public int sizeX;
     public int sizeY;
 
-    public static void setCurrentProject(String currentProject1){
+    public static void setCurrentProject(String currentProject1) {
         StartingConditions.currentProject = currentProject1;
     }
 
@@ -50,7 +50,7 @@ public class StartingConditions implements Serializable {
     }
 
     @Data
-    public class Slope implements Serializable{
+    public class Slope implements Serializable {
         private double side = 0;
         private double slopeWidth = 0;
         private double slopeTilt = 0;

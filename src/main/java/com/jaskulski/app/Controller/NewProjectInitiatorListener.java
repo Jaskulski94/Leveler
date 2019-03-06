@@ -80,7 +80,7 @@ public class NewProjectInitiatorListener implements ActionListener {
         String warningText2 = "Ilość kwadratów siatki została zaokrąglona w dół.";
 
         startingConditionsHandler.setStartingConditions(startingConditions);
-        if (!startingConditionsHandler.isDivisible(startingConditions, slope1)){
+        if (!startingConditionsHandler.isDivisible(startingConditions, slope1)) {
             JOptionPane.showMessageDialog(null, warningText1 + "\n" + warningText2);
         }
     }

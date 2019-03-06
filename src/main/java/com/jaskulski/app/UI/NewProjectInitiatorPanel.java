@@ -12,7 +12,7 @@ public class NewProjectInitiatorPanel extends JPanel {
     public SlopeInitiator pnlBSlope;
     public JTextField txtSquares;
     public JTextField txtField;
-    public UILauncherFrame UILauncher;
+    private UILauncherFrame UILauncher;
 
     public NewProjectInitiatorPanel(UILauncherFrame UILauncher1) {
         initiateProjectWithUILauncher(UILauncher1);
@@ -72,50 +72,6 @@ public class NewProjectInitiatorPanel extends JPanel {
         setCenterAlignment(this);
     }
 
-/*    public void initiateProject(UILauncherFrame UILauncher1){
-        this.UILauncher = UILauncher1;
-
-        this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
-        JLabel lblTitle = new JLabel("Założenia techniczne");
-        this.add(lblTitle);
-        this.add(new JLabel(" "));
-
-        JLabel lblSides = new JLabel("Boki boiska");
-        this.add(lblSides);
-
-        JPanel pnlSlopes = new JPanel();
-        pnlSlopes.setLayout(new BoxLayout(pnlSlopes, BoxLayout.X_AXIS));
-
-        pnlASlope = new SlopeInitiator();
-        pnlSlopes.add(pnlASlope);
-        pnlBSlope = new SlopeInitiator();
-        pnlSlopes.add(pnlBSlope);
-
-        this.add(pnlSlopes);
-
-        this.add(new JLabel(" "));
-        JLabel lblSquares = new JLabel("Bok kwadratu siatki");
-        this.add(lblSquares);
-        txtSquares = new JTextField("10");
-        this.add(txtSquares);
-
-        this.add(new JLabel(" "));
-        JLabel lblLean = new JLabel("Pochylenie płaszczyzny boiska");
-        this.add(lblLean);
-        txtField = new JTextField("1");
-        this.add(txtField);
-
-        WhiteButton btnStartingConditions = new WhiteButton("Dalej");
-        btnStartingConditions.addActionListener(new NewProjectInitiatorListener(UILauncher, this));
-        this.add(btnStartingConditions);
-
-        UIParameters.setFontToAll(this, UIParameters.fontSmall);
-        lblTitle.setFont(UIParameters.fontBig);
-        lblSides.setFont(UIParameters.fontMedium);
-
-        setCenterAlignment(this);
-    }*/
-
     public SlopeInitiator getSlopeA() {
         return pnlASlope;
     }
@@ -144,11 +100,11 @@ public class NewProjectInitiatorPanel extends JPanel {
 
 
     public class SlopeInitiator extends JPanel {
-        JTextField txtSide;
-        JTextField txtSlopeValue;
-        ButtonGroup btnGroup;
-        JRadioButton rBtnSlopeWidth;
-        JRadioButton rBtnSlopeTilt;
+        public JTextField txtSide;
+        public JTextField txtSlopeValue;
+        public ButtonGroup btnGroup;
+        public JRadioButton rBtnSlopeWidth;
+        public JRadioButton rBtnSlopeTilt;
 
         public SlopeInitiator() {
             Border blackBorder = BorderFactory.createLineBorder(Color.lightGray);

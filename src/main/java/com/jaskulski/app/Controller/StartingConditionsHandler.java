@@ -90,7 +90,7 @@ public class StartingConditionsHandler {
             startingConditions = tryDeserializationSC(selectedFile);
 
             JOptionPane.showMessageDialog(null, message);
-            UILauncher.changePanel(new SquareGridPanel(startingConditions.getSizeX(), startingConditions.getSizeY()));
+            UILauncher.changePanel(new SquareGridPanel(startingConditions.getSizeX(), startingConditions.getSizeY(), UILauncher));
 
         } catch (ClassNotFoundException e) {
             JOptionPane.showMessageDialog(null, error1);

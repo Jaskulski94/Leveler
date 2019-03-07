@@ -16,7 +16,7 @@ public class SGBackListener extends BackListener {
         StartingConditionsHandler sCHandler = new StartingConditionsHandler();
         StartingConditions startingConditions = sCHandler.deserializeSCFromFixedPath();
         StartingConditionsFiller sCFiller = new StartingConditionsFiller(startingConditions, (NewProjectInitiatorPanel) newPanel);
-
+        sCFiller.fillFields();
         super.backAction();
 
     }

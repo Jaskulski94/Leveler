@@ -28,7 +28,7 @@ public class StartingConditionsHandler {
         return startingConditionsBU;
     }
 
-    public void serializeStartingConditions(StartingConditions startingConditions) {
+    public void serializeStartingConditions(StartingConditions startingConditions1) {
         String path = StartingConditions.currentProject;
 
         String error1 = "Błąd: Wystąpił problem przy tworzeniu nowego pliku";
@@ -44,7 +44,7 @@ public class StartingConditionsHandler {
             FileOutputStream fileOStream = new FileOutputStream(serFile);
             ObjectOutputStream objectOStream = new ObjectOutputStream(fileOStream);
 
-            objectOStream.writeObject(startingConditions);
+            objectOStream.writeObject(startingConditions1);
             objectOStream.flush();
 
             objectOStream.close();

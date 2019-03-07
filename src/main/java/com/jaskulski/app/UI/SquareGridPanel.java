@@ -1,7 +1,9 @@
 package com.jaskulski.app.UI;
 
 import com.jaskulski.app.Controller.SGBackListener;
+import com.jaskulski.app.Controller.SGSaveListener;
 import com.jaskulski.app.Controller.ShowSCListener;
+import com.jaskulski.app.Data.StartingConditions;
 
 import javax.swing.*;
 import java.awt.*;
@@ -37,10 +39,13 @@ public class SquareGridPanel extends JPanel {
         btnPrevious.addActionListener(new SGBackListener(UILauncher, new NewProjectInitiatorPanel(UILauncher)));
 
         WhiteButton btnShowCS = new WhiteButton("Założenia");
+        btnShowCS.addActionListener(new ShowSCListener());
+
         WhiteButton btnSave = new WhiteButton("Zapisz zmiany");
+
+
         WhiteButton btnNext = new WhiteButton("Dalej");
 
-        btnShowCS.addActionListener(new ShowSCListener());
 
         JPanel pnlButtons = new JPanel();
         pnlButtons.setLayout(new GridBagLayout());

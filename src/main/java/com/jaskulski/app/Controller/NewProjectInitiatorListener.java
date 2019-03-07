@@ -79,7 +79,6 @@ public class NewProjectInitiatorListener implements ActionListener {
         String warningText1 = "Ostrzeżenie: Długość boku " + sideName + " nie jest podzielna przez długość boku kwadratu siatki.";
         String warningText2 = "Ilość kwadratów siatki została zaokrąglona w dół.";
 
-        startingConditionsHandler.setStartingConditions(startingConditions);
         if (!startingConditionsHandler.isDivisible(startingConditions, slope1)) {
             JOptionPane.showMessageDialog(null, warningText1 + "\n" + warningText2);
         }

@@ -1,9 +1,7 @@
 package com.jaskulski.app.UI;
 
 import com.jaskulski.app.Controller.SGBackListener;
-import com.jaskulski.app.Controller.SGSaveListener;
 import com.jaskulski.app.Controller.ShowSCListener;
-import com.jaskulski.app.Data.StartingConditions;
 
 import javax.swing.*;
 import java.awt.*;

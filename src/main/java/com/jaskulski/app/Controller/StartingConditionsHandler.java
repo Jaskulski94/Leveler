@@ -114,7 +114,7 @@ public class StartingConditionsHandler {
         return startingConditions;
     }
 
-    public StartingConditions tryDeserializationSC(File selectedFile) throws FileNotFoundException, IOException, ClassNotFoundException {
+    public StartingConditions tryDeserializationSC(File selectedFile) throws IOException, ClassNotFoundException {
         FileInputStream fileIStream = new FileInputStream(selectedFile);
         ObjectInputStream objectIStream = new ObjectInputStream(fileIStream);
 
@@ -122,21 +122,8 @@ public class StartingConditionsHandler {
         StartingConditions startingConditions = (StartingConditions) inputObject;
 
         objectIStream.close();
-        //    this.startingConditions = startingConditions;
         return startingConditions;
     }
-
-
-    /*public boolean checkIfDivisible (StartingConditions.Slope slope1){
-        double checkedSize = slope1.getSide() / startingConditions.getSquareSide();
-        boolean divisible;
-        if (checkedSize == Math.floor(checkedSize)) {
-            divisible = true;
-        } else{
-            divisible = false;
-        }
-        return divisible;
-    }*/
 
     public boolean isDivisible(StartingConditions startingConditions1, StartingConditions.Slope slope1) {
         double checkedSize = slope1.getSide() / startingConditions1.getSquareSide();

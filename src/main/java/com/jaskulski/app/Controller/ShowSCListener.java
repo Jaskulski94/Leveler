@@ -12,9 +12,7 @@ public class ShowSCListener implements ActionListener {
 
     public void actionPerformed(ActionEvent actionEvent) {
         StartingConditionsHandler startingConditionsHandler = new StartingConditionsHandler();
-
-        startingConditionsHandler.setStartingConditions(startingConditionsHandler.deserializeSCFromFixedPath());
-        this.startingConditions = startingConditionsHandler.getStartingConditions();
+        startingConditions = startingConditionsHandler.deserializeSCFromFixedPath();
         ShowSCFrame showSCFrame = new ShowSCFrame(startingConditions);
     }
 }

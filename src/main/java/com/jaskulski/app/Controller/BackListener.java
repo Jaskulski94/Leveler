@@ -17,6 +17,10 @@ public class BackListener implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent actionEvent) {
+        backAction();
+    }
+
+    public void backAction(){
         UILauncher.changePanel(newPanel);
     }
 }

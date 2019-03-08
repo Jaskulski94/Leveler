@@ -1,5 +1,9 @@
 package com.jaskulski.app.Data;
 
+import java.awt.*;
+import lombok.Data;
+
+@Data
 public class SquareGrid {
 
     public Square[][] squares;
@@ -15,7 +19,12 @@ public class SquareGrid {
         }
     }
 
-    private class Square {
+    public Dimension getSquareDim(){
+        Dimension dim = new Dimension(squares[0].length, squares[1].length);
+        return dim;
+    }
+    @Data
+    public class Square {
         public int index;
 
         public double initialValue;

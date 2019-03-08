@@ -12,7 +12,7 @@ import java.awt.*;
 public class SquareGridPanel extends JPanel {
     private UILauncherFrame UILauncher;
     private int sizeX, sizeY;
-    private JTextField[][] txtSquares;
+    public JTextField[][] txtSquares;
     private JLabel[][] lblIndex;
     private GridBagConstraints GBC;
     private StartingConditions startingConditions;

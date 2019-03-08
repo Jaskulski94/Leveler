@@ -2,6 +2,7 @@ package com.jaskulski.app.UI;
 
 import com.jaskulski.app.Controller.SGBackListener;
 import com.jaskulski.app.Controller.ShowSCListener;
+import com.jaskulski.app.Data.StartingConditions;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,12 +13,27 @@ public class SquareGridPanel extends JPanel {
     private JTextField[][] txtSquares;
     private JLabel[][] lblIndex;
     private GridBagConstraints GBC;
+    public StartingConditions startingConditions;
 
-    public SquareGridPanel(int size1, int size2, UILauncherFrame UILauncher1) {
+    public SquareGridPanel(StartingConditions startingConditions1, UILauncherFrame UILauncher1) {
         this.UILauncher = UILauncher1;
+        this.startingConditions = startingConditions1;
 
-        this.sizeX = size1;
-        this.sizeY = size2;
+        initializeSquareGridPanel();
+    }
+
+    public SquareGridPanel(UILauncherFrame UILauncher1) {
+        this.UILauncher = UILauncher1;
+    }
+
+    public void setStartingConditionsAndInitiate(StartingConditions startingConditions) {
+        this.startingConditions = startingConditions;
+        initializeSquareGridPanel();
+    }
+
+    public void initializeSquareGridPanel(){
+        this.sizeX = startingConditions.getSizeX();
+        this.sizeY = startingConditions.getSizeY();
 
         GridBagLayout gridBagLayout = new GridBagLayout();
         GBC = new GridBagConstraints();

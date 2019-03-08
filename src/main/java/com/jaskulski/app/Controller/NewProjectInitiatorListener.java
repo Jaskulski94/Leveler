@@ -45,7 +45,7 @@ public class NewProjectInitiatorListener implements ActionListener {
             startingConditions.setFieldLean(npiPanel.getTxtField());
 
             getSizes();
-            UILauncher.changePanel(new SquareGridPanel(sizeX, sizeY, UILauncher));
+            UILauncher.changePanel(new SquareGridPanel(startingConditions, UILauncher));
 
             startingConditions.printAll();
 

@@ -9,7 +9,7 @@ import javax.swing.*;
 import java.io.*;
 
 
-public class StartingConditionsHandler {
+public class StartingConditionsHandler extends SerializationHanlder{
     private UILauncherFrame UILauncher;
     private StartingConditions startingConditionsBU;
 
@@ -18,14 +18,6 @@ public class StartingConditionsHandler {
     }
 
     public StartingConditionsHandler() {
-    }
-
-    public void setStartingConditions(StartingConditions startingConditions1) {
-        this.startingConditionsBU = startingConditions1;
-    }
-
-    public StartingConditions getStartingConditions() {
-        return startingConditionsBU;
     }
 
     public void serializeStartingConditions(StartingConditions startingConditions1) {
@@ -56,72 +48,22 @@ public class StartingConditionsHandler {
     }
 
     public StartingConditions deserializeSCFromChooser() {
-        String pathString = StartingConditions.projectsDir;
-        File selectedFile = new File(pathString);
-
-        JFileChooser fileChooser = new JFileChooser();
-        fileChooser.setCurrentDirectory(selectedFile);
-
-        int returnValue = fileChooser.showOpenDialog(null);
-
-        if (returnValue == JFileChooser.APPROVE_OPTION) {
-            selectedFile = fileChooser.getSelectedFile();
-        }
-
-        StartingConditions.currentProject += selectedFile.getParentFile().getName();
-        StartingConditions startingConditions = deserializeStartingConditions(selectedFile);
+        StartingConditions startingConditions = (StartingConditions) super.deserializeFromChooser();
         return startingConditions;
     }
 
     public StartingConditions deserializeSCFromFixedPath() {
-        String pathString = StartingConditions.currentProject + "/StartingConditions.ser";
-        File selectedFile = new File(pathString);
-
-        StartingConditions startingConditions = deserializeSCWithoutUI(selectedFile);
+        StartingConditions startingConditions = (StartingConditions) super.deserializeFromFixedPath("/StartingConditions.ser");
         return startingConditions;
     }
 
-    public StartingConditions deserializeStartingConditions(File selectedFile) {
-        String error1 = "Błąd: Nie można wczytać danych tego projektu";
-        String error2 = "Błąd: Wystąpił problem przy odczytywaniu z pliku";
-        String message = "Odczytano dane z pliku";
-        StartingConditions startingConditions = new StartingConditions();
-        try {
-            startingConditions = tryDeserializationSC(selectedFile);
+    public StartingConditions deserializeWithUI(File selectedFile) {
+        newPanel = new SquareGridPanel(UILauncher);
+        errorPanel = new ProjectStarterPanel(UILauncher);
 
-            JOptionPane.showMessageDialog(null, message);
-            UILauncher.changePanel(new SquareGridPanel(startingConditions.getSizeX(), startingConditions.getSizeY(), UILauncher));
-
-        } catch (ClassNotFoundException e) {
-            JOptionPane.showMessageDialog(null, error1);
-            UILauncher.changePanel(new ProjectStarterPanel(UILauncher));
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, error2);
-            UILauncher.changePanel(new ProjectStarterPanel(UILauncher));
-        }
-        return startingConditions;
-    }
-
-    public StartingConditions deserializeSCWithoutUI(File selectedFile) {
-        String error = "Błąd odczytu danych";
-        StartingConditions startingConditions = new StartingConditions();
-        try {
-            startingConditions = tryDeserializationSC(selectedFile);
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, error);
-        }
-        return startingConditions;
-    }
-
-    public StartingConditions tryDeserializationSC(File selectedFile) throws IOException, ClassNotFoundException {
-        FileInputStream fileIStream = new FileInputStream(selectedFile);
-        ObjectInputStream objectIStream = new ObjectInputStream(fileIStream);
-
-        Object inputObject = objectIStream.readObject();
-        StartingConditions startingConditions = (StartingConditions) inputObject;
-
-        objectIStream.close();
+        StartingConditions startingConditions = (StartingConditions) super.deserializeWithUI(selectedFile);
+        ((SquareGridPanel)newPanel).setStartingConditionsAndInitiate(startingConditions);
+        super.changeToNextPanel(UILauncher);
         return startingConditions;
     }
 
@@ -135,6 +77,5 @@ public class StartingConditionsHandler {
         }
         return divisible;
     }
-
 
 }

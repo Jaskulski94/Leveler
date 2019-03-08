@@ -1,18 +1,16 @@
 package com.jaskulski.app.Controller;
 
 import com.jaskulski.app.Data.StartingConditions;
-import com.jaskulski.app.UI.ProjectStarterPanel;
-import com.jaskulski.app.UI.SquareGridPanel;
 import com.jaskulski.app.UI.UILauncherFrame;
-
 import javax.swing.*;
 import java.io.*;
 
 public class SerializationHanlder {
 
     private UILauncherFrame UILauncher;
-    private JPanel newPanel;
-    private JPanel errorPanel;
+    public JPanel newPanel;
+    public JPanel errorPanel;
+    public JPanel nextPanel;
 
     public SerializationHanlder(UILauncherFrame UILauncher1) {
         this.UILauncher = UILauncher1;
@@ -83,16 +81,20 @@ public class SerializationHanlder {
             object = tryDeserialization(selectedFile);
 
             JOptionPane.showMessageDialog(null, message);
-            UILauncher.changePanel(newPanel = new JPanel());
+            nextPanel = newPanel;
 
         } catch (ClassNotFoundException e) {
             JOptionPane.showMessageDialog(null, error1);
-            UILauncher.changePanel(errorPanel = new JPanel());
+            nextPanel = errorPanel;
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, error2);
-            UILauncher.changePanel(errorPanel = new JPanel());
+            nextPanel = errorPanel;
         }
         return object;
+    }
+
+    public void changeToNextPanel(UILauncherFrame UILauncher1){
+        UILauncher1.changePanel(nextPanel);
     }
 
     public Object deserializeWithoutUI(File selectedFile) {

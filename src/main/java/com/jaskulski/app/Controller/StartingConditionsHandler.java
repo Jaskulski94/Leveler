@@ -11,7 +11,6 @@ import java.io.*;
 
 public class StartingConditionsHandler extends SerializationHanlder{
     private UILauncherFrame UILauncher;
-    private StartingConditions startingConditionsBU;
 
     public StartingConditionsHandler(UILauncherFrame UILauncher1) {
         this.UILauncher = UILauncher1;
@@ -21,30 +20,7 @@ public class StartingConditionsHandler extends SerializationHanlder{
     }
 
     public void serializeStartingConditions(StartingConditions startingConditions1) {
-        String path = StartingConditions.currentProject;
-
-        String error1 = "Błąd: Wystąpił problem przy tworzeniu nowego pliku";
-        String error2 = "Błąd: Wystąpił problem przy zapisywaniu do pliku";
-        String message = "Stworzono nowy plik";
-        try {
-            File serFile = new File(path + "/StartingConditions.ser");
-
-            if (serFile.createNewFile()) {
-                JOptionPane.showMessageDialog(null, message);
-            }
-
-            FileOutputStream fileOStream = new FileOutputStream(serFile);
-            ObjectOutputStream objectOStream = new ObjectOutputStream(fileOStream);
-
-            objectOStream.writeObject(startingConditions1);
-            objectOStream.flush();
-
-            objectOStream.close();
-        } catch (FileNotFoundException e) {
-            JOptionPane.showMessageDialog(null, error1);
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, error2);
-        }
+        super.serialize(startingConditions1, "/StartingConditions.ser");
     }
 
     public StartingConditions deserializeSCFromChooser() {

@@ -4,8 +4,6 @@ import com.jaskulski.app.Data.StartingConditions;
 import com.jaskulski.app.UI.ProjectStarterPanel;
 import com.jaskulski.app.UI.SquareGridPanel;
 import com.jaskulski.app.UI.UILauncherFrame;
-
-import javax.swing.*;
 import java.io.*;
 
 

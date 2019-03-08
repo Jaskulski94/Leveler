@@ -1,7 +1,9 @@
 package com.jaskulski.app.UI;
 
 import com.jaskulski.app.Controller.SGBackListener;
+import com.jaskulski.app.Controller.SGSaveListener;
 import com.jaskulski.app.Controller.ShowSCListener;
+import com.jaskulski.app.Data.SquareGrid;
 import com.jaskulski.app.Data.StartingConditions;
 
 import javax.swing.*;
@@ -13,7 +15,8 @@ public class SquareGridPanel extends JPanel {
     private JTextField[][] txtSquares;
     private JLabel[][] lblIndex;
     private GridBagConstraints GBC;
-    public StartingConditions startingConditions;
+    private StartingConditions startingConditions;
+    private SquareGrid squareGrid;
 
     public SquareGridPanel(StartingConditions startingConditions1, UILauncherFrame UILauncher1) {
         this.UILauncher = UILauncher1;
@@ -56,7 +59,7 @@ public class SquareGridPanel extends JPanel {
         btnShowCS.addActionListener(new ShowSCListener());
 
         WhiteButton btnSave = new WhiteButton("Zapisz zmiany");
-
+        btnSave.addActionListener(new SGSaveListener(squareGrid));
 
         WhiteButton btnNext = new WhiteButton("Dalej");
 

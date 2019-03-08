@@ -16,7 +16,7 @@ public class SGSaveListener implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent actionEvent) {
-
+        sQHandler.serializeSquareGrid(squareGrid);
         JOptionPane.showMessageDialog(null, "Zapisywanie skończone");
     }
 }

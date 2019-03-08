@@ -7,14 +7,14 @@ import com.jaskulski.app.UI.UILauncherFrame;
 import java.io.*;
 
 
-public class StartingConditionsHandler extends SerializationHanlder{
+public class StartingConditionsSerializer extends SerializationHanlder{
     private UILauncherFrame UILauncher;
 
-    public StartingConditionsHandler(UILauncherFrame UILauncher1) {
+    public StartingConditionsSerializer(UILauncherFrame UILauncher1) {
         this.UILauncher = UILauncher1;
     }
 
-    public StartingConditionsHandler() {
+    public StartingConditionsSerializer() {
     }
 
     public void serializeStartingConditions(StartingConditions startingConditions1) {

@@ -8,7 +8,7 @@ import com.jaskulski.app.UI.UILauncherFrame;
 
 import java.io.File;
 
-public class SquareGridHandler extends SerializationHanlder{
+public class SquareGridSerializer extends SerializationHanlder{
     private UILauncherFrame UILauncher;
     private StartingConditions startingConditions;
     private SquareGrid squareGrid;

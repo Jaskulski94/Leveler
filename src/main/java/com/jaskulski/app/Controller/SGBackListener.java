@@ -5,7 +5,6 @@ import com.jaskulski.app.UI.NewProjectInitiatorPanel;
 import com.jaskulski.app.UI.UILauncherFrame;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
 
 public class SGBackListener extends BackListener {
     public SGBackListener(UILauncherFrame UILauncher1, JPanel panel1) {
@@ -13,7 +12,7 @@ public class SGBackListener extends BackListener {
     }
 
     public void backAction(){
-        StartingConditionsHandler sCHandler = new StartingConditionsHandler();
+        StartingConditionsSerializer sCHandler = new StartingConditionsSerializer();
         StartingConditions startingConditions = sCHandler.deserializeSCFromFixedPath();
         StartingConditionsFiller sCFiller = new StartingConditionsFiller(startingConditions, (NewProjectInitiatorPanel) newPanel);
         sCFiller.fillFields();

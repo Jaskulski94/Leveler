@@ -16,12 +16,12 @@ public class NewProjectInitiatorListener implements ActionListener {
     private double side, slopeWidth, slopeTilt;
     private UILauncherFrame UILauncher;
     private int sizeX, sizeY;
-    private StartingConditionsHandler startingConditionsHandler;
+    private StartingConditionsSerializer startingConditionsSerializer;
 
     public NewProjectInitiatorListener(UILauncherFrame UILauncher1, NewProjectInitiatorPanel npiPanel1) {
         this.npiPanel = npiPanel1;
         this.UILauncher = UILauncher1;
-        startingConditionsHandler = new StartingConditionsHandler(UILauncher);
+        startingConditionsSerializer = new StartingConditionsSerializer(UILauncher);
     }
 
     public void actionPerformed(ActionEvent actionEvent) {
@@ -30,7 +30,7 @@ public class NewProjectInitiatorListener implements ActionListener {
 
         getSizes();
 
-        startingConditionsHandler.serializeStartingConditions(startingConditions);
+        startingConditionsSerializer.serializeStartingConditions(startingConditions);
     }
 
     private void setStartingConditions() {
@@ -79,7 +79,7 @@ public class NewProjectInitiatorListener implements ActionListener {
         String warningText1 = "Ostrzeżenie: Długość boku " + sideName + " nie jest podzielna przez długość boku kwadratu siatki.";
         String warningText2 = "Ilość kwadratów siatki została zaokrąglona w dół.";
 
-        if (!startingConditionsHandler.isDivisible(startingConditions, slope1)) {
+        if (!startingConditionsSerializer.isDivisible(startingConditions, slope1)) {
             JOptionPane.showMessageDialog(null, warningText1 + "\n" + warningText2);
         }
     }

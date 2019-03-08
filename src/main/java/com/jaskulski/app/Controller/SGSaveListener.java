@@ -7,11 +7,11 @@ import java.awt.event.ActionListener;
 
 public class SGSaveListener implements ActionListener {
 
-    SquareGridHandler sQHandler;
+    SquareGridSerializer sQHandler;
     SquareGrid squareGrid;
 
     public SGSaveListener (SquareGrid squareGrid1){
-        this.sQHandler = new SquareGridHandler();
+        this.sQHandler = new SquareGridSerializer();
         this.squareGrid = squareGrid1;
     }
 

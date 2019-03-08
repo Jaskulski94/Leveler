@@ -10,11 +10,11 @@ public class LoadProjectListener implements ActionListener {
 
     private UILauncherFrame UILauncher;
     private StartingConditions startingConditions;
-    private StartingConditionsHandler startingConditionsHandler;
+    private StartingConditionsSerializer startingConditionsSerializer;
 
     public LoadProjectListener(UILauncherFrame UILauncher1) {
         this.UILauncher = UILauncher1;
-        startingConditionsHandler = new StartingConditionsHandler(UILauncher);
+        startingConditionsSerializer = new StartingConditionsSerializer(UILauncher);
     }
 
     public void actionPerformed(ActionEvent arg0) {
@@ -27,7 +27,7 @@ public class LoadProjectListener implements ActionListener {
     }
 
     private void loadStartingConditions() {
-        startingConditions = startingConditionsHandler.deserializeSCFromChooser();
+        startingConditions = startingConditionsSerializer.deserializeSCFromChooser();
     }
 
     private void loadTerrainMatrix() {

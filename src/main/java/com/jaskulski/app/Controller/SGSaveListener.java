@@ -7,16 +7,16 @@ import java.awt.event.ActionListener;
 
 public class SGSaveListener implements ActionListener {
 
-    SquareGridSerializer sQHandler;
+    SquareGridSerializer sQSerializer;
     SquareGrid squareGrid;
 
     public SGSaveListener (SquareGrid squareGrid1){
-        this.sQHandler = new SquareGridSerializer();
+        this.sQSerializer = new SquareGridSerializer();
         this.squareGrid = squareGrid1;
     }
 
     public void actionPerformed(ActionEvent actionEvent) {
-        sQHandler.serializeSquareGrid(squareGrid);
+        sQSerializer.serializeSquareGrid(squareGrid);
         JOptionPane.showMessageDialog(null, "Zapisywanie skończone");
     }
 }

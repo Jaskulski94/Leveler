@@ -49,6 +49,17 @@ public class StartingConditions implements Serializable {
         System.out.println(slopeY.side + " " + slopeY.slopeWidth + " " + slopeY.slopeTilt);
     }
 
+    public boolean isDivisible(StartingConditions.Slope slope1) {
+        double checkedSize = slope1.getSide() / this.getSquareSide();
+        boolean divisible;
+        if (checkedSize == Math.floor(checkedSize)) {
+            divisible = true;
+        } else {
+            divisible = false;
+        }
+        return divisible;
+    }
+
     @Data
     public class Slope implements Serializable {
         private double side = 0;

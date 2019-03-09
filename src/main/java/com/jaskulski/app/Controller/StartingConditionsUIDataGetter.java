@@ -5,16 +5,16 @@ import com.jaskulski.app.UI.NewProjectInitiatorPanel;
 
 import javax.swing.*;
 
-public class StartingConditionsDataGetter {
+public class StartingConditionsUIDataGetter {
     private NewProjectInitiatorPanel nPIPanel;
     private StartingConditions startingConditions;
 
-    public StartingConditionsDataGetter(NewProjectInitiatorPanel nPIPanel1, StartingConditions startingConditions1){
+    public StartingConditionsUIDataGetter(NewProjectInitiatorPanel nPIPanel1, StartingConditions startingConditions1){
         this.nPIPanel = nPIPanel1;
         this.startingConditions = startingConditions1;
     }
 
-    public void setStartingConditions() {
+    public void setStartingConditionsFromUI() {
         try {
             saveSlopeValues(nPIPanel.getSlopeA(), startingConditions.getSlopeX());
             saveSlopeValues(nPIPanel.getSlopeB(), startingConditions.getSlopeY());

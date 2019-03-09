@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 
 public class NewProjectInitiatorListener implements ActionListener {
 
-    private StartingConditionsDataGetter sCDGetter;
+    private StartingConditionsUIDataGetter sCDGetter;
     private NewProjectInitiatorPanel nPIPanel;
     private StartingConditions startingConditions;
     private UILauncherFrame UILauncher;
@@ -22,11 +22,11 @@ public class NewProjectInitiatorListener implements ActionListener {
         this.UILauncher = UILauncher1;
         this.startingConditionsSerializer = new StartingConditionsSerializer(UILauncher);
         this.startingConditions = new StartingConditions();
-        this.sCDGetter = new StartingConditionsDataGetter(nPIPanel, startingConditions);
+        this.sCDGetter = new StartingConditionsUIDataGetter(nPIPanel, startingConditions);
     }
 
     public void actionPerformed(ActionEvent actionEvent) {
-        sCDGetter.setStartingConditions();
+        sCDGetter.setStartingConditionsFromUI();
         UILauncher.changePanel(new SquareGridPanel(startingConditions, UILauncher));
 
         checkSizes();

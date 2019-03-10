@@ -1,10 +1,12 @@
 package com.jaskulski.app.Data;
 
 import java.awt.*;
+import java.io.Serializable;
+
 import lombok.Data;
 
 @Data
-public class SquareGrid {
+public class SquareGrid implements Serializable {
 
     public Square[][] squares;
 
@@ -24,7 +26,7 @@ public class SquareGrid {
         return dim;
     }
     @Data
-    public class Square {
+    public class Square implements Serializable{
         public int index;
 
         public double initialValue;

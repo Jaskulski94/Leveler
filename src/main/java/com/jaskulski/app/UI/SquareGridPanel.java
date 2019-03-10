@@ -37,6 +37,7 @@ public class SquareGridPanel extends JPanel {
     public void initializeSquareGridPanel(){
         this.sizeX = startingConditions.getSizeX();
         this.sizeY = startingConditions.getSizeY();
+        squareGrid = new SquareGrid(sizeX, sizeY);
 
         GridBagLayout gridBagLayout = new GridBagLayout();
         GBC = new GridBagConstraints();
@@ -59,7 +60,7 @@ public class SquareGridPanel extends JPanel {
         btnShowCS.addActionListener(new ShowSCListener());
 
         WhiteButton btnSave = new WhiteButton("Zapisz zmiany");
-        btnSave.addActionListener(new SGSaveListener(squareGrid));
+        btnSave.addActionListener(new SGSaveListener(squareGrid, this));
 
         WhiteButton btnNext = new WhiteButton("Dalej");
 

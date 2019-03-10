@@ -7,7 +7,7 @@ import com.jaskulski.app.UI.UILauncherFrame;
 import java.io.*;
 
 
-public class StartingConditionsSerializer extends SerializationHanlder{
+public class StartingConditionsSerializer extends BasicSerializer {
     private UILauncherFrame UILauncher;
 
     public StartingConditionsSerializer(UILauncherFrame UILauncher1) {

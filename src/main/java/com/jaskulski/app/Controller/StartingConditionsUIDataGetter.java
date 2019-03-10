@@ -16,13 +16,17 @@ public class StartingConditionsUIDataGetter {
 
     public void setStartingConditionsFromUI() {
         try {
-            saveSlopeValues(nPIPanel.getSlopeA(), startingConditions.getSlopeX());
-            saveSlopeValues(nPIPanel.getSlopeB(), startingConditions.getSlopeY());
-            saveSlopeValues(nPIPanel, startingConditions);
-            startingConditions.setSizes();
+            saveAllValues(nPIPanel, startingConditions);
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Błąd: Zły typ wprowadzonych danych");
         }
+    }
+
+    private void saveAllValues(NewProjectInitiatorPanel nPIPanel1, StartingConditions startingConditions1){
+        saveSlopeValues(nPIPanel.getSlopeA(), startingConditions.getSlopeX());
+        saveSlopeValues(nPIPanel.getSlopeB(), startingConditions.getSlopeY());
+        saveSlopeValues(nPIPanel, startingConditions);
+        startingConditions.setSizes();
     }
 
     private void saveSlopeValues (NewProjectInitiatorPanel.SlopeInitiator nPISlope1, StartingConditions.Slope sCSlope1){

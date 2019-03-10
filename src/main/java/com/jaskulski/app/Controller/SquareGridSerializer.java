@@ -8,13 +8,19 @@ import com.jaskulski.app.UI.UILauncherFrame;
 
 import java.io.File;
 
-public class SquareGridSerializer extends SerializationHanlder{
+public class SquareGridSerializer extends BasicSerializer {
     private UILauncherFrame UILauncher;
     private StartingConditions startingConditions;
     private SquareGrid squareGrid;
 
+    public SquareGridSerializer(){}
+
+    public SquareGridSerializer(UILauncherFrame UILauncher1){
+        this.UILauncher = UILauncher1;
+    }
+
     public void serializeSquareGrid(SquareGrid squareGrid1){
-        super.serialize(squareGrid1, "/StartingConditions.ser");
+        super.serialize(squareGrid1, "/SquareGrid.ser");
     }
 
     public SquareGrid deserializeSGFromChooser() {

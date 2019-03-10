@@ -1,7 +1,8 @@
-package com.jaskulski.app.Controller;
+package com.jaskulski.app.Controller.SquareGridPanelControl;
 
+import com.jaskulski.app.Controller.StartingConditionsHandling.StartingConditionsSerializer;
 import com.jaskulski.app.Data.StartingConditions;
-import com.jaskulski.app.UI.ShowSCFrame;
+import com.jaskulski.app.UI.SquareGridUI.ShowSCFrame;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

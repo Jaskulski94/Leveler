@@ -1,13 +1,12 @@
-package com.jaskulski.app.Controller;
+package com.jaskulski.app.Controller.ProjectStarterControl;
 
 import com.jaskulski.app.Data.StartingConditions;
-import com.jaskulski.app.UI.NewProjectNamerFrame;
+import com.jaskulski.app.UI.ProjectStarterUI.NewProjectNamerFrame;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.nio.file.Path;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 

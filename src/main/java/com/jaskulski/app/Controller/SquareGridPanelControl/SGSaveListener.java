@@ -1,7 +1,9 @@
-package com.jaskulski.app.Controller;
+package com.jaskulski.app.Controller.SquareGridPanelControl;
 
+import com.jaskulski.app.Controller.SquareGridHanding.SquareGridSerializer;
+import com.jaskulski.app.Controller.SquareGridHanding.SquareGrindUIDataGetter;
 import com.jaskulski.app.Data.SquareGrid;
-import com.jaskulski.app.UI.SquareGridPanel;
+import com.jaskulski.app.UI.SquareGridUI.SquareGridPanel;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

@@ -1,8 +1,9 @@
-package com.jaskulski.app.Controller;
+package com.jaskulski.app.Controller.StartingConditionsHandling;
 
+import com.jaskulski.app.Controller.BasicSerializer;
 import com.jaskulski.app.Data.StartingConditions;
-import com.jaskulski.app.UI.ProjectStarterPanel;
-import com.jaskulski.app.UI.SquareGridPanel;
+import com.jaskulski.app.UI.ProjectStarterUI.ProjectStarterPanel;
+import com.jaskulski.app.UI.SquareGridUI.SquareGridPanel;
 import com.jaskulski.app.UI.UILauncherFrame;
 import java.io.*;
 

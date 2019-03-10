@@ -1,8 +1,10 @@
-package com.jaskulski.app.Controller;
+package com.jaskulski.app.Controller.ProjectStarterControl;
 
+import com.jaskulski.app.Controller.StartingConditionsHandling.StartingConditionsSerializer;
+import com.jaskulski.app.Controller.StartingConditionsHandling.StartingConditionsUIDataGetter;
 import com.jaskulski.app.Data.StartingConditions;
-import com.jaskulski.app.UI.NewProjectInitiatorPanel;
-import com.jaskulski.app.UI.SquareGridPanel;
+import com.jaskulski.app.UI.ProjectStarterUI.NewProjectInitiatorPanel;
+import com.jaskulski.app.UI.SquareGridUI.SquareGridPanel;
 import com.jaskulski.app.UI.UILauncherFrame;
 
 import javax.swing.*;

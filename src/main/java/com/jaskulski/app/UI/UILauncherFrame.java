@@ -1,5 +1,7 @@
 package com.jaskulski.app.UI;
 
+import com.jaskulski.app.UI.ProjectStarterUI.ProjectStarterPanel;
+
 import javax.swing.*;
 
 public class UILauncherFrame extends JFrame {

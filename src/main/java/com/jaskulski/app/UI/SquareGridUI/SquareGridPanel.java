@@ -1,10 +1,14 @@
-package com.jaskulski.app.UI;
+package com.jaskulski.app.UI.SquareGridUI;
 
-import com.jaskulski.app.Controller.SGBackListener;
-import com.jaskulski.app.Controller.SGSaveListener;
-import com.jaskulski.app.Controller.ShowSCListener;
+import com.jaskulski.app.Controller.SquareGridPanelControl.SGBackListener;
+import com.jaskulski.app.Controller.SquareGridPanelControl.SGSaveListener;
+import com.jaskulski.app.Controller.SquareGridPanelControl.ShowSCListener;
 import com.jaskulski.app.Data.SquareGrid;
 import com.jaskulski.app.Data.StartingConditions;
+import com.jaskulski.app.UI.ProjectStarterUI.NewProjectInitiatorPanel;
+import com.jaskulski.app.UI.UILauncherFrame;
+import com.jaskulski.app.UI.UIParameters;
+import com.jaskulski.app.UI.WhiteButton;
 
 import javax.swing.*;
 import java.awt.*;

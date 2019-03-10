@@ -1,7 +1,7 @@
-package com.jaskulski.app.Controller;
+package com.jaskulski.app.Controller.StartingConditionsHandling;
 
 import com.jaskulski.app.Data.StartingConditions;
-import com.jaskulski.app.UI.NewProjectInitiatorPanel;
+import com.jaskulski.app.UI.ProjectStarterUI.NewProjectInitiatorPanel;
 
 import javax.swing.*;
 

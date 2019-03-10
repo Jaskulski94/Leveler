@@ -1,4 +1,4 @@
-package com.jaskulski.app.Controller;
+package com.jaskulski.app.Controller.SquareGridPanelControl;
 
 import com.jaskulski.app.UI.UILauncherFrame;
 
@@ -6,17 +6,21 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ChangePanelListener implements ActionListener {
+public class BackListener implements ActionListener {
 
     private UILauncherFrame UILauncher;
-    private JPanel newPanel;
+    public JPanel newPanel;
 
-    public ChangePanelListener(UILauncherFrame UILauncher1, JPanel newPanel1) {
+    public BackListener(UILauncherFrame UILauncher1, JPanel panel1){
         this.UILauncher = UILauncher1;
-        this.newPanel = newPanel1;
+        this.newPanel = panel1;
     }
 
     public void actionPerformed(ActionEvent actionEvent) {
+        backAction();
+    }
+
+    public void backAction(){
         UILauncher.changePanel(newPanel);
     }
 }

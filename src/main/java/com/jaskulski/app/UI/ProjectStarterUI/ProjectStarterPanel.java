@@ -1,8 +1,11 @@
-package com.jaskulski.app.UI;
+package com.jaskulski.app.UI.ProjectStarterUI;
 
-import com.jaskulski.app.Controller.ChangePanelListener;
-import com.jaskulski.app.Controller.LoadProjectListener;
-import com.jaskulski.app.Controller.NewProjectListener;
+import com.jaskulski.app.Controller.ProjectStarterControl.ChangePanelListener;
+import com.jaskulski.app.Controller.ProjectStarterControl.LoadProjectListener;
+import com.jaskulski.app.Controller.ProjectStarterControl.NewProjectListener;
+import com.jaskulski.app.UI.UILauncherFrame;
+import com.jaskulski.app.UI.UIParameters;
+import com.jaskulski.app.UI.WhiteButton;
 
 import javax.swing.*;
 import java.awt.*;

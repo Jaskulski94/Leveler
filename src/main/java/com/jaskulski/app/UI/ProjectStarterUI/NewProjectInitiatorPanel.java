@@ -1,6 +1,9 @@
-package com.jaskulski.app.UI;
+package com.jaskulski.app.UI.ProjectStarterUI;
 
-import com.jaskulski.app.Controller.NewProjectInitiatorListener;
+import com.jaskulski.app.Controller.ProjectStarterControl.NewProjectInitiatorListener;
+import com.jaskulski.app.UI.UILauncherFrame;
+import com.jaskulski.app.UI.UIParameters;
+import com.jaskulski.app.UI.WhiteButton;
 
 import javax.swing.*;
 import javax.swing.border.Border;

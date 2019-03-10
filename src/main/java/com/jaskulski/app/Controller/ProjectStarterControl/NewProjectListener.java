@@ -1,6 +1,6 @@
-package com.jaskulski.app.Controller;
+package com.jaskulski.app.Controller.ProjectStarterControl;
 
-import com.jaskulski.app.UI.NewProjectNamerFrame;
+import com.jaskulski.app.UI.ProjectStarterUI.NewProjectNamerFrame;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

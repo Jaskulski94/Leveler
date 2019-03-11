@@ -6,21 +6,21 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class BasicBackListener implements ActionListener {
+public class ChangePanelListener implements ActionListener {
 
     private UILauncherFrame UILauncher;
     public JPanel newPanel;
 
-    public BasicBackListener(UILauncherFrame UILauncher1, JPanel panel1){
+    public ChangePanelListener(UILauncherFrame UILauncher1, JPanel newPanel1) {
         this.UILauncher = UILauncher1;
-        this.newPanel = panel1;
+        this.newPanel = newPanel1;
     }
 
     public void actionPerformed(ActionEvent actionEvent) {
-        backAction();
+        changeAction();
     }
 
-    public void backAction(){
+    public void changeAction(){
         UILauncher.changePanel(newPanel);
     }
 }

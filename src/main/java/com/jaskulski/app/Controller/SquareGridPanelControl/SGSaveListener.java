@@ -11,10 +11,10 @@ import java.awt.event.ActionListener;
 
 public class SGSaveListener implements ActionListener {
 
-    private SquareGridSerializer sQSerializer;
-    private SquareGrid squareGrid;
-    private SquareGridPanel sGPanel;
-    private SquareGrindUIDataGetter sGUIDGetter;
+    protected SquareGridSerializer sQSerializer;
+    protected SquareGrid squareGrid;
+    protected SquareGridPanel sGPanel;
+    protected SquareGrindUIDataGetter sGUIDGetter;
 
     public SGSaveListener (SquareGrid squareGrid1, SquareGridPanel sGPanel1){
         this.squareGrid = squareGrid1;
@@ -24,6 +24,10 @@ public class SGSaveListener implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent actionEvent) {
+        serializeAction();
+    }
+
+    protected void serializeAction(){
         sGUIDGetter.setStartingConditionsFromUI();
         sQSerializer.serializeSquareGrid(squareGrid);
         JOptionPane.showMessageDialog(null, "Zapisywanie skończone");

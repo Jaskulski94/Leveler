@@ -1,6 +1,8 @@
 package com.jaskulski.app.UI.SquareGridUI;
 
+import com.jaskulski.app.Controller.ChangePanelListener;
 import com.jaskulski.app.Controller.SquareGridPanelControl.SGBackListener;
+import com.jaskulski.app.Controller.SquareGridPanelControl.SGNextListener;
 import com.jaskulski.app.Controller.SquareGridPanelControl.SGSaveListener;
 import com.jaskulski.app.Controller.SquareGridPanelControl.ShowSCListener;
 import com.jaskulski.app.Data.SquareGrid;
@@ -67,7 +69,8 @@ public class SquareGridPanel extends JPanel {
         btnSave.addActionListener(new SGSaveListener(squareGrid, this));
 
         WhiteButton btnNext = new WhiteButton("Dalej");
-
+        btnNext.addActionListener(new SGNextListener(squareGrid, this));
+        btnNext.addActionListener(new ChangePanelListener(UILauncher, new JPanel()));
 
         JPanel pnlButtons = new JPanel();
         pnlButtons.setLayout(new GridBagLayout());

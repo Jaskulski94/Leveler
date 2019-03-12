@@ -104,7 +104,7 @@ public class SquareGridPanel extends JPanel {
         btnSave.addActionListener(new SGSaveListener(squareGrid, this));
 
         WhiteButton btnNext = new WhiteButton("Dalej");
-        btnNext.addActionListener(new SGNextListener(squareGrid, this));
+        btnNext.addActionListener(new SGNextListener(squareGrid, this, startingConditions));
         btnNext.addActionListener(new ChangePanelListener(UILauncher, new JPanel()));
 
         GBC.gridy++;

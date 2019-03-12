@@ -1,14 +1,19 @@
 package com.jaskulski.app.Controller.SquareGridPanelControl;
 
+import com.jaskulski.app.Controller.ProjectCalculator;
 import com.jaskulski.app.Data.SquareGrid;
+import com.jaskulski.app.Data.StartingConditions;
 import com.jaskulski.app.UI.SquareGridUI.SquareGridPanel;
 
 import java.awt.event.ActionEvent;
 
 public class SGNextListener extends SGSaveListener {
 
-    public SGNextListener (SquareGrid squareGrid1, SquareGridPanel sGPanel1){
+    private ProjectCalculator projectCalculator;
+
+    public SGNextListener (SquareGrid squareGrid1, SquareGridPanel sGPanel1, StartingConditions startingConditions1){
         super(squareGrid1, sGPanel1);
+        projectCalculator = new ProjectCalculator(startingConditions1, squareGrid1);
     }
 
     public void actionPerformed(ActionEvent actionEvent) {
@@ -17,6 +22,7 @@ public class SGNextListener extends SGSaveListener {
     }
 
     private void calculateFromSquareGrid(){
-
+        double check = projectCalculator.ordinateOfBalanceSheet();
+        System.out.println(check);
     }
 }

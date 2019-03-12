@@ -30,6 +30,7 @@ public class SquareGrid implements Serializable {
         public int index;
         public double terrainOrdinate;
         public double projectOrdinate;
+        public double ordinateDifference;
 
         public Square(int index1, double value1) {
             this.index = index1;

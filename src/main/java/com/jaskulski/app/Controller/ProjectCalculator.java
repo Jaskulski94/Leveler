@@ -59,12 +59,14 @@ public class ProjectCalculator {
     public void setSGProjectOrdinates(){
         double calculatedOrdiante = ordinateOfBalanceSheet();
         double calculatedLean = calculatedOrdiante*startingConditions.getFieldLean()/2/100;
+        double calculatedDif;
         calculatedOrdiante += calculatedLean;
         for(int i = 0; i<sizeX; i++) {
             calculatedOrdiante -= calculatedLean*2/sizeY;
             for (int j = 0; j < sizeY; j++) {
                 squareGrid.squares[i][j].setProjectOrdinate(calculatedOrdiante);
-                System.out.println("x: "+i+" y:"+calculatedOrdiante);
+                calculatedDif = squareGrid.squares[i][j].terrainOrdinate - calculatedOrdiante;
+                squareGrid.squares[i][j].setOrdinateDifference(calculatedDif);
             }
         }
     }

@@ -24,5 +24,7 @@ public class SGNextListener extends SGSaveListener {
     private void calculateFromSquareGrid(){
         double check = projectCalculator.ordinateOfBalanceSheet();
         System.out.println(check);
+
+        projectCalculator.setSGProjectOrdinates();
     }
 }

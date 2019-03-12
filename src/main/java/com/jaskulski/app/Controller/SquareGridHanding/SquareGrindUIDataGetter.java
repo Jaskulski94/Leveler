@@ -49,7 +49,7 @@ public class SquareGrindUIDataGetter {
                 else{
                     convertedValue = Double.parseDouble(squareValue);
                 }
-                squareGrid1.squares[i][j].initialValue = convertedValue;
+                squareGrid1.squares[i][j].terrainOrdinate = convertedValue;
             }
         }
     }

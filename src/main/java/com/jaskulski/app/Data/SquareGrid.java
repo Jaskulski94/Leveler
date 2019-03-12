@@ -28,12 +28,12 @@ public class SquareGrid implements Serializable {
     @Data
     public class Square implements Serializable{
         public int index;
-
-        public double initialValue;
+        public double terrainOrdinate;
+        public double projectOrdinate;
 
         public Square(int index1, double value1) {
             this.index = index1;
-            this.initialValue = value1;
+            this.terrainOrdinate = value1;
         }
     }
 }

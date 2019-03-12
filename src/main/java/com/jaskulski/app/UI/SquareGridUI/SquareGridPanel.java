@@ -16,6 +16,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class SquareGridPanel extends JPanel {
+    private JLabel lblPanelName;
     private UILauncherFrame UILauncher;
     private int sizeX, sizeY;
     public JTextField[][] txtSquares;
@@ -45,20 +46,54 @@ public class SquareGridPanel extends JPanel {
         this.sizeY = startingConditions.getSizeY();
         squareGrid = new SquareGrid(sizeX, sizeY);
 
+        txtSquares = new JTextField[sizeX][sizeY];
+        lblIndex = new JLabel[sizeX][sizeY];
+
+        this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
+
+        lblPanelName = new JLabel();
+        lblPanelName.setText("Rzędne terenowe");
+        lblPanelName.setAlignmentX(Component.CENTER_ALIGNMENT);
+        this.add(lblPanelName);
+
+        this.add(Box.createVerticalGlue());
+
         GridBagLayout gridBagLayout = new GridBagLayout();
         GBC = new GridBagConstraints();
-        this.setLayout(gridBagLayout);
         GBC.gridx = 0;
         GBC.gridy = 0;
         GBC.fill = GridBagConstraints.BOTH;
         GBC.weightx = 1;
         GBC.weighty = 1;
 
-        txtSquares = new JTextField[sizeX][sizeY];
-        lblIndex = new JLabel[sizeX][sizeY];
+        JPanel pnlSquareGrid = new JPanel();
+        pnlSquareGrid.setLayout(gridBagLayout);
 
-        addTextFields();
+        Dimension dimSquaresMax = new Dimension(UIParameters.frameWidth*sizeX/4, UIParameters.frameHeight*sizeY/10);
+        pnlSquareGrid.setMaximumSize(dimSquaresMax);
 
+        Dimension dimSquaresPref = new Dimension(UIParameters.frameWidth, UIParameters.frameHeight*sizeY/10);
+        pnlSquareGrid.setPreferredSize(dimSquaresPref);
+
+        addTextFields(pnlSquareGrid);
+        this.add(pnlSquareGrid);
+
+        this.add(Box.createVerticalGlue());
+
+        JPanel pnlButtons = new JPanel();
+        Dimension dimButtons = new Dimension(UIParameters.frameWidth, (int) Math.round(UIParameters.frameHeight*0.2));
+        pnlButtons.setMaximumSize(dimButtons);
+        pnlButtons.setLayout(new GridBagLayout());
+
+        addButtons(pnlButtons);
+        this.add(pnlButtons);
+
+        UIParameters.setFontToAll(this, UIParameters.fontSmall);
+        lblPanelName.setFont(UIParameters.fontBig);
+        UIParameters.setFontToAll(pnlButtons, UIParameters.fontMedium);
+    }
+
+    private void addButtons(JPanel panel1){
         WhiteButton btnPrevious = new WhiteButton("Cofnij");
         btnPrevious.addActionListener(new SGBackListener(UILauncher, new NewProjectInitiatorPanel(UILauncher)));
 
@@ -72,44 +107,39 @@ public class SquareGridPanel extends JPanel {
         btnNext.addActionListener(new SGNextListener(squareGrid, this));
         btnNext.addActionListener(new ChangePanelListener(UILauncher, new JPanel()));
 
-        JPanel pnlButtons = new JPanel();
-        pnlButtons.setLayout(new GridBagLayout());
-
         GBC.gridy++;
         GBC.gridx = 0;
 
-        int[][] dim = gridBagLayout.getLayoutDimensions();
-        int columns = dim[0].length;
-
-        GBC.gridwidth = columns;
         GBC.fill = GridBagConstraints.BOTH;
 
-        this.add(pnlButtons, GBC);
         GBC.gridwidth = 1;
-        pnlButtons.add(btnPrevious, GBC);
+        panel1.add(btnPrevious, GBC);
         GBC.gridx++;
-        pnlButtons.add(btnShowCS, GBC);
+        panel1.add(btnShowCS, GBC);
         GBC.gridx++;
-        pnlButtons.add(btnSave, GBC);
+        panel1.add(btnSave, GBC);
         GBC.gridx++;
-        pnlButtons.add(btnNext, GBC);
-
-        UIParameters.setFontToAll(this, UIParameters.fontSmall);
-        UIParameters.setFontToAll(pnlButtons, UIParameters.fontMedium);
+        panel1.add(btnNext, GBC);
     }
 
-    public void addTextFields() {
+    private void addTextFields(JPanel panel1) {
         for (int i = 0; i < sizeX; i++) {
             for (int j = 0; j < sizeY; j++) {
                 GBC.gridx = i;
                 GBC.gridy = j;
                 txtSquares[i][j] = new JTextField();
-                this.add(txtSquares[i][j], GBC);
+                panel1.add(txtSquares[i][j], GBC);
+            }
+        }
+    }
 
-                String index = (i + 1) + "-" + (j + 1);
-                lblIndex[i][j] = new JLabel(index);
-                this.add(lblIndex[i][j], GBC);
-                lblIndex[i][j].setVisible(true);
+    private void addIdexes(JPanel panel1) {
+        for (int i = 0; i < sizeX; i++) {
+            for (int j = 0; j < sizeY; j++) {
+                GBC.gridx = i;
+                GBC.gridy = j;
+                lblIndex[i][j] = new JLabel(i + " - " + j);
+                panel1.add(txtSquares[i][j], GBC);
             }
         }
     }

@@ -30,6 +30,5 @@ public class SGSaveListener implements ActionListener {
     protected void serializeAction(){
         sGUIDGetter.setStartingConditionsFromUI();
         sQSerializer.serializeSquareGrid(squareGrid);
-        JOptionPane.showMessageDialog(null, "Zapisywanie skończone");
     }
 }

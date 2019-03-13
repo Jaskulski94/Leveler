@@ -50,19 +50,22 @@ public class SquareGrindUIDataGetter {
                     convertedValue = Double.parseDouble(squareValue);
                 }
                 squareGrid1.squares[i][j].terrainOrdinate = convertedValue;
+                System.out.format("%.3f ", convertedValue);
             }
+            System.out.println("");
         }
     }
 
     private boolean compareSizes(SquareGridPanel sGPanel1, SquareGrid squareGrid1){
-        Boolean areEqual;
-        if(sGPanel1.txtSquares[0].length == squareGrid1.squares[0].length){
-            areEqual = true;
-        } else if (sGPanel1.txtSquares[1].length == squareGrid1.squares[1].length){
-            areEqual = true;
+        int txtSizeX = sGPanel1.txtSquares[0].length;
+        int squareSizeX = squareGrid1.squares[0].length;
+        int txtSizeY = sGPanel1.txtSquares[1].length;
+        int squareSizeY = squareGrid1.squares[1].length;
+
+        if((txtSizeX == squareSizeX) &&  (txtSizeY == squareSizeY)){
+            return true;
         } else {
-            areEqual = false;
+            return false;
         }
-        return areEqual;
     }
 }

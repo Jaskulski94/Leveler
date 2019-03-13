@@ -45,6 +45,7 @@ public class ProjectCalculator {
         }
 
         finalOrdinate = (1/(4*amountOfSquare))*(oneSquareOrdianate + 2*twoSquaresOrdinate + 4*fourSquaresOrdinate);
+        System.out.println("Rzędna płaszczyzny bilansowej: " + finalOrdinate);
         return finalOrdinate;
     }
 
@@ -57,6 +58,7 @@ public class ProjectCalculator {
     }
 
     public void setSGProjectOrdinates(){
+    //    System.out.println("Rzędne projektowe i różnice:");
         checkLeanDirection();
 
         double calculatedOrdiante = ordinateOfBalanceSheet();
@@ -69,7 +71,9 @@ public class ProjectCalculator {
                 squareGrid.squares[i][j].setProjectOrdinate(calculatedOrdiante);
                 calculatedDif = squareGrid.squares[i][j].terrainOrdinate - calculatedOrdiante;
                 squareGrid.squares[i][j].setOrdinateDifference(calculatedDif);
+                System.out.format("%.3f | %.3f   ", calculatedOrdiante, calculatedDif);
             }
+            System.out.println("");
         }
     }
 
@@ -97,7 +101,7 @@ public class ProjectCalculator {
     }
 
     public void findZeroPoints(){
-        double firstDif;
+        /*double firstDif;
         double secondDif;
         double calculatedZero;
         double copiedZero;
@@ -115,17 +119,34 @@ public class ProjectCalculator {
                     squareGrid.ListOfZeroPoints.add(squareGrid.getNewZeroPoints(calculatedZero, copiedZero, hOfZero));
                 }
             }
+        }*/
+
+        for(int i = 0; i<sizeX-1; i++) {
+            for (int j = 0; j < sizeY - 1; j++) {
+                checkAndAddZeroPoint(i, j, 1, 0);
+                checkAndAddZeroPoint(i, j, 0, 1);
+            }
+        }
+
+        for(SquareGrid.ZeroPoints points : squareGrid.ListOfZeroPoints){
+            System.out.println("Punkt zerowy: "+points.xOrdinate+" "+points.yOrdinate+" "+points.hOrdinate);
         }
     }
 
-    private void checkAndAddZeroPoint(int i1, int j1){
+    private void checkAndAddZeroPoint(int i1, int j1, int x1, int y1){
         double firstDif = squareGrid.squares[i1][j1].getOrdinateDifference();
-        double secondDif = squareGrid.squares[i1+1][j1].getOrdinateDifference();
+        double secondDif = squareGrid.squares[i1+x1][j1+y1].getOrdinateDifference();
+        double squareSide = startingConditions.getSquareSide();
+
         if((firstDif*secondDif)<0){
-            calculatedZero = i*squareSide+(firstDif * squareSide)/(firstDif * secondDif);
-            copiedZero = j * squareSide;
-            hOfZero = ordinateOfBalanceSheet()+startingConditions.getFieldLean()*calculatedZero;
-            squareGrid.ListOfZeroPoints.add(squareGrid.getNewZeroPoints(calculatedZero, copiedZero, hOfZero));
+            double calculatedZero = i1 * squareSide + (firstDif * squareSide) / (firstDif * secondDif);
+            double copiedZero = j1 * squareSide;
+            double hOfZero = ordinateOfBalanceSheet() + startingConditions.getFieldLean() * calculatedZero;
+            if(x1 == 1) {
+                squareGrid.ListOfZeroPoints.add(squareGrid.getNewZeroPoints(calculatedZero, copiedZero, hOfZero));
+            } else if (y1 == 1){
+                squareGrid.ListOfZeroPoints.add(squareGrid.getNewZeroPoints(copiedZero, calculatedZero, hOfZero));
+            }
         }
     }
 }

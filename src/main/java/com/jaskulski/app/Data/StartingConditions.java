@@ -39,6 +39,7 @@ public class StartingConditions implements Serializable {
     public void setSizes() {
         sizeX = (int) (slopeX.side / squareSide);
         sizeY = (int) (slopeY.side / squareSide);
+        System.out.println("Slope x: "+ sizeX + " Slope y: "+ sizeY);
     }
 
     public void printAll() {

@@ -102,18 +102,30 @@ public class ProjectCalculator {
         double calculatedZero;
         double copiedZero;
         double hOfZero;
+        double squareSide = startingConditions.getSquareSide();
 
         for(int i = 0; i<sizeX-1; i++) {
             for (int j = 0; j < sizeY-1; j++) {
                 firstDif = squareGrid.squares[i][j].getOrdinateDifference();
-                secondDif = squareGrid.squares[++i][j].getOrdinateDifference();
+                secondDif = squareGrid.squares[i+1][j].getOrdinateDifference();
                 if((firstDif*secondDif)<0){
-                    calculatedZero = (firstDif * startingConditions.getSquareSide())/(firstDif * secondDif);
-                    copiedZero = j * startingConditions.getSquareSide();
+                    calculatedZero = i*squareSide+(firstDif * squareSide)/(firstDif * secondDif);
+                    copiedZero = j * squareSide;
                     hOfZero = ordinateOfBalanceSheet()+startingConditions.getFieldLean()*calculatedZero;
                     squareGrid.ListOfZeroPoints.add(squareGrid.getNewZeroPoints(calculatedZero, copiedZero, hOfZero));
                 }
             }
+        }
+    }
+
+    private void checkAndAddZeroPoint(int i1, int j1){
+        double firstDif = squareGrid.squares[i1][j1].getOrdinateDifference();
+        double secondDif = squareGrid.squares[i1+1][j1].getOrdinateDifference();
+        if((firstDif*secondDif)<0){
+            calculatedZero = i*squareSide+(firstDif * squareSide)/(firstDif * secondDif);
+            copiedZero = j * squareSide;
+            hOfZero = ordinateOfBalanceSheet()+startingConditions.getFieldLean()*calculatedZero;
+            squareGrid.ListOfZeroPoints.add(squareGrid.getNewZeroPoints(calculatedZero, copiedZero, hOfZero));
         }
     }
 }

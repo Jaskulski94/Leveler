@@ -2,6 +2,7 @@ package com.jaskulski.app.Data;
 
 import java.awt.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import lombok.Data;
 
@@ -9,6 +10,7 @@ import lombok.Data;
 public class SquareGrid implements Serializable {
 
     public Square[][] squares;
+    public ArrayList<ZeroPoints> ListOfZeroPoints = new ArrayList<>();
 
     public SquareGrid(int sizeX, int sizeY) {
         squares = new Square[sizeX][sizeY];
@@ -36,5 +38,22 @@ public class SquareGrid implements Serializable {
             this.index = index1;
             this.terrainOrdinate = value1;
         }
+    }
+
+    @Data
+    public class ZeroPoints implements Serializable{
+        public double xOrdinate;
+        public double yOrdinate;
+        public double hOrdinate;
+
+        public ZeroPoints (double x1, double y1, double h1){
+            xOrdinate = x1;
+            yOrdinate = y1;
+            hOrdinate = h1;
+        }
+    }
+
+    public ZeroPoints getNewZeroPoints(double x1, double y1, double h1){
+        return new ZeroPoints(x1, y1, h1);
     }
 }

@@ -41,7 +41,7 @@ public class SquareGrid implements Serializable {
     }
 
     @Data
-    public static class ZeroPoints implements Serializable{
+    public class ZeroPoints implements Serializable{
         public double xOrdinate;
         public double yOrdinate;
         public double hOrdinate;
@@ -51,5 +51,10 @@ public class SquareGrid implements Serializable {
             yOrdinate = y1;
             hOrdinate = h1;
         }
+    }
+
+    public ZeroPoints createZeroPoints (double x1, double y1, double h1){
+        ZeroPoints newPoint = new ZeroPoints(x1, y1, h1);
+        return newPoint;
     }
 }

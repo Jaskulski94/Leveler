@@ -141,14 +141,14 @@ public class ProjectCalculator {
                 calculatedZero = i1 * squareSide + ((firstDif * squareSide) / (firstDif + secondDif));
                 copiedZero = j1 * squareSide;
                 hOfZero = squareGrid.squares[i1][j1].getProjectOrdinate();
-                squareGrid.listOfZeroPoints.add(squareGrid.getNewZeroPoints(calculatedZero, copiedZero, hOfZero));
+                SquareGrid.ZeroPoints newPoint = new SquareGrid.ZeroPoints(copiedZero, calculatedZero, hOfZero);
+                squareGrid.listOfZeroPoints.add(newPoint);
                 System.out.println("Dodano punkt zerowy X");
             } else if (y1 == 1){
                 copiedZero = i1 * squareSide;
                 calculatedZero = j1 * squareSide + ((firstDif * squareSide) / (firstDif + secondDif));
                 hOfZero = ordinateOfBalanceSheet() + startingConditions.getFieldLean() * calculatedZero / 100;
                 SquareGrid.ZeroPoints newPoint = new SquareGrid.ZeroPoints(copiedZero, calculatedZero, hOfZero);
-            //    squareGrid.listOfZeroPoints.add(squareGrid.getNewZeroPoints(copiedZero, calculatedZero, hOfZero));
                 squareGrid.listOfZeroPoints.add(newPoint);
                 System.out.println("Dodano punkt zerowy Y");
             }

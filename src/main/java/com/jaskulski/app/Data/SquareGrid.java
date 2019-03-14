@@ -52,8 +52,4 @@ public class SquareGrid implements Serializable {
             hOrdinate = h1;
         }
     }
-
-    public ZeroPoints getNewZeroPoints(double x1, double y1, double h1){
-        return new ZeroPoints(x1, y1, h1);
-    }
 }

@@ -29,9 +29,10 @@ public class NewProjectInitiatorListener implements ActionListener {
 
     public void actionPerformed(ActionEvent actionEvent) {
         sCDGetter.setStartingConditionsFromUI();
-        UILauncher.changePanel(new SquareGridPanel(startingConditions, UILauncher));
 
         checkSizes();
+
+        UILauncher.changePanel(new SquareGridPanel(startingConditions, UILauncher));
 
         startingConditionsSerializer.serializeStartingConditions(startingConditions);
     }

@@ -14,7 +14,7 @@ public class SquareGrindUIDataGetter {
         this.squareGrid = squareGrid1;
     }
 
-    public void setStartingConditionsFromUI() {
+    public void setSquareGridFromUI() {
         String message1 = "SquareGrindUIDataGetter Error: Niezgody rozmiar tablic danych";
         String message2 = "SquareGrindUIDataGetter Error: Zły typ wprowadzonych danych";
         String message3 = "SquareGrindUIDataGetter Error: Problem z rozmiarem tablicy";
@@ -24,7 +24,6 @@ public class SquareGrindUIDataGetter {
                 saveAllSquares(sGPanel, squareGrid);
             } else{
                 JOptionPane.showMessageDialog(null, message1);
-                return;
             }
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, message2);
@@ -37,12 +36,12 @@ public class SquareGrindUIDataGetter {
         int sizeX, sizeY;
         String squareValue;
         double convertedValue;
-        sizeX = squareGrid1.squares[0].length;
-        sizeY = squareGrid1.squares[1].length;
+        sizeX = squareGrid1.squares.length;
+        sizeY = squareGrid1.squares[0].length;
 
-        for (int i = 0; i < sizeX; i++){
-            for (int j = 0; j < sizeY; j++){
-                squareValue = sGPanel1.txtSquares[i][j].getText();
+        for (int j = 0; j < sizeY; j++){
+            for (int i = 0; i < sizeX; i++){
+                    squareValue = sGPanel1.txtSquares[i][j].getText();
                 if (squareValue.isEmpty()){
                     convertedValue = 0;
                 }
@@ -50,10 +49,11 @@ public class SquareGrindUIDataGetter {
                     convertedValue = Double.parseDouble(squareValue);
                 }
                 squareGrid1.squares[i][j].terrainOrdinate = convertedValue;
-                System.out.format("%.3f ", convertedValue);
+                System.out.format("%.2f ", convertedValue);
             }
             System.out.println("");
         }
+        System.out.println("");
     }
 
     private boolean compareSizes(SquareGridPanel sGPanel1, SquareGrid squareGrid1){

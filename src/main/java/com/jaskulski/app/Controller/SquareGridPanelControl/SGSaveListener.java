@@ -5,7 +5,6 @@ import com.jaskulski.app.Controller.SquareGridHanding.SquareGrindUIDataGetter;
 import com.jaskulski.app.Data.SquareGrid;
 import com.jaskulski.app.UI.SquareGridUI.SquareGridPanel;
 
-import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -28,7 +27,7 @@ public class SGSaveListener implements ActionListener {
     }
 
     protected void serializeAction(){
-        sGUIDGetter.setStartingConditionsFromUI();
+        sGUIDGetter.setSquareGridFromUI();
         sQSerializer.serializeSquareGrid(squareGrid);
     }
 }

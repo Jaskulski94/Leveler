@@ -10,7 +10,7 @@ import lombok.Data;
 public class SquareGrid implements Serializable {
 
     public Square[][] squares;
-    public ArrayList<ZeroPoints> ListOfZeroPoints = new ArrayList<>();
+    public ArrayList<ZeroPoints> listOfZeroPoints = new ArrayList<>();
 
     public SquareGrid(int sizeX, int sizeY) {
         squares = new Square[sizeX][sizeY];
@@ -41,7 +41,7 @@ public class SquareGrid implements Serializable {
     }
 
     @Data
-    public class ZeroPoints implements Serializable{
+    public static class ZeroPoints implements Serializable{
         public double xOrdinate;
         public double yOrdinate;
         public double hOrdinate;

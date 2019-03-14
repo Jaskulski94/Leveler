@@ -52,13 +52,11 @@ public class StartingConditions implements Serializable {
 
     public boolean isDivisible(StartingConditions.Slope slope1) {
         double checkedSize = slope1.getSide() / this.getSquareSide();
-        boolean divisible;
         if (checkedSize == Math.floor(checkedSize)) {
-            divisible = true;
+            return true;
         } else {
-            divisible = false;
+            return false;
         }
-        return divisible;
     }
 
     @Data

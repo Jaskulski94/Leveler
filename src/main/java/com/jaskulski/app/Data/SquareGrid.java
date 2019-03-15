@@ -9,32 +9,32 @@ import lombok.Data;
 @Data
 public class SquareGrid implements Serializable {
 
-    public Square[][] squares;
+    public SquareCorner[][] squareCorners;
     public ArrayList<ZeroPoints> listOfZeroPoints = new ArrayList<>();
 
     public SquareGrid(int sizeX, int sizeY) {
-        squares = new Square[sizeX][sizeY];
+        squareCorners = new SquareCorner[sizeX][sizeY];
         int index = 0;
         for (int i = 0; i < sizeX; i++) {
             for (int j = 0; j < sizeY; j++) {
-                squares[i][j] = new Square(index, 0);
+                squareCorners[i][j] = new SquareCorner(index, 0);
                 index++;
             }
         }
     }
 
     public Dimension getSquareDim(){
-        Dimension dim = new Dimension(squares[0].length, squares[1].length);
+        Dimension dim = new Dimension(squareCorners[0].length, squareCorners[1].length);
         return dim;
     }
     @Data
-    public class Square implements Serializable{
+    public class SquareCorner implements Serializable{
         public int index;
         public double terrainOrdinate;
         public double projectOrdinate;
         public double ordinateDifference;
 
-        public Square(int index1, double value1) {
+        public SquareCorner(int index1, double value1) {
             this.index = index1;
             this.terrainOrdinate = value1;
         }

@@ -19,7 +19,7 @@ public class SquareGridFiller {
         try{
             for(int i = 0; i<squareGridPanel.txtSquares[0].length; i++){
                 for(int j = 0; j<squareGridPanel.txtSquares[1].length; j++){
-                    initialValue = squareGrid.squares[i][j].getTerrainOrdinate();
+                    initialValue = squareGrid.squareCorners[i][j].getTerrainOrdinate();
                     squareGridPanel.txtSquares[i][j].setText(Double.toString(initialValue));
                 }
             }

@@ -12,8 +12,8 @@ public class ProjectCalculator {
     public ProjectCalculator (StartingConditions startingConditions1, SquareGrid squareGrid1){
         this.startingConditions = startingConditions1;
         this.squareGrid = squareGrid1;
-        sizeX = squareGrid.squares.length;
-        sizeY = squareGrid.squares[0].length;
+        sizeX = squareGrid.squareCorners.length;
+        sizeY = squareGrid.squareCorners[0].length;
         squaresX = sizeX - 1;
         squaresY = sizeY - 1;
     }
@@ -34,12 +34,12 @@ public class ProjectCalculator {
                 yCurb = checkIfCurb(j, sizeY);
                 if(xCurb || yCurb){
                     if(xCurb && yCurb){
-                        oneSquareOrdianate += squareGrid.squares[i][j].terrainOrdinate;
+                        oneSquareOrdianate += squareGrid.squareCorners[i][j].terrainOrdinate;
                     } else{
-                        twoSquaresOrdinate += squareGrid.squares[i][j].terrainOrdinate;
+                        twoSquaresOrdinate += squareGrid.squareCorners[i][j].terrainOrdinate;
                     }
                 } else{
-                    fourSquaresOrdinate += squareGrid.squares[i][j].terrainOrdinate;
+                    fourSquaresOrdinate += squareGrid.squareCorners[i][j].terrainOrdinate;
                 }
             }
         }
@@ -68,9 +68,9 @@ public class ProjectCalculator {
         for (int j = 0; j < sizeY; j++) {
             calculatedOrdiante -= calculatedLean*2/sizeY;
             for(int i = 0; i<sizeX; i++) {
-                squareGrid.squares[i][j].setProjectOrdinate(calculatedOrdiante);
-                calculatedDif = calculatedOrdiante - squareGrid.squares[i][j].terrainOrdinate;
-                squareGrid.squares[i][j].setOrdinateDifference(calculatedDif);
+                squareGrid.squareCorners[i][j].setProjectOrdinate(calculatedOrdiante);
+                calculatedDif = calculatedOrdiante - squareGrid.squareCorners[i][j].terrainOrdinate;
+                squareGrid.squareCorners[i][j].setOrdinateDifference(calculatedDif);
                 System.out.format("%.2f | %.2f   ", calculatedOrdiante, calculatedDif);
             }
             System.out.println("");
@@ -84,12 +84,12 @@ public class ProjectCalculator {
 
         for (int j = 0; j < (sizeY/2); j++) {
             for (int i = 0; i < sizeX; i++) {
-                LeanUp += squareGrid.squares[i][j].getTerrainOrdinate();
+                LeanUp += squareGrid.squareCorners[i][j].getTerrainOrdinate();
             }
         }
         for (int j = (sizeY/2); j < sizeY; j++) {
             for (int i = 0; i < sizeX; i++) {
-                LeanDown += squareGrid.squares[i][j].getTerrainOrdinate();
+                LeanDown += squareGrid.squareCorners[i][j].getTerrainOrdinate();
             }
         }
         double newLean = Math.abs(startingConditions.getFieldLean());
@@ -102,19 +102,6 @@ public class ProjectCalculator {
 
     public void findZeroPoints(){
         squareGrid.listOfZeroPoints.clear();
-
-        /*for (int j = 0; j < sizeY; j++) {
-            for(int i = 0; i<sizeX-1; i++) {
-                checkAndAddZeroPoint(i, j, 1, 0);
-            }
-        }
-
-        for (int j = 0; j < sizeY-1; j++) {
-            for(int i = 0; i<sizeX; i++) {
-                checkAndAddZeroPoint(i, j, 0, 1);
-            }
-        }*/
-
 
         for (int j = 0; j < sizeY; j++) {
             for(int i = 0; i<sizeX; i++) {
@@ -135,8 +122,8 @@ public class ProjectCalculator {
     }
 
     private void checkAndAddZeroPoint(int i1, int j1, int x1, int y1){
-        double firstDif = squareGrid.squares[i1][j1].getOrdinateDifference();
-        double secondDif = squareGrid.squares[i1+x1][j1+y1].getOrdinateDifference();
+        double firstDif = squareGrid.squareCorners[i1][j1].getOrdinateDifference();
+        double secondDif = squareGrid.squareCorners[i1+x1][j1+y1].getOrdinateDifference();
         double squareSide = startingConditions.getSquareSide();
         double calculatedZero;
         double copiedZero;
@@ -149,7 +136,7 @@ public class ProjectCalculator {
             if(x1 == 1) {
                 calculatedZero = i1 * squareSide + ((firstDif * squareSide) / (firstDif + secondDif));
                 copiedZero = j1 * squareSide;
-                hOfZero = squareGrid.squares[i1][j1].getProjectOrdinate();
+                hOfZero = squareGrid.squareCorners[i1][j1].getProjectOrdinate();
                 squareGrid.listOfZeroPoints.add(squareGrid.createZeroPoints(calculatedZero, copiedZero, hOfZero));
             } else if (y1 == 1){
                 copiedZero = i1 * squareSide;

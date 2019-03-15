@@ -36,8 +36,8 @@ public class SquareGrindUIDataGetter {
         int sizeX, sizeY;
         String squareValue;
         double convertedValue;
-        sizeX = squareGrid1.squares.length;
-        sizeY = squareGrid1.squares[0].length;
+        sizeX = squareGrid1.squareCorners.length;
+        sizeY = squareGrid1.squareCorners[0].length;
 
         for (int j = 0; j < sizeY; j++){
             for (int i = 0; i < sizeX; i++){
@@ -48,7 +48,7 @@ public class SquareGrindUIDataGetter {
                 else{
                     convertedValue = Double.parseDouble(squareValue);
                 }
-                squareGrid1.squares[i][j].terrainOrdinate = convertedValue;
+                squareGrid1.squareCorners[i][j].terrainOrdinate = convertedValue;
                 System.out.format("%.2f ", convertedValue);
             }
             System.out.println("");
@@ -58,9 +58,9 @@ public class SquareGrindUIDataGetter {
 
     private boolean compareSizes(SquareGridPanel sGPanel1, SquareGrid squareGrid1){
         int txtSizeX = sGPanel1.txtSquares[0].length;
-        int squareSizeX = squareGrid1.squares[0].length;
+        int squareSizeX = squareGrid1.squareCorners[0].length;
         int txtSizeY = sGPanel1.txtSquares[1].length;
-        int squareSizeY = squareGrid1.squares[1].length;
+        int squareSizeY = squareGrid1.squareCorners[1].length;
 
         if((txtSizeX == squareSizeX) &&  (txtSizeY == squareSizeY)){
             return true;

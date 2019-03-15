@@ -45,7 +45,6 @@ public class ProjectCalculator {
         }
 
         finalOrdinate = (1/(4*amountOfSquare))*(oneSquareOrdianate + 2*twoSquaresOrdinate + 4*fourSquaresOrdinate);
-    //    System.out.println("Rzędna płaszczyzny bilansowej: " + finalOrdinate);
         return finalOrdinate;
     }
 
@@ -58,7 +57,6 @@ public class ProjectCalculator {
     }
 
     public void setSGProjectOrdinates(){
-    //    System.out.println("Rzędne projektowe i różnice:");
         checkLeanDirection();
 
         double calculatedOrdiante = ordinateOfBalanceSheet();
@@ -128,7 +126,6 @@ public class ProjectCalculator {
         double calculatedZero;
         double copiedZero;
         double hOfZero;
-
 
         if((firstDif*secondDif)<0){
             firstDif = Math.abs(firstDif);

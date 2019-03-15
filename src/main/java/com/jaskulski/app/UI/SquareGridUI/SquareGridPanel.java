@@ -2,7 +2,6 @@ package com.jaskulski.app.UI.SquareGridUI;
 
 import com.jaskulski.app.Controller.ChangePanelListener;
 import com.jaskulski.app.Controller.SquareGridPanelControl.SGBackListener;
-import com.jaskulski.app.Controller.SquareGridPanelControl.SGNextListener;
 import com.jaskulski.app.Controller.SquareGridPanelControl.SGSaveListener;
 import com.jaskulski.app.Controller.SquareGridPanelControl.ShowSCListener;
 import com.jaskulski.app.Data.SquareGrid;
@@ -101,10 +100,10 @@ public class SquareGridPanel extends JPanel {
         btnShowCS.addActionListener(new ShowSCListener());
 
         WhiteButton btnSave = new WhiteButton("Zapisz zmiany");
-        btnSave.addActionListener(new SGSaveListener(squareGrid, this));
+        btnSave.addActionListener(new SGSaveListener(squareGrid, startingConditions, this));
 
         WhiteButton btnNext = new WhiteButton("Dalej");
-        btnNext.addActionListener(new SGNextListener(squareGrid, this, startingConditions));
+        btnNext.addActionListener(new SGSaveListener(squareGrid, startingConditions, this));
     //    btnNext.addActionListener(new ChangePanelListener(UILauncher, new JPanel()));
 
         GBC.gridy++;

@@ -101,7 +101,9 @@ public class ProjectCalculator {
     }
 
     public void findZeroPoints(){
-/*        for (int j = 0; j < sizeY; j++) {
+        squareGrid.listOfZeroPoints.clear();
+
+        /*for (int j = 0; j < sizeY; j++) {
             for(int i = 0; i<sizeX-1; i++) {
                 checkAndAddZeroPoint(i, j, 1, 0);
             }
@@ -113,18 +115,21 @@ public class ProjectCalculator {
             }
         }*/
 
+
         for (int j = 0; j < sizeY; j++) {
             for(int i = 0; i<sizeX; i++) {
                 if(i<sizeX-1){
                     checkAndAddZeroPoint(i, j, 1, 0);
-                } else if(j<sizeY-1){
+                }
+
+                if(j<sizeY-1){
                     checkAndAddZeroPoint(i, j, 0, 1);
                 }
             }
         }
 
         for(SquareGrid.ZeroPoints points : squareGrid.listOfZeroPoints){
-            System.out.format("Punkt zerowy: %.2f %.2f  %.2f ", points.xOrdinate, points.yOrdinate, points.hOrdinate);
+            System.out.format("Punkt zerowy: %.2f %.2f %.2f ", points.xOrdinate, points.yOrdinate, points.hOrdinate);
             System.out.println("");
         }
     }
@@ -136,25 +141,21 @@ public class ProjectCalculator {
         double calculatedZero;
         double copiedZero;
         double hOfZero;
-        SquareGrid.ZeroPoints newPoint;
 
-        squareGrid.listOfZeroPoints.clear();
 
         if((firstDif*secondDif)<0){
+            firstDif = Math.abs(firstDif);
+            secondDif = Math.abs(secondDif);
             if(x1 == 1) {
                 calculatedZero = i1 * squareSide + ((firstDif * squareSide) / (firstDif + secondDif));
                 copiedZero = j1 * squareSide;
                 hOfZero = squareGrid.squares[i1][j1].getProjectOrdinate();
-            //    newPoint = squareGrid.createZeroPoints(calculatedZero, copiedZero, hOfZero);
                 squareGrid.listOfZeroPoints.add(squareGrid.createZeroPoints(calculatedZero, copiedZero, hOfZero));
-                System.out.println("Dodano punkt zerowy X");
             } else if (y1 == 1){
                 copiedZero = i1 * squareSide;
                 calculatedZero = j1 * squareSide + ((firstDif * squareSide) / (firstDif + secondDif));
                 hOfZero = ordinateOfBalanceSheet() + startingConditions.getFieldLean() * calculatedZero / 100;
-            //    newPoint = squareGrid.createZeroPoints(copiedZero, calculatedZero, hOfZero);
                 squareGrid.listOfZeroPoints.add(squareGrid.createZeroPoints(copiedZero, calculatedZero, hOfZero));
-                System.out.println("Dodano punkt zerowy Y");
             }
         }
     }

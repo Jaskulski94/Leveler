@@ -1,6 +1,6 @@
 package com.jaskulski.app.Controller.SquareGridPanelControl;
 
-import com.jaskulski.app.Controller.ProjectCalculator;
+import com.jaskulski.app.Controller.SquareGridHanding.SquareGridCalculator;
 import com.jaskulski.app.Controller.SquareGridHanding.SquareGridSerializer;
 import com.jaskulski.app.Controller.SquareGridHanding.SquareGrindUIDataGetter;
 import com.jaskulski.app.Data.SquareGrid;
@@ -16,12 +16,12 @@ public class SGSaveListener implements ActionListener {
     private SquareGrid squareGrid;
     private SquareGridPanel sGPanel;
     private SquareGrindUIDataGetter sGUIDGetter;
-    private ProjectCalculator projectCalculator;
+    private SquareGridCalculator projectCalculator;
 
     public SGSaveListener (SquareGrid squareGrid1, StartingConditions startingConditions1, SquareGridPanel sGPanel1){
         this.squareGrid = squareGrid1;
         this.sGPanel = sGPanel1;
-        this.projectCalculator = new ProjectCalculator(startingConditions1, squareGrid1);
+        this.projectCalculator = new SquareGridCalculator(startingConditions1, squareGrid1);
         this.sGUIDGetter = new SquareGrindUIDataGetter(sGPanel, squareGrid);
         this.sQSerializer = new SquareGridSerializer();
     }

@@ -1,15 +1,15 @@
-package com.jaskulski.app.Controller;
+package com.jaskulski.app.Controller.SquareGridHanding;
 
 import com.jaskulski.app.Data.SquareGrid;
 import com.jaskulski.app.Data.StartingConditions;
 
-public class ProjectCalculator {
+public class SquareGridCalculator {
     private StartingConditions startingConditions;
     private SquareGrid squareGrid;
     private int sizeX, sizeY;
     private int squaresX, squaresY;
 
-    public ProjectCalculator (StartingConditions startingConditions1, SquareGrid squareGrid1){
+    public SquareGridCalculator(StartingConditions startingConditions1, SquareGrid squareGrid1){
         this.startingConditions = startingConditions1;
         this.squareGrid = squareGrid1;
         sizeX = squareGrid.squareCorners.length;

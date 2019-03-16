@@ -1,4 +1,4 @@
-package com.jaskulski.app.Controller.SquareGridHanding;
+package com.jaskulski.app.Controller.SquareGridHandling;
 
 import com.jaskulski.app.Controller.BasicSerializer;
 import com.jaskulski.app.Data.SquareGrid;

@@ -11,6 +11,13 @@ public class CalculatedSquares {
 
     @Data
     public class SingleSquare{
+        public SingleSquare(){
+            leftTopCor = new SquarePoint();
+            rightTopCor = new SquarePoint();
+            leftDownCor = new SquarePoint();
+            rightDownCor = new SquarePoint();
+        }
+
         int index;
 
         public SquarePoint leftTopCor;
@@ -53,6 +60,8 @@ public class CalculatedSquares {
             double ordinateX;
             double ordinateY;
             double ordinateH;
+
+            public SquarePoint(){}
 
             public SquarePoint(double x1, double y1, double h1){
                 this.ordinateX = x1;

@@ -1,8 +1,8 @@
 package com.jaskulski.app.Controller.SquareGridPanelControl;
 
-import com.jaskulski.app.Controller.SquareGridHanding.SquareGridCalculator;
-import com.jaskulski.app.Controller.SquareGridHanding.SquareGridSerializer;
-import com.jaskulski.app.Controller.SquareGridHanding.SquareGrindUIDataGetter;
+import com.jaskulski.app.Controller.SquareGridHandling.SquareGridCalculator;
+import com.jaskulski.app.Controller.SquareGridHandling.SquareGridSerializer;
+import com.jaskulski.app.Controller.SquareGridHandling.SquareGrindUIDataGetter;
 import com.jaskulski.app.Data.SquareGrid;
 import com.jaskulski.app.Data.StartingConditions;
 import com.jaskulski.app.UI.SquareGridUI.SquareGridPanel;

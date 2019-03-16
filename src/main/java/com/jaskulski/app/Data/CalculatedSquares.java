@@ -1,8 +1,12 @@
 package com.jaskulski.app.Data;
 
+import lombok.Data;
+
+@Data
 public class CalculatedSquares {
     public SingleSquare[][] squares;
 
+    @Data
     public class SingleSquare{
         int index;
 

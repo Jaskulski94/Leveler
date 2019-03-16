@@ -113,8 +113,8 @@ public class SquareGridCalculator {
             }
         }
 
-        for(SquareGrid.ZeroPoints points : squareGrid.listOfZeroPoints){
-            System.out.format("Punkt zerowy: %.2f %.2f %.2f ", points.xOrdinate, points.yOrdinate, points.hOrdinate);
+        for(SquareGrid.ZeroPoint points : squareGrid.listOfZeroPoints){
+            System.out.format("Punkt zerowy: %.2f %.2f %.2f ", points.indexX, points.indexY, points.ordinateH);
             System.out.println("");
         }
     }

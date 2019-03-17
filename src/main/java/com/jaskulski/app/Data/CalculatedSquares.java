@@ -8,6 +8,8 @@ import java.util.List;
 @Data
 public class CalculatedSquares {
     public SingleSquare[][] squares;
+    public int sizeX;
+    public int sizeY;
 
     @Data
     public class SingleSquare{
@@ -26,11 +28,6 @@ public class CalculatedSquares {
         public SquarePoint rightDownCor;
 
         public List<SquarePoint> zeroSquarePoints = new ArrayList<>();
-
-        /*double zeroPointX1;
-        double zeroPointY1;
-        double zeroPointX2;
-        double zeroPointY2;*/
 
         double addArea;
         double addVolume;
@@ -73,10 +70,6 @@ public class CalculatedSquares {
                 this.ordinateX = ordinateX1;
                 this.ordinateY = ordinateY1;
             }
-
-           /* public SquarePoint convertSGZeroPoint(SquareGrid.ZeroPoint point){
-
-            }*/
         }
     }
 }

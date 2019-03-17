@@ -7,10 +7,8 @@ import com.jaskulski.app.Controller.SquareGridPanelControl.SGSaveListener;
 import com.jaskulski.app.Controller.SquareGridPanelControl.ShowSCListener;
 import com.jaskulski.app.Data.SquareGrid;
 import com.jaskulski.app.Data.StartingConditions;
+import com.jaskulski.app.UI.*;
 import com.jaskulski.app.UI.ProjectStarterUI.NewProjectInitiatorPanel;
-import com.jaskulski.app.UI.UILauncherFrame;
-import com.jaskulski.app.UI.UIParameters;
-import com.jaskulski.app.UI.WhiteButton;
 
 import javax.swing.*;
 import java.awt.*;
@@ -105,7 +103,7 @@ public class SquareGridPanel extends JPanel {
 
         WhiteButton btnNext = new WhiteButton("Dalej");
         btnNext.addActionListener(new SGSaveListener(squareGrid, startingConditions, this));
-        btnNext.addActionListener(new SGNextListener(UILauncher, new JPanel(), startingConditions, squareGrid));
+        btnNext.addActionListener(new SGNextListener(startingConditions, squareGrid));
 
         GBC.gridy++;
         GBC.gridx = 0;

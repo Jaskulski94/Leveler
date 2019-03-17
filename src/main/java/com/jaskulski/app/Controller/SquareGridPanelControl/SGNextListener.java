@@ -1,32 +1,42 @@
 package com.jaskulski.app.Controller.SquareGridPanelControl;
 
 import com.jaskulski.app.Controller.CalculatedSquaresHandling.CalculatedSquaresCalculator;
-import com.jaskulski.app.Controller.ChangePanelListener;
 import com.jaskulski.app.Data.CalculatedSquares;
 import com.jaskulski.app.Data.SquareGrid;
 import com.jaskulski.app.Data.StartingConditions;
-import com.jaskulski.app.UI.UILauncherFrame;
+import com.jaskulski.app.UI.CalculatedSquaresUI.CalculatedSquaresFrame;
+import com.jaskulski.app.UI.CalculatedSquaresUI.CalculatedSquaresPanel;
 
-import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class SGNextListener extends ChangePanelListener {
+public class SGNextListener implements ActionListener {
     public StartingConditions startingConditions;
     public SquareGrid squareGrid;
     public CalculatedSquares calculatedSquares;
     public CalculatedSquaresCalculator cSCalculator;
+    public CalculatedSquaresFrame cSFrame;
 
-    public SGNextListener(UILauncherFrame UILauncher1, JPanel newPanel1, StartingConditions sC1, SquareGrid sG1) {
-        super(UILauncher1, newPanel1);
+    public SGNextListener(StartingConditions sC1, SquareGrid sG1) {
         this.startingConditions = sC1;
         this.squareGrid = sG1;
         this.calculatedSquares = new CalculatedSquares();
         this.cSCalculator = new CalculatedSquaresCalculator(startingConditions, squareGrid, calculatedSquares);
     }
 
-    public void changeAction(){
+    @Override
+    public void actionPerformed(ActionEvent actionEvent) {
+        calculateAction();
+        initiateNewFrameAction();
+    }
+
+    private void calculateAction(){
         cSCalculator.calculateCS();
-        super.changeAction();
-        System.out.println("Zrobiono");
+    }
+
+    private void initiateNewFrameAction() {
+        cSFrame = new CalculatedSquaresFrame();
+        cSFrame.add(new CalculatedSquaresPanel(cSCalculator.getCSSizeX(), cSCalculator.getCSSizeY()));
     }
 
 }

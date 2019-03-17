@@ -10,9 +10,17 @@ public class CalculatedSquaresCalculator {
     private CalculatedSquares calculatedSquares;
     private int sGSizeX;
     private int sGsizeY;
-    private int cSSizeX;
-    private int cSSizeY;
+    public int cSSizeX;
+    public int cSSizeY;
     private double squareSize;
+
+    public int getCSSizeX(){
+        return cSSizeX;
+    }
+
+    public int getCSSizeY(){
+        return cSSizeY;
+    }
 
     public CalculatedSquaresCalculator(StartingConditions sC1, SquareGrid sG1, CalculatedSquares cS1) {
         this.startingConditions = sC1;

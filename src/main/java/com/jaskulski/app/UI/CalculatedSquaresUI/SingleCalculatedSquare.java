@@ -1,7 +1,8 @@
 package com.jaskulski.app.UI.CalculatedSquaresUI;
 
+import com.jaskulski.app.UI.UIParameters;
+
 import javax.swing.*;
-import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import java.awt.*;
 
@@ -31,14 +32,14 @@ public class SingleCalculatedSquare extends JPanel {
         lblOrdYText.setText(String.valueOf(y1));
         lblOrdHText.setText(String.valueOf(h1));
 
-        arrangeLayout();
+        setSquareStyle();
     }
 
     private void initiateSingleSquareLabels(){
         lblIndex = new JLabel("Numer: ");
-        lblOrdX = new JLabel("X: ");
-        lblOrdY = new JLabel("Y ");
-        lblOrdH = new JLabel("Rzędna projektowa: ");
+        lblOrdX = new JLabel("Rz. X: ");
+        lblOrdY = new JLabel("Rz. Y: ");
+        lblOrdH = new JLabel("Rz. pro: ");
 
         lblIndexText = new JLabel();
         lblOrdXText = new JLabel();
@@ -46,7 +47,7 @@ public class SingleCalculatedSquare extends JPanel {
         lblOrdHText = new JLabel();
 
         GBC.anchor = GridBagConstraints.WEST;
-        GBC.weightx = 1;
+    //    GBC.weightx = 1;
 
         GBC.gridx = 0;
         GBC.gridy = 0;
@@ -75,10 +76,16 @@ public class SingleCalculatedSquare extends JPanel {
         this.add(lblOrdHText, GBC);
     }
 
-    private void arrangeLayout(){
+    private void setSquareStyle(){
+        /*int x = UIParameters.frameWidth/10;
+        int y = UIParameters.frameHeight/10;
+        Dimension dimPreferred = new Dimension(x, y);
+        this.setPreferredSize(dimPreferred);
+        Dimension dimMax = new Dimension(150, 150);
+        this.setMaximumSize(dimMax);*/
 
-        Dimension dim = new Dimension(70, 70);
-        this.setPreferredSize(dim);
+        this.setBackground(Color.white);
+        UIParameters.setFontToAll(this, UIParameters.fontTiny);
         this.setBorder(new LineBorder(Color.black));
     }
 }

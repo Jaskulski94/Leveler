@@ -10,17 +10,23 @@ public class UIParameters {
 
     public static Dimension dimScreen;
     public static Dimension dimFrame;
+    public static Dimension dimFrame2;
+    public static Dimension dimFrameSmall;
     public static int frameWidth;
     public static int frameHeight;
 
-    private static void setScreenDim() {
+    private static void setDimScreen() {
         dimScreen = Toolkit.getDefaultToolkit().getScreenSize();
     }
 
-    private static void setFrameSize() {
+    private static void setDimFrame() {
         frameWidth = dimScreen.width / 3;
         frameHeight = dimScreen.height * 2 / 3;
         dimFrame = new Dimension(frameWidth, frameHeight);
+        dimFrame2 = new Dimension(frameWidth*2, (int) dimScreen.getHeight() - 100);
+    //    int x = (int) dimScreen.getWidth()/6;
+        int y = (int) dimScreen.getHeight()/6;
+        dimFrameSmall = new Dimension(y, y);
     }
 
     private static void initializeFonts() {
@@ -32,8 +38,8 @@ public class UIParameters {
     }
 
     public static void initializeParameters() {
-        setScreenDim();
-        setFrameSize();
+        setDimScreen();
+        setDimFrame();
         initializeFonts();
     }
 

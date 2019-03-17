@@ -7,6 +7,8 @@ import com.jaskulski.app.Data.StartingConditions;
 import com.jaskulski.app.UI.CalculatedSquaresUI.CalculatedSquaresFrame;
 import com.jaskulski.app.UI.CalculatedSquaresUI.CalculatedSquaresPanel;
 
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -36,7 +38,11 @@ public class SGNextListener implements ActionListener {
 
     private void initiateNewFrameAction() {
         cSFrame = new CalculatedSquaresFrame();
-        cSFrame.add(new CalculatedSquaresPanel(cSCalculator.getCSSizeX(), cSCalculator.getCSSizeY()));
+        CalculatedSquaresPanel pnlCS = new CalculatedSquaresPanel(cSCalculator.getCSSizeX(), cSCalculator.getCSSizeY());
+        JScrollPane scroller = new JScrollPane(pnlCS);
+        cSFrame.add(scroller, BorderLayout.CENTER);
+
+    //    cSFrame.add(new CalculatedSquaresPanel(cSCalculator.getCSSizeX(), cSCalculator.getCSSizeY()));
     }
 
 }

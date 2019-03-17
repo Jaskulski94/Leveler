@@ -1,4 +1,7 @@
 package com.jaskulski.app.UI;
 
-public class CalculatedSquaresPanel {
+import javax.swing.*;
+
+public class CalculatedSquaresPanel extends JPanel {
+
 }

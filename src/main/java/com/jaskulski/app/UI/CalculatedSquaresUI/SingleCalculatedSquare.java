@@ -17,6 +17,8 @@ public class SingleCalculatedSquare extends JPanel {
     private JLabel lblOrdYText;
     private JLabel lblOrdHText;
 
+    private JLabel lblEmpty;
+
     GridBagLayout GBL;
     GridBagConstraints GBC;
 
@@ -36,7 +38,7 @@ public class SingleCalculatedSquare extends JPanel {
     }
 
     private void initiateSingleSquareLabels(){
-        lblIndex = new JLabel("Numer: ");
+        lblIndex = new JLabel("Nr: ");
         lblOrdX = new JLabel("Rz. X: ");
         lblOrdY = new JLabel("Rz. Y: ");
         lblOrdH = new JLabel("Rz. pro: ");
@@ -45,6 +47,8 @@ public class SingleCalculatedSquare extends JPanel {
         lblOrdXText = new JLabel();
         lblOrdYText = new JLabel();
         lblOrdHText = new JLabel();
+
+        lblEmpty = new JLabel("     ");
 
         GBC.anchor = GridBagConstraints.WEST;
     //    GBC.weightx = 1;
@@ -74,6 +78,10 @@ public class SingleCalculatedSquare extends JPanel {
 
         GBC.gridy = 3;
         this.add(lblOrdHText, GBC);
+
+        GBC.gridx = 2;
+        GBC.gridy = 4;
+        this.add(lblEmpty, GBC);
     }
 
     private void setSquareStyle(){

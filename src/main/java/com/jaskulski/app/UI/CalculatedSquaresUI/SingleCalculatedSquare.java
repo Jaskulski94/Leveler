@@ -1,10 +1,12 @@
 package com.jaskulski.app.UI.CalculatedSquaresUI;
 
 import com.jaskulski.app.UI.UIParameters;
-
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
+
+import static org.apache.commons.lang3.StringUtils.rightPad;
+
 
 public class SingleCalculatedSquare extends JPanel {
     private JLabel lblIndex;
@@ -30,8 +32,11 @@ public class SingleCalculatedSquare extends JPanel {
         initiateSingleSquareLabels();
 
         String x = String.format("%.2f", x1);
+        x = rightPad(x, 10, ' ');
         String y = String.format("%.2f", y1);
+        y = rightPad(y, 10, ' ');
         String h = String.format("%.2f", h1);
+        h = rightPad(h, 10, ' ');
 
         lblIndexText.setText(String.valueOf(index1));
         lblOrdXText.setText(x);
@@ -89,7 +94,7 @@ public class SingleCalculatedSquare extends JPanel {
 
     private void setSquareStyle(){
         this.setBackground(Color.white);
-        UIParameters.setFontToAll(this, UIParameters.fontTiny);
+        UIParameters.setFontToAll(this, UIParameters.fontSmall);
         this.setBorder(new LineBorder(Color.black));
     }
 }

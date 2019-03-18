@@ -5,19 +5,19 @@ import com.jaskulski.app.UI.SquareGridUI.SquareGridPanel;
 
 import javax.swing.*;
 
-public class SquareGrindUIDataGetter {
+public class SquareGridUIDataGetter {
     private SquareGridPanel sGPanel;
     private SquareGrid squareGrid;
 
-    public SquareGrindUIDataGetter(SquareGridPanel sGPanel1, SquareGrid squareGrid1){
+    public SquareGridUIDataGetter(SquareGridPanel sGPanel1, SquareGrid squareGrid1){
         this.sGPanel = sGPanel1;
         this.squareGrid = squareGrid1;
     }
 
     public void setSquareGridFromUI() {
-        String message1 = "SquareGrindUIDataGetter Error: Niezgody rozmiar tablic danych";
-        String message2 = "SquareGrindUIDataGetter Error: Zły typ wprowadzonych danych";
-        String message3 = "SquareGrindUIDataGetter Error: Problem z rozmiarem tablicy";
+        String message1 = "SquareGridUIDataGetter Error: Niezgody rozmiar tablic danych";
+        String message2 = "SquareGridUIDataGetter Error: Zły typ wprowadzonych danych";
+        String message3 = "SquareGridUIDataGetter Error: Problem z rozmiarem tablicy";
 
         try {
             if(compareSizes(sGPanel, squareGrid)){

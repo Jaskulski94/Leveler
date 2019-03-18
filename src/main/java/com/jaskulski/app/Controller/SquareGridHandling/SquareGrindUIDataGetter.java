@@ -62,10 +62,6 @@ public class SquareGrindUIDataGetter {
         int txtSizeY = sGPanel1.txtSquares[1].length;
         int squareSizeY = squareGrid1.squareCorners[1].length;
 
-        if((txtSizeX == squareSizeX) &&  (txtSizeY == squareSizeY)){
-            return true;
-        } else {
-            return false;
-        }
+        return ((txtSizeX == squareSizeX) && (txtSizeY == squareSizeY));
     }
 }

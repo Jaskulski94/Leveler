@@ -1,6 +1,5 @@
 package com.jaskulski.app.UI.SquareGridUI;
 
-import com.jaskulski.app.Controller.ChangePanelListener;
 import com.jaskulski.app.Controller.SquareGridPanelControl.SGBackListener;
 import com.jaskulski.app.Controller.SquareGridPanelControl.SGNextListener;
 import com.jaskulski.app.Controller.SquareGridPanelControl.SGSaveListener;
@@ -18,7 +17,6 @@ public class SquareGridPanel extends JPanel {
     private UILauncherFrame UILauncher;
     private int sizeX, sizeY;
     public JTextField[][] txtSquares;
-    private JLabel[][] lblIndex;
     private GridBagConstraints GBC;
     private StartingConditions startingConditions;
     private SquareGrid squareGrid;
@@ -39,13 +37,12 @@ public class SquareGridPanel extends JPanel {
         initializeSquareGridPanel();
     }
 
-    public void initializeSquareGridPanel(){
+    private void initializeSquareGridPanel(){
         this.sizeX = startingConditions.getSizeX();
         this.sizeY = startingConditions.getSizeY();
         squareGrid = new SquareGrid(sizeX, sizeY);
 
         txtSquares = new JTextField[sizeX][sizeY];
-        lblIndex = new JLabel[sizeX][sizeY];
 
         this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 
@@ -126,17 +123,6 @@ public class SquareGridPanel extends JPanel {
                 GBC.gridx = i;
                 GBC.gridy = j;
                 txtSquares[i][j] = new JTextField();
-                panel1.add(txtSquares[i][j], GBC);
-            }
-        }
-    }
-
-    private void addIdexes(JPanel panel1) {
-        for (int i = 0; i < sizeX; i++) {
-            for (int j = 0; j < sizeY; j++) {
-                GBC.gridx = i;
-                GBC.gridy = j;
-                lblIndex[i][j] = new JLabel(i + " - " + j);
                 panel1.add(txtSquares[i][j], GBC);
             }
         }

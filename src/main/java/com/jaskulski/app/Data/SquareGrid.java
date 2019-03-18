@@ -1,6 +1,5 @@
 package com.jaskulski.app.Data;
 
-import java.awt.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -23,10 +22,6 @@ public class SquareGrid implements Serializable {
         }
     }
 
-    public Dimension getSquareDim(){
-        Dimension dim = new Dimension(squareCorners[0].length, squareCorners[1].length);
-        return dim;
-    }
     @Data
     public class SquareCorner implements Serializable{
         public int index;
@@ -54,11 +49,6 @@ public class SquareGrid implements Serializable {
     }
 
     public ZeroPoint createZeroPoints (double x1, double y1, double h1){
-        ZeroPoint newPoint = new ZeroPoint(x1, y1, h1);
-        return newPoint;
+        return (new ZeroPoint(x1, y1, h1));
     }
-
-    /*public CalculatedSquares.SingleSquare.SquarePoint convertSGZeroPoint(ZeroPoint point){
-        CalculatedSquares.SingleSquare.SquarePoint newPoint = new CalculatedSquares.SingleSquare.SquarePoint();
-    }*/
 }

@@ -14,10 +14,10 @@ import java.awt.event.ActionListener;
 
 public class SGNextListener implements ActionListener {
     public StartingConditions startingConditions;
-    public SquareGrid squareGrid;
-    public CalculatedSquares calculatedSquares;
-    public CalculatedSquaresCalculator cSCalculator;
-    public CalculatedSquaresFrame cSFrame;
+    private SquareGrid squareGrid;
+    private CalculatedSquares calculatedSquares;
+    private CalculatedSquaresCalculator cSCalculator;
+    private CalculatedSquaresFrame cSFrame;
 
     public SGNextListener(StartingConditions sC1, SquareGrid sG1) {
         this.startingConditions = sC1;
@@ -41,8 +41,5 @@ public class SGNextListener implements ActionListener {
         CalculatedSquaresPanel pnlCS = new CalculatedSquaresPanel(cSCalculator.getCSSizeX(), cSCalculator.getCSSizeY());
         JScrollPane scroller = new JScrollPane(pnlCS);
         cSFrame.add(scroller, BorderLayout.CENTER);
-
-    //    cSFrame.add(new CalculatedSquaresPanel(cSCalculator.getCSSizeX(), cSCalculator.getCSSizeY()));
     }
-
 }

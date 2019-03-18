@@ -18,11 +18,7 @@ public class SquareGridCalculator {
         squaresY = sizeY - 1;
     }
 
-    public void calculateOrdinatesOfBalanceSheet(){
-
-    }
-
-    public double ordinateOfBalanceSheet(){
+    private double ordinateOfBalanceSheet(){
         double finalOrdinate;
         double oneSquareOrdianate=0, twoSquaresOrdinate=0, fourSquaresOrdinate=0;
         Boolean xCurb, yCurb;
@@ -49,11 +45,7 @@ public class SquareGridCalculator {
     }
 
     private boolean checkIfCurb(int index1, int size1){
-        if (index1 == 0 || index1  == (size1-1)){
-            return true;
-        } else{
-            return false;
-        }
+        return (index1 == 0 || index1 == (size1 - 1));
     }
 
     public void setSGProjectOrdinates(){

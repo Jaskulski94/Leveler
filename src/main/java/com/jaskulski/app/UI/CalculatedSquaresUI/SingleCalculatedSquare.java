@@ -51,7 +51,6 @@ public class SingleCalculatedSquare extends JPanel {
         lblEmpty = new JLabel("     ");
 
         GBC.anchor = GridBagConstraints.WEST;
-    //    GBC.weightx = 1;
 
         GBC.gridx = 0;
         GBC.gridy = 0;
@@ -85,13 +84,6 @@ public class SingleCalculatedSquare extends JPanel {
     }
 
     private void setSquareStyle(){
-        /*int x = UIParameters.frameWidth/10;
-        int y = UIParameters.frameHeight/10;
-        Dimension dimPreferred = new Dimension(x, y);
-        this.setPreferredSize(dimPreferred);
-        Dimension dimMax = new Dimension(150, 150);
-        this.setMaximumSize(dimMax);*/
-
         this.setBackground(Color.white);
         UIParameters.setFontToAll(this, UIParameters.fontTiny);
         this.setBorder(new LineBorder(Color.black));

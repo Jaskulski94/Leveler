@@ -14,17 +14,15 @@ import java.awt.event.ActionListener;
 public class NewProjectInitiatorListener implements ActionListener {
 
     private StartingConditionsUIDataGetter sCDGetter;
-    private NewProjectInitiatorPanel nPIPanel;
     private StartingConditions startingConditions;
     private UILauncherFrame UILauncher;
     private StartingConditionsSerializer startingConditionsSerializer;
 
     public NewProjectInitiatorListener(UILauncherFrame UILauncher1, NewProjectInitiatorPanel nPIPanel1) {
-        this.nPIPanel = nPIPanel1;
         this.UILauncher = UILauncher1;
         this.startingConditionsSerializer = new StartingConditionsSerializer(UILauncher);
         this.startingConditions = new StartingConditions();
-        this.sCDGetter = new StartingConditionsUIDataGetter(nPIPanel, startingConditions);
+        this.sCDGetter = new StartingConditionsUIDataGetter(nPIPanel1, startingConditions);
     }
 
     public void actionPerformed(ActionEvent actionEvent) {

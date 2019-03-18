@@ -14,15 +14,13 @@ public class SGSaveListener implements ActionListener {
 
     private SquareGridSerializer sQSerializer;
     private SquareGrid squareGrid;
-    private SquareGridPanel sGPanel;
     private SquareGrindUIDataGetter sGUIDGetter;
-    private SquareGridCalculator projectCalculator;
+    private SquareGridCalculator sGCalculator;
 
     public SGSaveListener (SquareGrid squareGrid1, StartingConditions startingConditions1, SquareGridPanel sGPanel1){
         this.squareGrid = squareGrid1;
-        this.sGPanel = sGPanel1;
-        this.projectCalculator = new SquareGridCalculator(startingConditions1, squareGrid1);
-        this.sGUIDGetter = new SquareGrindUIDataGetter(sGPanel, squareGrid);
+        this.sGCalculator = new SquareGridCalculator(startingConditions1, squareGrid1);
+        this.sGUIDGetter = new SquareGrindUIDataGetter(sGPanel1, squareGrid);
         this.sQSerializer = new SquareGridSerializer();
     }
 
@@ -31,13 +29,13 @@ public class SGSaveListener implements ActionListener {
         calculateAction();
     }
 
-    protected void serializeAction(){
+    private void serializeAction(){
         sGUIDGetter.setSquareGridFromUI();
         sQSerializer.serializeSquareGrid(squareGrid);
     }
 
-    protected void calculateAction(){
-        projectCalculator.setSGProjectOrdinates();
-        projectCalculator.findZeroPoints();
+    private void calculateAction(){
+        sGCalculator.setSGProjectOrdinates();
+        sGCalculator.findZeroPoints();
     }
 }

@@ -8,10 +8,8 @@ public class CalculatedSquaresCalculator {
     private SquareGrid squareGrid;
     private StartingConditions startingConditions;
     private CalculatedSquares calculatedSquares;
-    private int sGSizeX;
-    private int sGsizeY;
-    public int cSSizeX;
-    public int cSSizeY;
+    private int cSSizeX;
+    private int cSSizeY;
     private double squareSize;
 
     public int getCSSizeX(){

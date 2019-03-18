@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 
 public class ChangePanelListener implements ActionListener {
 
-    protected UILauncherFrame UILauncher;
+    private UILauncherFrame UILauncher;
     protected JPanel newPanel;
 
     public ChangePanelListener(UILauncherFrame UILauncher1, JPanel newPanel1) {

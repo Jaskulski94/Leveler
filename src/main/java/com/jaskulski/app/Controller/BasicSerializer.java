@@ -7,19 +7,19 @@ import java.io.*;
 
 public class BasicSerializer {
 
-    public UILauncherFrame UILauncher;
-    public JPanel newPanel;
-    public JPanel errorPanel;
-    public JPanel nextPanel;
+    private UILauncherFrame UILauncher;
+    protected JPanel newPanel;
+    protected JPanel errorPanel;
+    private JPanel nextPanel;
 
     public BasicSerializer(UILauncherFrame UILauncher1) {
         this.UILauncher = UILauncher1;
     }
 
-    public BasicSerializer() {
+    protected BasicSerializer() {
     }
 
-    public void serialize(Object object, String fileName) {
+    protected void serialize(Object object, String fileName) {
         String path = StartingConditions.currentProject;
 
         String error1 = "BasicSerializer Error: Wystąpił problem przy tworzeniu nowego pliku";
@@ -46,7 +46,7 @@ public class BasicSerializer {
         }
     }
 
-    public Object deserializeFromChooser() {
+    protected Object deserializeFromChooser() {
         String pathString = StartingConditions.projectsDir;
         File selectedFile = new File(pathString);
 
@@ -60,16 +60,14 @@ public class BasicSerializer {
         }
 
         StartingConditions.currentProject += selectedFile.getParentFile().getName();
-        Object object = deserializeWithUI(selectedFile);
-        return object;
+        return (deserializeWithUI(selectedFile));
     }
 
-    public Object deserializeFromFixedPath(String fileName) {
+    protected Object deserializeFromFixedPath(String fileName) {
         String pathString = StartingConditions.currentProject + fileName;
         File selectedFile = new File(pathString);
 
-        Object object = deserializeWithoutUI(selectedFile);
-        return object;
+        return (deserializeWithoutUI(selectedFile));
     }
 
     public Object deserializeWithUI(File selectedFile) {
@@ -93,11 +91,11 @@ public class BasicSerializer {
         return object;
     }
 
-    public void changeToNextPanel(UILauncherFrame UILauncher1){
+    protected void changeToNextPanel(UILauncherFrame UILauncher1){
         UILauncher1.changePanel(nextPanel);
     }
 
-    public Object deserializeWithoutUI(File selectedFile) {
+    private Object deserializeWithoutUI(File selectedFile) {
         String error = "BasicSerializer Error: Błąd odczytu danych";
         Object object = new Object();
         try {
@@ -109,8 +107,7 @@ public class BasicSerializer {
         return object;
     }
 
-
-    public Object tryDeserialization (File selectedFile) throws IOException, ClassNotFoundException {
+    private Object tryDeserialization(File selectedFile) throws IOException, ClassNotFoundException {
         FileInputStream fileIStream = new FileInputStream(selectedFile);
         ObjectInputStream objectIStream = new ObjectInputStream(fileIStream);
 

@@ -23,13 +23,11 @@ public class StartingConditionsSerializer extends BasicSerializer {
     }
 
     public StartingConditions deserializeSCFromChooser() {
-        StartingConditions startingConditions = (StartingConditions) super.deserializeFromChooser();
-        return startingConditions;
+        return ((StartingConditions) super.deserializeFromChooser());
     }
 
     public StartingConditions deserializeSCFromFixedPath() {
-        StartingConditions startingConditions = (StartingConditions) super.deserializeFromFixedPath("/StartingConditions.ser");
-        return startingConditions;
+        return ((StartingConditions) super.deserializeFromFixedPath("/StartingConditions.ser"));
     }
 
     public StartingConditions deserializeWithUI(File selectedFile) {
@@ -41,16 +39,4 @@ public class StartingConditionsSerializer extends BasicSerializer {
         super.changeToNextPanel(UILauncher);
         return startingConditions;
     }
-
-    public boolean isDivisible(StartingConditions startingConditions1, StartingConditions.Slope slope1) {
-        double checkedSize = slope1.getSide() / startingConditions1.getSquareSide();
-        boolean divisible;
-        if (checkedSize == Math.floor(checkedSize)) {
-            divisible = true;
-        } else {
-            divisible = false;
-        }
-        return divisible;
-    }
-
 }

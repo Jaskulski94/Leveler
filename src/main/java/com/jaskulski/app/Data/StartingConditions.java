@@ -22,12 +22,6 @@ public class StartingConditions implements Serializable {
         StartingConditions.currentProject = currentProject1;
     }
 
-    public void setSlopeValues(Slope slope1, double side1, double slopeWidth1, double slopeTilt1) {
-        slope1.side = side1;
-        slope1.slopeWidth = slopeWidth1;
-        slope1.slopeTilt = slopeTilt1;
-    }
-
     public Slope getSlopeX() {
         return slopeX;
     }
@@ -52,11 +46,7 @@ public class StartingConditions implements Serializable {
 
     public boolean isDivisible(StartingConditions.Slope slope1) {
         double checkedSize = slope1.getSide() / this.getSquareSide();
-        if (checkedSize == Math.floor(checkedSize)) {
-            return true;
-        } else {
-            return false;
-        }
+        return (checkedSize == Math.floor(checkedSize));
     }
 
     @Data

@@ -1,6 +1,6 @@
-package com.jaskulski.app.Controller.SquareGridPanelControl;
+package com.jaskulski.app.Controller.UIControl.SquareGridPanelControl;
 
-import com.jaskulski.app.Controller.StartingConditionsHandling.StartingConditionsSerializer;
+import com.jaskulski.app.Controller.DataHandling.StartingConditionsHandling.StartingConditionsSerializer;
 import com.jaskulski.app.Data.StartingConditions;
 import com.jaskulski.app.UI.SquareGridUI.ShowSCFrame;
 

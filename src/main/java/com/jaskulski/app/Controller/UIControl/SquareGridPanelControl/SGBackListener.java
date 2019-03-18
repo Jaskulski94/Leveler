@@ -1,8 +1,8 @@
-package com.jaskulski.app.Controller.SquareGridPanelControl;
+package com.jaskulski.app.Controller.UIControl.SquareGridPanelControl;
 
-import com.jaskulski.app.Controller.ChangePanelListener;
-import com.jaskulski.app.Controller.StartingConditionsHandling.StartingConditionsFiller;
-import com.jaskulski.app.Controller.StartingConditionsHandling.StartingConditionsSerializer;
+import com.jaskulski.app.Controller.UIControl.ChangePanelListener;
+import com.jaskulski.app.Controller.DataHandling.StartingConditionsHandling.StartingConditionsFiller;
+import com.jaskulski.app.Controller.DataHandling.StartingConditionsHandling.StartingConditionsSerializer;
 import com.jaskulski.app.Data.StartingConditions;
 import com.jaskulski.app.UI.ProjectStarterUI.NewProjectInitiatorPanel;
 import com.jaskulski.app.UI.UILauncherFrame;

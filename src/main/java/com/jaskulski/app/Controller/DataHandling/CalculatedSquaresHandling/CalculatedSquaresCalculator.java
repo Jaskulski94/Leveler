@@ -1,4 +1,4 @@
-package com.jaskulski.app.Controller.CalculatedSquaresHandling;
+package com.jaskulski.app.Controller.DataHandling.CalculatedSquaresHandling;
 
 import com.jaskulski.app.Data.CalculatedSquares;
 import com.jaskulski.app.Data.SquareGrid;

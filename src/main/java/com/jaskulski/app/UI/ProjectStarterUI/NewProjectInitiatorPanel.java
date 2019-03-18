@@ -1,6 +1,6 @@
 package com.jaskulski.app.UI.ProjectStarterUI;
 
-import com.jaskulski.app.Controller.ProjectStarterControl.NewProjectInitiatorListener;
+import com.jaskulski.app.Controller.UIControl.ProjectStarterControl.NewProjectInitiatorListener;
 import com.jaskulski.app.UI.UILauncherFrame;
 import com.jaskulski.app.UI.UIParameters;
 import com.jaskulski.app.UI.WhiteButton;

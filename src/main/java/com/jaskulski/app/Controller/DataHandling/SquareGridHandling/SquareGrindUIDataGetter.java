@@ -1,4 +1,4 @@
-package com.jaskulski.app.Controller.SquareGridHandling;
+package com.jaskulski.app.Controller.DataHandling.SquareGridHandling;
 
 import com.jaskulski.app.Data.SquareGrid;
 import com.jaskulski.app.UI.SquareGridUI.SquareGridPanel;

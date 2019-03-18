@@ -1,6 +1,6 @@
 package com.jaskulski.app.UI.SquareGridUI;
 
-import com.jaskulski.app.Controller.StartingConditionsHandling.StartingConditionsFiller;
+import com.jaskulski.app.Controller.DataHandling.StartingConditionsHandling.StartingConditionsFiller;
 import com.jaskulski.app.Data.StartingConditions;
 import com.jaskulski.app.UI.ProjectStarterUI.NewProjectInitiatorPanel;
 import com.jaskulski.app.UI.UIParameters;

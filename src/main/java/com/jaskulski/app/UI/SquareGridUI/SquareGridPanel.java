@@ -1,9 +1,9 @@
 package com.jaskulski.app.UI.SquareGridUI;
 
-import com.jaskulski.app.Controller.SquareGridPanelControl.SGBackListener;
-import com.jaskulski.app.Controller.SquareGridPanelControl.SGNextListener;
-import com.jaskulski.app.Controller.SquareGridPanelControl.SGSaveListener;
-import com.jaskulski.app.Controller.SquareGridPanelControl.ShowSCListener;
+import com.jaskulski.app.Controller.UIControl.SquareGridPanelControl.SGBackListener;
+import com.jaskulski.app.Controller.UIControl.SquareGridPanelControl.SGNextListener;
+import com.jaskulski.app.Controller.UIControl.SquareGridPanelControl.SGSaveListener;
+import com.jaskulski.app.Controller.UIControl.SquareGridPanelControl.ShowSCListener;
 import com.jaskulski.app.Data.SquareGrid;
 import com.jaskulski.app.Data.StartingConditions;
 import com.jaskulski.app.UI.*;

@@ -1,4 +1,4 @@
-package com.jaskulski.app.Controller;
+package com.jaskulski.app.Controller.DataHandling;
 
 import com.jaskulski.app.Data.StartingConditions;
 import com.jaskulski.app.UI.UILauncherFrame;

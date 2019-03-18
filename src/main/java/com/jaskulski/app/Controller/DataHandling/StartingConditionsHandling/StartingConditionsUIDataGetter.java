@@ -1,4 +1,4 @@
-package com.jaskulski.app.Controller.StartingConditionsHandling;
+package com.jaskulski.app.Controller.DataHandling.StartingConditionsHandling;
 
 import com.jaskulski.app.Data.StartingConditions;
 import com.jaskulski.app.UI.ProjectStarterUI.NewProjectInitiatorPanel;

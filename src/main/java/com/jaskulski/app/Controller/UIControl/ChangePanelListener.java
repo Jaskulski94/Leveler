@@ -1,4 +1,4 @@
-package com.jaskulski.app.Controller;
+package com.jaskulski.app.Controller.UIControl;
 
 import com.jaskulski.app.UI.UILauncherFrame;
 

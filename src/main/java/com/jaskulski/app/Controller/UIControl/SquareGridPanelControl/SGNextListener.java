@@ -1,6 +1,6 @@
-package com.jaskulski.app.Controller.SquareGridPanelControl;
+package com.jaskulski.app.Controller.UIControl.SquareGridPanelControl;
 
-import com.jaskulski.app.Controller.CalculatedSquaresHandling.CalculatedSquaresCalculator;
+import com.jaskulski.app.Controller.DataHandling.CalculatedSquaresHandling.CalculatedSquaresCalculator;
 import com.jaskulski.app.Data.CalculatedSquares;
 import com.jaskulski.app.Data.SquareGrid;
 import com.jaskulski.app.Data.StartingConditions;

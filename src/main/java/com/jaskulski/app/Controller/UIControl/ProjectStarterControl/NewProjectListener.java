@@ -1,4 +1,4 @@
-package com.jaskulski.app.Controller.ProjectStarterControl;
+package com.jaskulski.app.Controller.UIControl.ProjectStarterControl;
 
 import com.jaskulski.app.UI.ProjectStarterUI.NewProjectNamerFrame;
 

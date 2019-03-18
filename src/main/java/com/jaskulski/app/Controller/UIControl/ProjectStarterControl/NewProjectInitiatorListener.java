@@ -1,7 +1,7 @@
-package com.jaskulski.app.Controller.ProjectStarterControl;
+package com.jaskulski.app.Controller.UIControl.ProjectStarterControl;
 
-import com.jaskulski.app.Controller.StartingConditionsHandling.StartingConditionsSerializer;
-import com.jaskulski.app.Controller.StartingConditionsHandling.StartingConditionsUIDataGetter;
+import com.jaskulski.app.Controller.DataHandling.StartingConditionsHandling.StartingConditionsSerializer;
+import com.jaskulski.app.Controller.DataHandling.StartingConditionsHandling.StartingConditionsUIDataGetter;
 import com.jaskulski.app.Data.StartingConditions;
 import com.jaskulski.app.UI.ProjectStarterUI.NewProjectInitiatorPanel;
 import com.jaskulski.app.UI.SquareGridUI.SquareGridPanel;

@@ -16,7 +16,7 @@ public class BasicSerializer {
         this.UILauncher = UILauncher1;
     }
 
-    protected BasicSerializer() {
+    public BasicSerializer() {
     }
 
     protected void serialize(Object object, String fileName) {
@@ -46,7 +46,7 @@ public class BasicSerializer {
         }
     }
 
-    protected Object deserializeFromChooser() {
+    public Object deserializeFromChooser() {
         String pathString = StartingConditions.projectsDir;
         File selectedFile = new File(pathString);
 

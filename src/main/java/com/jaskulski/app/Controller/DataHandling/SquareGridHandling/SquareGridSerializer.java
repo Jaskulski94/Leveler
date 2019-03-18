@@ -24,6 +24,10 @@ public class SquareGridSerializer extends BasicSerializer {
         super.serialize(squareGrid1, "/SquareGrid.ser");
     }
 
+    public SquareGrid deserializeSCFromFixedPath(){
+        return ((SquareGrid) super.deserializeFromFixedPath("/SquareGrid.ser"));
+    }
+
     public SquareGrid deserializeSGFromChooser() {
         SquareGrid squareGrid = (SquareGrid) super.deserializeFromChooser();
         return squareGrid;

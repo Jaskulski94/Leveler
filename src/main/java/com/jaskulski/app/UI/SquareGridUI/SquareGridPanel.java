@@ -99,8 +99,7 @@ public class SquareGridPanel extends JPanel {
         btnSave.addActionListener(new SGSaveListener(squareGrid, startingConditions, this));
 
         WhiteButton btnNext = new WhiteButton("Dalej");
-        btnNext.addActionListener(new SGSaveListener(squareGrid, startingConditions, this));
-        btnNext.addActionListener(new SGNextListener(startingConditions, squareGrid));
+        btnNext.addActionListener(new SGNextListener(squareGrid, startingConditions, this));
 
         GBC.gridy++;
         GBC.gridx = 0;

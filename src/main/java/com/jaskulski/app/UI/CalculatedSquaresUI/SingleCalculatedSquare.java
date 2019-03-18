@@ -29,10 +29,14 @@ public class SingleCalculatedSquare extends JPanel {
 
         initiateSingleSquareLabels();
 
+        String x = String.format("%.2f", x1);
+        String y = String.format("%.2f", y1);
+        String h = String.format("%.2f", h1);
+
         lblIndexText.setText(String.valueOf(index1));
-        lblOrdXText.setText(String.valueOf(x1));
-        lblOrdYText.setText(String.valueOf(y1));
-        lblOrdHText.setText(String.valueOf(h1));
+        lblOrdXText.setText(x);
+        lblOrdYText.setText(y);
+        lblOrdHText.setText(h);
 
         setSquareStyle();
     }

@@ -6,39 +6,40 @@ import com.jaskulski.app.Data.SquareGrid;
 import com.jaskulski.app.Data.StartingConditions;
 import com.jaskulski.app.UI.CalculatedSquaresUI.CalculatedSquaresFrame;
 import com.jaskulski.app.UI.CalculatedSquaresUI.CalculatedSquaresPanel;
+import com.jaskulski.app.UI.SquareGridUI.SquareGridPanel;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-public class SGNextListener implements ActionListener {
+public class SGNextListener extends SGSaveListener {
     public StartingConditions startingConditions;
-    private SquareGrid squareGrid;
     private CalculatedSquares calculatedSquares;
     private CalculatedSquaresCalculator cSCalculator;
     private CalculatedSquaresFrame cSFrame;
 
-    public SGNextListener(StartingConditions sC1, SquareGrid sG1) {
+    public SGNextListener(SquareGrid sG1, StartingConditions sC1, SquareGridPanel sGPanel1) {
+        super(sG1, sC1, sGPanel1);
         this.startingConditions = sC1;
-        this.squareGrid = sG1;
         this.calculatedSquares = new CalculatedSquares();
         this.cSCalculator = new CalculatedSquaresCalculator(startingConditions, squareGrid, calculatedSquares);
+        this.calculatedSquares.setSizes(cSCalculator.getCSSizeX(), cSCalculator.getCSSizeY());
     }
 
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
-        calculateAction();
+        super.actionPerformed(actionEvent);
         initiateNewFrameAction();
     }
 
-    private void calculateAction(){
+    protected void calculateAction(){
+        super.calculateAction();
         cSCalculator.calculateCS();
     }
 
     private void initiateNewFrameAction() {
         cSFrame = new CalculatedSquaresFrame();
-        CalculatedSquaresPanel pnlCS = new CalculatedSquaresPanel(cSCalculator.getCSSizeX(), cSCalculator.getCSSizeY());
+        CalculatedSquaresPanel pnlCS = new CalculatedSquaresPanel(calculatedSquares);
         JScrollPane scroller = new JScrollPane(pnlCS);
         cSFrame.add(scroller, BorderLayout.CENTER);
     }

@@ -33,7 +33,6 @@ public class CalculatedSquaresCalculator {
         setCSSizes();
         setAllSquares();
         checkAndSetZeroPoints();
-
     }
 
     private void setCSSizes() {
@@ -59,10 +58,10 @@ public class CalculatedSquaresCalculator {
 
     private void checkAndSetZeroPoints() {
         for (SquareGrid.ZeroPoint point : squareGrid.listOfZeroPoints) {
-            int simplifiedX = (int) point.getIndexX();
-            int simplifiedY = (int) point.getIndexY();
-            double newX = point.getIndexX() * squareSize;
-            double newY = point.getIndexY() * squareSize;
+            int simplifiedX = (int) (point.getIndexX()/startingConditions.getSquareSide()-0.01);
+            int simplifiedY = (int) (point.getIndexY()/startingConditions.getSquareSide()-0.01);
+            double newX = point.getIndexX();
+            double newY = point.getIndexY();
             double newH = point.getOrdinateH();
             calculatedSquares.squares[simplifiedX][simplifiedY].addNewZeroPoint(newX, newY, newH);
         }

@@ -11,6 +11,30 @@ public class CalculatedSquares {
     public int sizeX;
     public int sizeY;
 
+    public CalculatedSquares(){}
+
+    public CalculatedSquares(int x1, int y1){
+        this.sizeX = x1;
+        this.sizeY = y1;
+        squares = new SingleSquare[x1][y1];
+        for (int i = 0; i<x1; i++) {
+            for (int j = 0; j < x1; j++) {
+                squares[i][j] = new SingleSquare();
+            }
+        }
+    }
+
+    public void setSizes(int x1, int y1){
+        this.sizeX = x1;
+        this.sizeY = y1;
+        squares = new SingleSquare[x1][y1];
+        for (int i = 0; i<x1; i++) {
+            for (int j = 0; j < x1; j++) {
+                squares[i][j] = new SingleSquare();
+            }
+        }
+    }
+
     @Data
     public class SingleSquare{
         public SingleSquare(){

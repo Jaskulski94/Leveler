@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
 public class SGSaveListener implements ActionListener {
 
     private SquareGridSerializer sQSerializer;
-    private SquareGrid squareGrid;
+    protected SquareGrid squareGrid;
     private SquareGridUIDataGetter sGUIDGetter;
     private SquareGridCalculator sGCalculator;
 
@@ -34,7 +34,7 @@ public class SGSaveListener implements ActionListener {
         sQSerializer.serializeSquareGrid(squareGrid);
     }
 
-    private void calculateAction(){
+    protected void calculateAction(){
         sGCalculator.setSGProjectOrdinates();
         sGCalculator.findZeroPoints();
     }

@@ -57,13 +57,13 @@ public class NewProjectInitiatorPanel extends JPanel {
         this.add(pnlSlopes);
 
         this.add(new JLabel(" "));
-        JLabel lblSquares = new JLabel("Bok kwadratu siatki");
+        JLabel lblSquares = new JLabel("Bok kwadratu siatki [m]");
         this.add(lblSquares);
         txtSquares = new JTextField("10");
         this.add(txtSquares);
 
         this.add(new JLabel(" "));
-        JLabel lblLean = new JLabel("Pochylenie płaszczyzny boiska");
+        JLabel lblLean = new JLabel("Nachylenie płaszczyzny boiska [%]");
         this.add(lblLean);
         txtField = new JTextField("1");
         this.add(txtField);
@@ -115,7 +115,7 @@ public class NewProjectInitiatorPanel extends JPanel {
 
             this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
-            this.add(new JLabel("Zbocze"));
+            this.add(new JLabel("Zbocze [m]"));
 
             txtSide = new JTextField("100");
             this.add(txtSide);
@@ -123,8 +123,8 @@ public class NewProjectInitiatorPanel extends JPanel {
             this.add(new JLabel("Rodzaj skarpy:"));
 
             btnGroup = new ButtonGroup();
-            rBtnSlopeWidth = new JRadioButton("Szerokość skarpy");
-            rBtnSlopeTilt = new JRadioButton("Kąt nachylenia");
+            rBtnSlopeWidth = new JRadioButton("Szerokość skarpy [m]");
+            rBtnSlopeTilt = new JRadioButton("Kąt nachylenia [°]");
             btnGroup.add(rBtnSlopeTilt);
             btnGroup.add(rBtnSlopeWidth);
 

@@ -82,7 +82,7 @@ public class SquareGridCalculator {
                 LeanDown += squareGrid.squareCorners[i][j].getTerrainOrdinate();
             }
         }
-        double newLean = Math.abs(startingConditions.getFieldLean());
+        double newLean = Math.abs(startingConditions.getFieldLean()/2);
         if (LeanUp > LeanDown){
             startingConditions.setFieldLean(newLean);
         } else {

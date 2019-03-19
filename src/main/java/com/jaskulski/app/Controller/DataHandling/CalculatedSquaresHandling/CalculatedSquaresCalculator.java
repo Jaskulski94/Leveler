@@ -119,12 +119,28 @@ public class CalculatedSquaresCalculator {
     }
 
     public void calculateAllAreasAndVolumes(){
+        double totalSumAddArea = 0;
+        double totalSumAddVolume = 0;
+
+        double totalSumSubtractArea = 0;
+        double totalSumSubtractVolume = 0;
+
         for (int j = 0; j < cSSizeY; j++) {
             for (int i = 0; i < cSSizeX; i++) {
                 calculateAreaAndVolume(calculatedSquares.squares[i][j]);
-                System.out.println("Testowa wartość objętości dla "+i+" "+j+" "+calculatedSquares.squares[i][j].getAddVolume()+" -"+calculatedSquares.squares[i][j].getSubtractVolume());
+                System.out.format("Testowa wartość objętości dla %d %d : %.2f %.2f", i, j, calculatedSquares.squares[i][j].getAddVolume(), calculatedSquares.squares[i][j].getSubtractVolume());
+                System.out.println("");
+                System.out.println("Testowa wartość pola dla "+i+" "+j+" "+calculatedSquares.squares[i][j].getAddArea()+" -"+calculatedSquares.squares[i][j].getSubtractArea());
+                System.out.println("");
+                totalSumAddVolume += calculatedSquares.squares[i][j].getAddVolume();
+                totalSumSubtractVolume += calculatedSquares.squares[i][j].getSubtractVolume();
             }
         }
+        System.out.format("Suma nasypu wynosi: %.2f", totalSumAddVolume);
+        System.out.println("");
+        System.out.format("Suma wykopu wynosi: %.2f", totalSumSubtractVolume);
+        System.out.println("");
+
     }
 
     private void calculateAreaAndVolume(CalculatedSquares.SingleSquare square1) {
@@ -157,6 +173,13 @@ public class CalculatedSquaresCalculator {
         double relativeZeroX2 = calculateRelativeOrd(square1.zeroSquarePoints.get(1).getOrdinateX());
         double relativeZeroY2 = calculateRelativeOrd(square1.zeroSquarePoints.get(1).getOrdinateY());
 
+        if((relativeZeroX1 == 0) && (relativeZeroX2 == 0)){
+            relativeZeroX2 += squareSize;
+        }
+        if((relativeZeroY1 == 0) && (relativeZeroY2 == 0)){
+            relativeZeroY2 += squareSize;
+        }
+
         double sumAddArea = 0;
         double sumAddVolume = 0;
 
@@ -175,9 +198,12 @@ public class CalculatedSquaresCalculator {
                 if (crossProduct > 0){
                     sumAddArea += step*step;
                     sumAddVolume += sumAddArea*calculateLocalHDiff(square1, i*squareSize, j*squareSize);
-                } else {
+                //    System.out.println("Dodaję ZP nasyp");
+                } else if (crossProduct < 0){
                     sumSubtractArea += step*step;
                     sumSubtractVolume += sumSubtractArea*calculateLocalHDiff(square1, i*squareSize, j*squareSize);
+                //    System.out.println("Dodaję ZP wykop");
+
                 }
             }
         }
@@ -186,6 +212,8 @@ public class CalculatedSquaresCalculator {
         square1.setAddVolume(sumAddVolume);
         square1.setSubtractArea(sumSubtractArea);
         square1.setSubtractVolume(sumSubtractVolume);
+        System.out.format("Punkt ZP - Nasyp P: %.2f V: %.2f  Wykop P: %.2f V: %.2f", sumAddArea, sumAddVolume, sumSubtractArea, sumSubtractVolume);
+        System.out.println("");
     }
 
     private double calculateRelativeOrd(double ord1){

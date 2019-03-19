@@ -35,6 +35,7 @@ public class SGNextListener extends SGSaveListener {
     protected void calculateAction(){
         super.calculateAction();
         cSCalculator.calculateCS();
+        cSCalculator.calculateAllAreasAndVolumes();
     }
 
     private void initiateNewFrameAction() {

@@ -37,13 +37,13 @@ public class SquareGrid implements Serializable {
 
     @Data
     public class ZeroPoint implements Serializable{
-        public double indexX;
-        public double indexY;
+        public double ordinateX;
+        public double ordinateY;
         public double ordinateH;
 
         public ZeroPoint(double x1, double y1, double h1){
-            indexX = x1;
-            indexY = y1;
+            ordinateX = x1;
+            ordinateY = y1;
             ordinateH = h1;
         }
     }

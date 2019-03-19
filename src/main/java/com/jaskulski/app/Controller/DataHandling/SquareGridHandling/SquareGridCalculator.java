@@ -106,9 +106,10 @@ public class SquareGridCalculator {
         }
 
         for(SquareGrid.ZeroPoint points : squareGrid.listOfZeroPoints){
-            System.out.format("Punkt zerowy: %.2f %.2f %.2f ", points.indexX, points.indexY, points.ordinateH);
+            System.out.format("Punkt zerowy: %.2f %.2f %.2f ", points.ordinateX, points.ordinateY, points.ordinateH);
             System.out.println("");
         }
+        System.out.println("");
     }
 
     private void checkAndAddZeroPoint(int i1, int j1, int x1, int y1){

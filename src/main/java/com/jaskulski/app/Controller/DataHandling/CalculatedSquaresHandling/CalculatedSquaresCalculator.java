@@ -110,18 +110,10 @@ public class CalculatedSquaresCalculator {
             }
         } else {
 
+/*
+            if(calculatedSquares.squares[x1][y1].zeroSquarePoints.get(0).getOrdinateX() = )
+*/
         }
 
-
-
-    }
-
-    private double sumCornersH(int x1, int y1){
-        double sum = 0;
-        for (int i = 0; i<3; i++) {
-            for (int j = 0; j < 3; j++) {
-                sum += squareGrid.squareCorners[x1+i][y1+j].getProjectOrdinate();
-            }
-        }
     }
 }

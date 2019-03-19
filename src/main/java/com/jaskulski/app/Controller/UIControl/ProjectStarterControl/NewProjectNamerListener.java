@@ -15,10 +15,10 @@ import java.nio.file.Files;
 
 public class NewProjectNamerListener implements ActionListener {
 
-    private NewProjectNamerFrame npnFrame;
+    private NewProjectNamerFrame nPNFrame;
 
     public NewProjectNamerListener(NewProjectNamerFrame npnFrame1) {
-        this.npnFrame = npnFrame1;
+        this.nPNFrame = npnFrame1;
     }
 
     public void actionPerformed(ActionEvent arg0) {
@@ -32,7 +32,7 @@ public class NewProjectNamerListener implements ActionListener {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy_MM_dd");
         LocalDate localDate = LocalDate.now();
         String date = dtf.format(localDate);
-        txt = npnFrame.txtProjectName.getText();
+        txt = nPNFrame.txtProjectName.getText();
         projectName = txt + "_" + date;
         String path = basicPath + projectName;
 
@@ -40,7 +40,7 @@ public class NewProjectNamerListener implements ActionListener {
             Files.createDirectories(Paths.get(path));
             JOptionPane.showMessageDialog(null, "Stworzono folder nowego projektu");
             StartingConditions.setCurrentProject(path);
-            npnFrame.closeWindow();
+            nPNFrame.closeWindow();
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Wystąpił problem przy tworzeniu folderu");
         }

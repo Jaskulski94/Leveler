@@ -14,9 +14,20 @@ public class ProjectStarterPanel extends JPanel {
 
     UILauncherFrame UILauncher;
 
+    public ProjectStarterPanel(){
+    }
+
     public ProjectStarterPanel(UILauncherFrame UILauncher1) {
         this.UILauncher = UILauncher1;
+        initializeProject();
+    }
 
+    public void startEmptyProjectStarter(UILauncherFrame UILauncher1){
+        this.UILauncher = UILauncher1;
+        initializeProject();
+    }
+
+    private void initializeProject(){
         this.setLayout(new GridLayout(3, 1));
         JLabel lblTitle = new JLabel("Niwelator");
         lblTitle.setFont(UIParameters.fontBig);
@@ -24,16 +35,16 @@ public class ProjectStarterPanel extends JPanel {
         lblTitle.setVerticalAlignment(JLabel.CENTER);
         this.add(lblTitle);
 
-        ChangePanelListener cpListener = new ChangePanelListener(UILauncher, new NewProjectInitiatorPanel(UILauncher));
+        ChangePanelListener cPListener = new ChangePanelListener(UILauncher, new NewProjectInitiatorPanel(UILauncher));
 
         WhiteButton btnNewProject = new WhiteButton("Stwórz nowy projekt");
         btnNewProject.addActionListener(new NewProjectListener());
-        btnNewProject.addActionListener(cpListener);
+        btnNewProject.addActionListener(cPListener);
         this.add(btnNewProject);
 
         WhiteButton btnLoadProject = new WhiteButton("Otwórz istniejący projekt");
         btnLoadProject.addActionListener(new LoadProjectListener(UILauncher));
-        btnLoadProject.addActionListener(cpListener);
+    //    btnLoadProject.addActionListener(cPListener);
         this.add(btnLoadProject);
 
         this.setVisible(true);

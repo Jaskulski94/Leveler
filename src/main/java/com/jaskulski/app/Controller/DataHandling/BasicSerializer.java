@@ -1,9 +1,12 @@
 package com.jaskulski.app.Controller.DataHandling;
 
 import com.jaskulski.app.Data.StartingConditions;
+import com.jaskulski.app.UI.ProjectStarterUI.ProjectStarterPanel;
 import com.jaskulski.app.UI.UILauncherFrame;
 import javax.swing.*;
 import java.io.*;
+
+import static com.jaskulski.app.Data.StartingConditions.projectsDir;
 
 public class BasicSerializer {
 
@@ -17,6 +20,12 @@ public class BasicSerializer {
     }
 
     public BasicSerializer() {
+        errorPanel = new ProjectStarterPanel();
+    }
+
+    public void setUILauncher(UILauncherFrame UILauncher) {
+        this.UILauncher = UILauncher;
+        ((ProjectStarterPanel) errorPanel).startEmptyProjectStarter(UILauncher);
     }
 
     protected void serialize(Object object, String fileName) {
@@ -47,7 +56,7 @@ public class BasicSerializer {
     }
 
     public Object deserializeFromChooser() {
-        String pathString = StartingConditions.projectsDir;
+        String pathString = projectsDir;
         File selectedFile = new File(pathString);
 
         JFileChooser fileChooser = new JFileChooser();
@@ -59,7 +68,7 @@ public class BasicSerializer {
             selectedFile = fileChooser.getSelectedFile();
         }
 
-        StartingConditions.currentProject += selectedFile.getParentFile().getName();
+        StartingConditions.currentProject = projectsDir + selectedFile.getParentFile().getName();
         return (deserializeWithUI(selectedFile));
     }
 
@@ -72,7 +81,8 @@ public class BasicSerializer {
 
     public Object deserializeWithUI(File selectedFile) {
         String error1 = "BasicSerializer Error: Nie można wczytać danych tego projektu";
-        String error2 = "BasicSerializer Error: Wystąpił problem przy odczytywaniu z pliku";
+        String error2 = "BasicSerializer Error: Nie wybrano pliku";
+        String error3 = "BasicSerializer Error: Wystąpił problem przy odczytywaniu z pliku";
         String message = "Odczytano dane z pliku";
         Object object = new Object();
         try {
@@ -84,10 +94,14 @@ public class BasicSerializer {
         } catch (ClassNotFoundException e) {
             JOptionPane.showMessageDialog(null, error1);
             nextPanel = errorPanel;
-        } catch (IOException e) {
+        } catch (FileNotFoundException e) {
             JOptionPane.showMessageDialog(null, error2);
             nextPanel = errorPanel;
+        } catch (IOException e){
+            JOptionPane.showMessageDialog(null, error3);
+            nextPanel = errorPanel;
         }
+
         return object;
     }
 
@@ -100,7 +114,6 @@ public class BasicSerializer {
         Object object = new Object();
         try {
             object = tryDeserialization(selectedFile);
-
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, error);
         }
@@ -108,12 +121,12 @@ public class BasicSerializer {
     }
 
     private Object tryDeserialization(File selectedFile) throws IOException, ClassNotFoundException {
-        FileInputStream fileIStream = new FileInputStream(selectedFile);
-        ObjectInputStream objectIStream = new ObjectInputStream(fileIStream);
+        Object outputObject;
+        try(FileInputStream fileIStream = new FileInputStream(selectedFile);
+        ObjectInputStream objectIStream = new ObjectInputStream(fileIStream)){
+            outputObject = objectIStream.readObject();
+        }
 
-        Object outputObject = objectIStream.readObject();
-
-        objectIStream.close();
         return outputObject;
     }
 }

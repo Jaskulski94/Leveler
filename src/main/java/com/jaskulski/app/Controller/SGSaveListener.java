@@ -1,21 +1,28 @@
 package com.jaskulski.app.Controller;
 
 import com.jaskulski.app.Data.SquareGrid;
+import com.jaskulski.app.UI.SquareGridPanel;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class SGSaveListener implements ActionListener {
 
-    SquareGridSerializer sQSerializer;
-    SquareGrid squareGrid;
+    private SquareGridSerializer sQSerializer;
+    private SquareGrid squareGrid;
+    private SquareGridPanel sGPanel;
+    private SquareGrindUIDataGetter sGUIDGetter;
 
-    public SGSaveListener (SquareGrid squareGrid1){
-        this.sQSerializer = new SquareGridSerializer();
+    public SGSaveListener (SquareGrid squareGrid1, SquareGridPanel sGPanel1){
         this.squareGrid = squareGrid1;
+        this.sGPanel = sGPanel1;
+        this.sGUIDGetter = new SquareGrindUIDataGetter(sGPanel, squareGrid);
+        this.sQSerializer = new SquareGridSerializer();
     }
 
     public void actionPerformed(ActionEvent actionEvent) {
+        sGUIDGetter.setStartingConditionsFromUI();
         sQSerializer.serializeSquareGrid(squareGrid);
         JOptionPane.showMessageDialog(null, "Zapisywanie skończone");
     }

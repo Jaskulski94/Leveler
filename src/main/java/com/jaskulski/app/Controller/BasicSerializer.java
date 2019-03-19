@@ -5,25 +5,25 @@ import com.jaskulski.app.UI.UILauncherFrame;
 import javax.swing.*;
 import java.io.*;
 
-public class SerializationHanlder {
+public class BasicSerializer {
 
-    private UILauncherFrame UILauncher;
+    public UILauncherFrame UILauncher;
     public JPanel newPanel;
     public JPanel errorPanel;
     public JPanel nextPanel;
 
-    public SerializationHanlder(UILauncherFrame UILauncher1) {
+    public BasicSerializer(UILauncherFrame UILauncher1) {
         this.UILauncher = UILauncher1;
     }
 
-    public SerializationHanlder() {
+    public BasicSerializer() {
     }
 
     public void serialize(Object object, String fileName) {
         String path = StartingConditions.currentProject;
 
-        String error1 = "Błąd: Wystąpił problem przy tworzeniu nowego pliku";
-        String error2 = "Błąd: Wystąpił problem przy zapisywaniu do pliku";
+        String error1 = "BasicSerializer Error: Wystąpił problem przy tworzeniu nowego pliku";
+        String error2 = "BasicSerializer Error: Wystąpił problem przy zapisywaniu do pliku";
         String message = "Stworzono nowy plik";
         try {
             File serFile = new File(path + fileName);
@@ -73,8 +73,8 @@ public class SerializationHanlder {
     }
 
     public Object deserializeWithUI(File selectedFile) {
-        String error1 = "Błąd: Nie można wczytać danych tego projektu";
-        String error2 = "Błąd: Wystąpił problem przy odczytywaniu z pliku";
+        String error1 = "BasicSerializer Error: Nie można wczytać danych tego projektu";
+        String error2 = "BasicSerializer Error: Wystąpił problem przy odczytywaniu z pliku";
         String message = "Odczytano dane z pliku";
         Object object = new Object();
         try {
@@ -98,7 +98,7 @@ public class SerializationHanlder {
     }
 
     public Object deserializeWithoutUI(File selectedFile) {
-        String error = "Błąd odczytu danych";
+        String error = "BasicSerializer Error: Błąd odczytu danych";
         Object object = new Object();
         try {
             object = tryDeserialization(selectedFile);

@@ -72,8 +72,15 @@ public class CalculatedSquares {
             rightDownCor.setOrdinateH(h4);
         }
 
-        public void addNewZeroPoint(double x1, double y1, double h1){
-            zeroSquarePoints.add(new SquarePoint(x1, y1, h1));
+        public void setFourTerrainH(double h1, double h2, double h3, double h4){
+            leftTopCor.setTerrainH(h1);
+            rightTopCor.setTerrainH(h2);
+            leftDownCor.setTerrainH(h3);
+            rightDownCor.setTerrainH(h4);
+        }
+
+        public void addNewZeroPoint(double x1, double y1, double h1, double tH1){
+            zeroSquarePoints.add(new SquarePoint(x1, y1, h1, tH1));
         }
 
         @Data
@@ -81,13 +88,15 @@ public class CalculatedSquares {
             double ordinateX;
             double ordinateY;
             double ordinateH;
+            double terrainH;
 
             public SquarePoint(){}
 
-            public SquarePoint(double x1, double y1, double h1){
+            public SquarePoint(double x1, double y1, double h1, double tH1){
                 this.ordinateX = x1;
                 this.ordinateY = y1;
                 this.ordinateH = h1;
+                this.terrainH = tH1;
             }
 
             public void setPointsXAndY(double ordinateX1, double ordinateY1){

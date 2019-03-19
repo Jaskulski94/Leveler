@@ -192,16 +192,16 @@ public class CalculatedSquaresCalculator {
 
         for (int i = 0; i<100; i++){
             for (int j = 0; j<100; j++) {
-                calculatedVector[0] = relativeZeroX2 - (i*squareSize);
-                calculatedVector[1] = relativeZeroY2 - (j*squareSize);
+                calculatedVector[0] = relativeZeroX2 - (i*step);
+                calculatedVector[1] = relativeZeroY2 - (j*step);
                 crossProduct = lineVector[0]*calculatedVector[1] - lineVector[1]*calculatedVector[0];
                 if (crossProduct > 0){
                     sumAddArea += step*step;
-                    sumAddVolume += sumAddArea*calculateLocalHDiff(square1, i*squareSize, j*squareSize);
+                    sumAddVolume += sumAddArea*calculateLocalHDiff(square1, i*step, j*step);
                 //    System.out.println("Dodaję ZP nasyp");
                 } else if (crossProduct < 0){
                     sumSubtractArea += step*step;
-                    sumSubtractVolume += sumSubtractArea*calculateLocalHDiff(square1, i*squareSize, j*squareSize);
+                    sumSubtractVolume += sumSubtractArea*calculateLocalHDiff(square1, i*step, j*step);
                 //    System.out.println("Dodaję ZP wykop");
 
                 }
@@ -227,17 +227,17 @@ public class CalculatedSquaresCalculator {
         double[] partsOfProjectH = new double[4];
         double[] partsOfTerrainH = new double[4];
 
-        partsOfProjectH[0] = square1.leftTopCor.getOrdinateH()*partOfX*partOfY;
-        partsOfTerrainH[0] = square1.leftTopCor.getTerrainH()*partOfX*partOfY;
+        partsOfProjectH[0] = square1.rightDownCor.getOrdinateH()*partOfX*partOfY;
+        partsOfTerrainH[0] = square1.rightDownCor.getTerrainH()*partOfX*partOfY;
 
-        partsOfProjectH[1] = square1.rightTopCor.getOrdinateH()*(1-partOfX)*partOfY;
-        partsOfTerrainH[1] = square1.rightTopCor.getTerrainH()*(1-partOfX)*partOfY;
+        partsOfProjectH[1] = square1.leftDownCor.getOrdinateH()*(1-partOfX)*partOfY;
+        partsOfTerrainH[1] = square1.leftDownCor.getTerrainH()*(1-partOfX)*partOfY;
 
-        partsOfProjectH[2] = square1.leftDownCor.getOrdinateH()*partOfX*(1-partOfY);
-        partsOfTerrainH[2] = square1.leftDownCor.getTerrainH()*partOfX*(1-partOfY);
+        partsOfProjectH[2] = square1.rightTopCor.getOrdinateH()*partOfX*(1-partOfY);
+        partsOfTerrainH[2] = square1.rightTopCor.getTerrainH()*partOfX*(1-partOfY);
 
-        partsOfProjectH[3] = square1.rightDownCor.getOrdinateH()*(1-partOfX)*(1-partOfY);
-        partsOfTerrainH[3] = square1.rightDownCor.getTerrainH()*(1-partOfX)*(1-partOfY);
+        partsOfProjectH[3] = square1.leftTopCor.getOrdinateH()*(1-partOfX)*(1-partOfY);
+        partsOfTerrainH[3] = square1.leftTopCor.getTerrainH()*(1-partOfX)*(1-partOfY);
 
         double sumProjctH = 0;
         double sumTerrainH = 0;
@@ -245,7 +245,7 @@ public class CalculatedSquaresCalculator {
             sumProjctH += partsOfProjectH[i];
             sumTerrainH += partsOfTerrainH[i];
         }
-        return (sumProjctH - sumTerrainH);
+        return (sumProjctH - sumTerrainH)/squareSize;
     }
 
     private double calculateAvgHDiff(CalculatedSquares.SingleSquare square1){

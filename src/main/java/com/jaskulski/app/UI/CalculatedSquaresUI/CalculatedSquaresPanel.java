@@ -18,7 +18,7 @@ public class CalculatedSquaresPanel extends JPanel {
         this.setLayout(GBL);
 
         this.setSize(UIParameters.dimFrame2);
-
+        GBC.insets = new Insets(4, 4, 4, 4);
         int size1 = calculatedSquares.getSizeX();
         int size2 = calculatedSquares.getSizeY();
         singleCS = new SingleCalculatedSquare[size1][size2];

@@ -153,10 +153,11 @@ public class CalculatedSquaresCalculator {
                 localDiff = calculateLocalHDiff(square1, i*step, j*step);
                 if (localDiff > 0){
                     sumAddArea += step*step;
-                    sumAddVolume += sumAddArea*calculateLocalHDiff(square1, i*step, j*step);
+                    sumAddVolume += step*step*calculateLocalHDiff(square1, i*step, j*step);
+                    if(j%10 == 0){}
                 } else if (localDiff < 0){
                     sumSubtractArea += step*step;
-                    sumSubtractVolume += sumSubtractArea*calculateLocalHDiff(square1, i*step, j*step);
+                    sumSubtractVolume += step*step*calculateLocalHDiff(square1, i*step, j*step);
                 }
             }
         }

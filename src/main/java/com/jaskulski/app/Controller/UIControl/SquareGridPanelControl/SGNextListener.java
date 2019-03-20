@@ -39,7 +39,7 @@ public class SGNextListener extends SGSaveListener {
     }
 
     private void initiateNewFrameAction() {
-        cSFrame = new CalculatedSquaresFrame();
+        cSFrame = new CalculatedSquaresFrame(calculatedSquares);
         CalculatedSquaresPanel pnlCS = new CalculatedSquaresPanel(calculatedSquares);
         JScrollPane scroller = new JScrollPane(pnlCS);
         cSFrame.add(scroller, BorderLayout.CENTER);

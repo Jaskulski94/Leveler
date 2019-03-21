@@ -5,6 +5,7 @@ import com.jaskulski.app.Data.StartingConditions;
 import com.jaskulski.app.UI.ProjectStarterUI.ProjectStarterPanel;
 import com.jaskulski.app.UI.SquareGridUI.SquareGridPanel;
 import com.jaskulski.app.UI.UILauncherFrame;
+
 import java.io.*;
 
 
@@ -22,10 +23,6 @@ public class StartingConditionsSerializer extends BasicSerializer {
         super.serialize(startingConditions1, "/StartingConditions.ser");
     }
 
-    public StartingConditions deserializeSCFromChooser() {
-        return ((StartingConditions) super.deserializeFromChooser());
-    }
-
     public StartingConditions deserializeSCFromFixedPath() {
         return ((StartingConditions) super.deserializeFromFixedPath("/StartingConditions.ser"));
     }
@@ -35,7 +32,7 @@ public class StartingConditionsSerializer extends BasicSerializer {
         errorPanel = new ProjectStarterPanel(UILauncher);
 
         StartingConditions startingConditions = (StartingConditions) super.deserializeWithUI(selectedFile);
-        ((SquareGridPanel)newPanel).setStartingConditionsAndInitiate(startingConditions);
+        ((SquareGridPanel) newPanel).setStartingConditionsAndInitiate(startingConditions);
         super.changeToNextPanel(UILauncher);
         return startingConditions;
     }

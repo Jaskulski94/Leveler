@@ -3,6 +3,7 @@ package com.jaskulski.app.Controller.DataHandling;
 import com.jaskulski.app.Data.StartingConditions;
 import com.jaskulski.app.UI.ProjectStarterUI.ProjectStarterPanel;
 import com.jaskulski.app.UI.UILauncherFrame;
+
 import javax.swing.*;
 import java.io.*;
 
@@ -10,22 +11,16 @@ import static com.jaskulski.app.Data.StartingConditions.projectsDir;
 
 public class BasicSerializer {
 
-    private UILauncherFrame UILauncher;
     protected JPanel newPanel;
     protected JPanel errorPanel;
     private JPanel nextPanel;
-
-    public BasicSerializer(UILauncherFrame UILauncher1) {
-        this.UILauncher = UILauncher1;
-    }
 
     public BasicSerializer() {
         errorPanel = new ProjectStarterPanel();
     }
 
-    public void setUILauncher(UILauncherFrame UILauncher) {
-        this.UILauncher = UILauncher;
-        ((ProjectStarterPanel) errorPanel).startEmptyProjectStarter(UILauncher);
+    public void setUILauncher(UILauncherFrame UILauncher1) {
+        ((ProjectStarterPanel) errorPanel).startEmptyProjectStarter(UILauncher1);
     }
 
     protected void serialize(Object object, String fileName) {
@@ -56,8 +51,7 @@ public class BasicSerializer {
     }
 
     public Object deserializeFromChooser() {
-        String pathString = projectsDir;
-        File selectedFile = new File(pathString);
+        File selectedFile = new File(projectsDir);
 
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setCurrentDirectory(selectedFile);
@@ -97,7 +91,7 @@ public class BasicSerializer {
         } catch (FileNotFoundException e) {
             JOptionPane.showMessageDialog(null, error2);
             nextPanel = errorPanel;
-        } catch (IOException e){
+        } catch (IOException e) {
             JOptionPane.showMessageDialog(null, error3);
             nextPanel = errorPanel;
         }
@@ -105,7 +99,7 @@ public class BasicSerializer {
         return object;
     }
 
-    protected void changeToNextPanel(UILauncherFrame UILauncher1){
+    protected void changeToNextPanel(UILauncherFrame UILauncher1) {
         UILauncher1.changePanel(nextPanel);
     }
 
@@ -122,8 +116,8 @@ public class BasicSerializer {
 
     private Object tryDeserialization(File selectedFile) throws IOException, ClassNotFoundException {
         Object outputObject;
-        try(FileInputStream fileIStream = new FileInputStream(selectedFile);
-        ObjectInputStream objectIStream = new ObjectInputStream(fileIStream)){
+        try (FileInputStream fileIStream = new FileInputStream(selectedFile);
+             ObjectInputStream objectIStream = new ObjectInputStream(fileIStream)) {
             outputObject = objectIStream.readObject();
         }
 

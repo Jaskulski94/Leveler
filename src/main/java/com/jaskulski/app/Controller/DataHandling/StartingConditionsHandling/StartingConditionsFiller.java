@@ -7,7 +7,7 @@ public class StartingConditionsFiller {
     private StartingConditions startingConditions;
     private NewProjectInitiatorPanel nPIPanel;
 
-    public StartingConditionsFiller(StartingConditions startingConditions1, NewProjectInitiatorPanel nPIPanel1){
+    public StartingConditionsFiller(StartingConditions startingConditions1, NewProjectInitiatorPanel nPIPanel1) {
         this.startingConditions = startingConditions1;
         this.nPIPanel = nPIPanel1;
     }
@@ -19,7 +19,7 @@ public class StartingConditionsFiller {
         fillRest();
     }
 
-    public void fillSlope(NewProjectInitiatorPanel.SlopeInitiator slope1, StartingConditions.Slope slopeSC1) {
+    private void fillSlope(NewProjectInitiatorPanel.SlopeInitiator slope1, StartingConditions.Slope slopeSC1) {
         slope1.txtSide.setText(Double.toString(slopeSC1.getSide()));
 
         if (slopeSC1.getSlopeTilt() > 0) {
@@ -31,7 +31,7 @@ public class StartingConditionsFiller {
         }
     }
 
-    public void fillRest() {
+    private void fillRest() {
         nPIPanel.txtSquares.setText(Double.toString(startingConditions.getSquareSide()));
         nPIPanel.txtField.setText(Double.toString(startingConditions.getFieldLean()));
     }

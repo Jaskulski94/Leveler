@@ -9,7 +9,7 @@ public class SquareGridUIDataGetter {
     private SquareGridPanel sGPanel;
     private SquareGrid squareGrid;
 
-    public SquareGridUIDataGetter(SquareGridPanel sGPanel1, SquareGrid squareGrid1){
+    public SquareGridUIDataGetter(SquareGridPanel sGPanel1, SquareGrid squareGrid1) {
         this.sGPanel = sGPanel1;
         this.squareGrid = squareGrid1;
     }
@@ -20,32 +20,31 @@ public class SquareGridUIDataGetter {
         String message3 = "SquareGridUIDataGetter Error: Problem z rozmiarem tablicy";
 
         try {
-            if(compareSizes(sGPanel, squareGrid)){
+            if (compareSizes(sGPanel, squareGrid)) {
                 saveAllSquares(sGPanel, squareGrid);
-            } else{
+            } else {
                 JOptionPane.showMessageDialog(null, message1);
             }
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, message2);
-        } catch (ArrayIndexOutOfBoundsException e){
+        } catch (ArrayIndexOutOfBoundsException e) {
             JOptionPane.showMessageDialog(null, message3);
         }
     }
 
-    private void saveAllSquares(SquareGridPanel sGPanel1, SquareGrid squareGrid1){
+    private void saveAllSquares(SquareGridPanel sGPanel1, SquareGrid squareGrid1) {
         int sizeX, sizeY;
         String squareValue;
         double convertedValue;
         sizeX = squareGrid1.squareCorners.length;
         sizeY = squareGrid1.squareCorners[0].length;
 
-        for (int j = 0; j < sizeY; j++){
-            for (int i = 0; i < sizeX; i++){
-                    squareValue = sGPanel1.txtSquares[i][j].getText();
-                if (squareValue.isEmpty()){
+        for (int j = 0; j < sizeY; j++) {
+            for (int i = 0; i < sizeX; i++) {
+                squareValue = sGPanel1.txtSquares[i][j].getText();
+                if (squareValue.isEmpty()) {
                     convertedValue = 0;
-                }
-                else{
+                } else {
                     convertedValue = Double.parseDouble(squareValue);
                 }
                 squareGrid1.squareCorners[i][j].terrainOrdinate = convertedValue;
@@ -56,7 +55,7 @@ public class SquareGridUIDataGetter {
         System.out.println("");
     }
 
-    private boolean compareSizes(SquareGridPanel sGPanel1, SquareGrid squareGrid1){
+    private boolean compareSizes(SquareGridPanel sGPanel1, SquareGrid squareGrid1) {
         int txtSizeX = sGPanel1.txtSquares[0].length;
         int squareSizeX = squareGrid1.squareCorners[0].length;
         int txtSizeY = sGPanel1.txtSquares[1].length;

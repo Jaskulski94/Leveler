@@ -12,25 +12,20 @@ import java.io.File;
 public class SquareGridSerializer extends BasicSerializer {
     private UILauncherFrame UILauncher;
     private StartingConditions startingConditions;
-    private SquareGrid squareGrid;
 
-    public SquareGridSerializer(){}
+    public SquareGridSerializer() {
+    }
 
-    public SquareGridSerializer(UILauncherFrame UILauncher1){
+    public SquareGridSerializer(UILauncherFrame UILauncher1) {
         this.UILauncher = UILauncher1;
     }
 
-    public void serializeSquareGrid(SquareGrid squareGrid1){
+    public void serializeSquareGrid(SquareGrid squareGrid1) {
         super.serialize(squareGrid1, "/SquareGrid.ser");
     }
 
-    public SquareGrid deserializeSCFromFixedPath(){
+    public SquareGrid deserializeSCFromFixedPath() {
         return ((SquareGrid) super.deserializeFromFixedPath("/SquareGrid.ser"));
-    }
-
-    public SquareGrid deserializeSGFromChooser() {
-        SquareGrid squareGrid = (SquareGrid) super.deserializeFromChooser();
-        return squareGrid;
     }
 
     public SquareGrid deserializeWithUI(File selectedFile) {
@@ -38,7 +33,7 @@ public class SquareGridSerializer extends BasicSerializer {
         errorPanel = new ProjectStarterPanel(UILauncher);
 
         SquareGrid squareGrid = (SquareGrid) super.deserializeWithUI(selectedFile);
-        ((SquareGridPanel)newPanel).setStartingConditionsAndInitiate(startingConditions);
+        ((SquareGridPanel) newPanel).setStartingConditionsAndInitiate(startingConditions);
         super.changeToNextPanel(UILauncher);
         return squareGrid;
     }

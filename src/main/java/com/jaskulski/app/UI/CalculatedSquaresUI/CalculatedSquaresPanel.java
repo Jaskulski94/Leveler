@@ -24,14 +24,22 @@ public class CalculatedSquaresPanel extends JPanel {
         singleCS = new SingleCalculatedSquare[size1][size2];
 
         int index;
-        double x, y, h;
+        double x, y;
+        double addA, addV;
+        double subA, subV;
         for (int i = 0; i<size1; i++){
             for (int j = 0; j<size2; j++){
                 index = calculatedSquares.squares[i][j].getIndex();
                 x = calculatedSquares.squares[i][j].leftTopCor.getOrdinateX();
                 y = calculatedSquares.squares[i][j].leftTopCor.getOrdinateY();
-                h = calculatedSquares.squares[i][j].leftTopCor.getOrdinateH();
-                singleCS[i][j] = new SingleCalculatedSquare(index, x, y, h);
+                addA = calculatedSquares.squares[i][j].getAddArea();
+                addV = calculatedSquares.squares[i][j].getAddVolume();
+                subA = calculatedSquares.squares[i][j].getSubtractArea();
+                subV = calculatedSquares.squares[i][j].getSubtractVolume();
+                singleCS[i][j] = new SingleCalculatedSquare(index);
+                singleCS[i][j].setXYText(x, y);
+                singleCS[i][j].setAddText(addA, addV);
+                singleCS[i][j].setSubText(subA, subV);
                 GBC.gridx = i;
                 GBC.gridy = j;
                 this.add(singleCS[i][j], GBC);

@@ -10,54 +10,57 @@ import static org.apache.commons.lang3.StringUtils.rightPad;
 
 public class SingleCalculatedSquare extends JPanel {
     private JLabel lblIndex;
-    private JLabel lblOrdX;
-    private JLabel lblOrdY;
-    private JLabel lblOrdH;
+    private JLabel lblOrdXY;
+    private JLabel lblAdd;
+    private JLabel lblSub;
 
     private JLabel lblIndexText;
-    private JLabel lblOrdXText;
-    private JLabel lblOrdYText;
-    private JLabel lblOrdHText;
+    private JLabel lblOrdXYText;
+    private JLabel lblAddText;
+    private JLabel lblSubText;
 
-    private JLabel lblEmpty;
+    private GridBagConstraints GBC;
 
-    GridBagLayout GBL;
-    GridBagConstraints GBC;
-
-    public SingleCalculatedSquare(int index1, double x1, double y1, double h1){
-        GBL = new GridBagLayout();
+    public SingleCalculatedSquare(int index1){
+        GridBagLayout GBL = new GridBagLayout();
         GBC = new GridBagConstraints();
         this.setLayout(GBL);
 
         initiateSingleSquareLabels();
 
-        String x = String.format("%.2f", x1);
-        x = rightPad(x, 10, ' ');
-        String y = String.format("%.2f", y1);
-        y = rightPad(y, 10, ' ');
-        String h = String.format("%.2f", h1);
-        h = rightPad(h, 10, ' ');
-
         lblIndexText.setText(String.valueOf(index1));
-        lblOrdXText.setText(x);
-        lblOrdYText.setText(y);
-        lblOrdHText.setText(h);
 
         setSquareStyle();
     }
 
+    public void setXYText(double x1, double y1){
+        String xY = String.format("%.2f-%.2f", x1, y1);
+        xY = rightPad(xY, 10, ' ');
+        lblOrdXYText.setText(xY);
+    }
+
+    public void setAddText(double addA1, double addV1) {
+        String addAreaAndVolume = String.format("Pole: %.2f Obj.: %.2f", addA1, addV1);
+        addAreaAndVolume = rightPad(addAreaAndVolume, 10, ' ');
+        lblAddText.setText(addAreaAndVolume);
+    }
+
+    public void setSubText(double subA1, double subV1) {
+        String subAreaAndVolume = String.format("Pole: %.2f Obj.: %.2f", subA1, subV1);
+        subAreaAndVolume = rightPad(subAreaAndVolume, 10, ' ');
+        lblSubText.setText(subAreaAndVolume);
+    }
+
     private void initiateSingleSquareLabels(){
         lblIndex = new JLabel("Nr: ");
-        lblOrdX = new JLabel("Rz. X: ");
-        lblOrdY = new JLabel("Rz. Y: ");
-        lblOrdH = new JLabel("Rz. pro: ");
+        lblOrdXY = new JLabel("X - Y: ");
+        lblAdd = new JLabel("Nasyp");
+        lblSub = new JLabel("Wykop");
 
         lblIndexText = new JLabel();
-        lblOrdXText = new JLabel();
-        lblOrdYText = new JLabel();
-        lblOrdHText = new JLabel();
-
-        lblEmpty = new JLabel("     ");
+        lblOrdXYText = new JLabel();
+        lblAddText = new JLabel();
+        lblSubText = new JLabel();
 
         GBC.anchor = GridBagConstraints.WEST;
 
@@ -66,30 +69,26 @@ public class SingleCalculatedSquare extends JPanel {
         this.add(lblIndex, GBC);
 
         GBC.gridy = 1;
-        this.add(lblOrdX, GBC);
+        this.add(lblOrdXY, GBC);
 
         GBC.gridy = 2;
-        this.add(lblOrdY, GBC);
+        this.add(lblAdd, GBC);
 
         GBC.gridy = 3;
-        this.add(lblOrdH, GBC);
+        this.add(lblSub, GBC);
 
         GBC.gridx = 1;
         GBC.gridy = 0;
         this.add(lblIndexText,GBC);
 
         GBC.gridy = 1;
-        this.add(lblOrdXText, GBC);
+        this.add(lblOrdXYText, GBC);
 
         GBC.gridy = 2;
-        this.add(lblOrdYText, GBC);
+        this.add(lblAddText, GBC);
 
         GBC.gridy = 3;
-        this.add(lblOrdHText, GBC);
-
-        GBC.gridx = 2;
-        GBC.gridy = 4;
-        this.add(lblEmpty, GBC);
+        this.add(lblSubText, GBC);
     }
 
     private void setSquareStyle(){

@@ -36,10 +36,16 @@ public class CalculatedSquaresPanel extends JPanel {
                 addV = calculatedSquares.squares[i][j].getAddVolume();
                 subA = calculatedSquares.squares[i][j].getSubtractArea();
                 subV = calculatedSquares.squares[i][j].getSubtractVolume();
+
                 singleCS[i][j] = new SingleCalculatedSquare(index);
                 singleCS[i][j].setXYText(x, y);
-                singleCS[i][j].setAddText(addA, addV);
-                singleCS[i][j].setSubText(subA, subV);
+
+                singleCS[i][j].setAddAText(addA);
+                singleCS[i][j].setAddVText(addV);
+
+                singleCS[i][j].setSubAText(subA);
+                singleCS[i][j].setSubVText(subV);
+
                 GBC.gridx = i;
                 GBC.gridy = j;
                 this.add(singleCS[i][j], GBC);

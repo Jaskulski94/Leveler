@@ -81,37 +81,19 @@ public class CalculatedSquaresCalculator {
             if ((notSimplifiedX % squareSize) == 0){
                 if(simplifiedX == 0){
                     calculatedSquares.squares[simplifiedX][simplifiedY].addNewZeroPoint(newX, newY, newH, 0);
-                    System.out.println("Dodano nowy PZ do CS: "+(simplifiedX)+" "+simplifiedY);
-                    System.out.format("PZ1: %.2f %.2f %.2f ", newX, newY, newH);
-                    System.out.println("");
                 } else {
                     calculatedSquares.squares[simplifiedX - 1][simplifiedY].addNewZeroPoint(newX, newY, newH, 0);
-                    System.out.println("Dodano nowy PZ do CS: " + (simplifiedX - 1) + " " + simplifiedY);
-                    System.out.format("PZ1: %.2f %.2f %.2f ", newX, newY, newH);
-                    System.out.println("");
                     if (simplifiedX < calculatedSquares.squares.length) {
                         calculatedSquares.squares[simplifiedX][simplifiedY].addNewZeroPoint(newX, newY, newH, 0);
-                        System.out.println("Dodano nowy PZ do CS: " + (simplifiedX) + " " + simplifiedY);
-                        System.out.format("PZ1: %.2f %.2f %.2f ", newX, newY, newH);
-                        System.out.println("");
                     }
                 }
             } else if ((notSimplifiedY % squareSize) == 0){
                 if(simplifiedX == 0){
                     calculatedSquares.squares[simplifiedX][simplifiedY].addNewZeroPoint(newX, newY, newH, 0);
-                    System.out.println("Dodano nowy PZ do CS: "+(simplifiedX)+" "+simplifiedY);
-                    System.out.format("PZ1: %.2f %.2f %.2f ", newX, newY, newH);
-                    System.out.println("");
                 } else {
                     calculatedSquares.squares[simplifiedX][simplifiedY - 1].addNewZeroPoint(newX, newY, newH, 0);
-                    System.out.println("Dodano nowy PZ do CS: " + (simplifiedX) + " " + (simplifiedY - 1));
-                    System.out.format("PZ1: %.2f %.2f %.2f ", newX, newY, newH);
-                    System.out.println("");
                     if (simplifiedX < calculatedSquares.squares.length) {
                         calculatedSquares.squares[simplifiedX][simplifiedY].addNewZeroPoint(newX, newY, newH, 0);
-                        System.out.println("Dodano nowy PZ do CS: " + (simplifiedX) + " " + simplifiedY);
-                        System.out.format("PZ1: %.2f %.2f %.2f ", newX, newY, newH);
-                        System.out.println("");
                     }
                 }
             }
@@ -119,10 +101,8 @@ public class CalculatedSquaresCalculator {
     }
 
     public void calculateAllAreasAndVolumes(){
-        double totalSumAddArea = 0;
         double totalSumAddVolume = 0;
 
-        double totalSumSubtractArea = 0;
         double totalSumSubtractVolume = 0;
 
         for (int j = 0; j < cSSizeY; j++) {
@@ -144,21 +124,13 @@ public class CalculatedSquaresCalculator {
     }
 
     private void calculateAreaAndVolume(CalculatedSquares.SingleSquare square1) {
-        double diffH = calculateAvgHDiff(square1);
-
         if (square1.zeroSquarePoints.isEmpty()) {
+            double area = squareSize*squareSize;
+            double diffH = calculateAvgHDiff(square1);
             if(diffH > 0){
-                square1.setAddArea(squareSize*squareSize);
-                square1.setAddVolume(diffH*squareSize*squareSize);
-
-                square1.setSubtractArea(0);
-                square1.setSubtractVolume(0);
+                square1.setAreasAndVolumes(area, area*diffH, 0, 0);
             } else if (diffH < 0){
-                square1.setAddArea(0);
-                square1.setAddVolume(0);
-
-                square1.setSubtractArea(squareSize*squareSize);
-                square1.setSubtractVolume(diffH*squareSize*squareSize);
+                square1.setAreasAndVolumes(0, 0, area, area*diffH);
             }
         } else {
             calculateWithZP(square1);
@@ -167,18 +139,6 @@ public class CalculatedSquaresCalculator {
 
     private void calculateWithZP(CalculatedSquares.SingleSquare square1){
         double step = squareSize/100;
-        double relativeZeroX1 = calculateRelativeOrd(square1.zeroSquarePoints.get(0).getOrdinateX());
-        double relativeZeroY1 = calculateRelativeOrd(square1.zeroSquarePoints.get(0).getOrdinateY());
-
-        double relativeZeroX2 = calculateRelativeOrd(square1.zeroSquarePoints.get(1).getOrdinateX());
-        double relativeZeroY2 = calculateRelativeOrd(square1.zeroSquarePoints.get(1).getOrdinateY());
-
-        if((relativeZeroX1 == 0) && (relativeZeroX2 == 0)){
-            relativeZeroX2 += squareSize;
-        }
-        if((relativeZeroY1 == 0) && (relativeZeroY2 == 0)){
-            relativeZeroY2 += squareSize;
-        }
 
         double sumAddArea = 0;
         double sumAddVolume = 0;
@@ -186,24 +146,17 @@ public class CalculatedSquaresCalculator {
         double sumSubtractArea = 0;
         double sumSubtractVolume = 0;
 
-        double[] calculatedVector = new double[2];
-        double[] lineVector = {relativeZeroX2 - relativeZeroX1, relativeZeroY2 - relativeZeroY1};
-        double crossProduct;
+        double localDiff;
 
         for (int i = 0; i<100; i++){
             for (int j = 0; j<100; j++) {
-                calculatedVector[0] = relativeZeroX2 - (i*step);
-                calculatedVector[1] = relativeZeroY2 - (j*step);
-                crossProduct = lineVector[0]*calculatedVector[1] - lineVector[1]*calculatedVector[0];
-                if (crossProduct > 0){
+                localDiff = calculateLocalHDiff(square1, i*step, j*step);
+                if (localDiff > 0){
                     sumAddArea += step*step;
                     sumAddVolume += sumAddArea*calculateLocalHDiff(square1, i*step, j*step);
-                //    System.out.println("Dodaję ZP nasyp");
-                } else if (crossProduct < 0){
+                } else if (localDiff < 0){
                     sumSubtractArea += step*step;
                     sumSubtractVolume += sumSubtractArea*calculateLocalHDiff(square1, i*step, j*step);
-                //    System.out.println("Dodaję ZP wykop");
-
                 }
             }
         }
@@ -214,11 +167,6 @@ public class CalculatedSquaresCalculator {
         square1.setSubtractVolume(sumSubtractVolume);
         System.out.format("Punkt ZP - Nasyp P: %.2f V: %.2f  Wykop P: %.2f V: %.2f", sumAddArea, sumAddVolume, sumSubtractArea, sumSubtractVolume);
         System.out.println("");
-    }
-
-    private double calculateRelativeOrd(double ord1){
-        int relativeIndex = (int) (ord1/squareSize);
-        return (ord1 - (relativeIndex * squareSize));
     }
 
     private double calculateLocalHDiff(CalculatedSquares.SingleSquare square1, double x1, double y1){
@@ -239,13 +187,13 @@ public class CalculatedSquaresCalculator {
         partsOfProjectH[3] = square1.leftTopCor.getOrdinateH()*(1-partOfX)*(1-partOfY);
         partsOfTerrainH[3] = square1.leftTopCor.getTerrainH()*(1-partOfX)*(1-partOfY);
 
-        double sumProjctH = 0;
+        double sumProjectH = 0;
         double sumTerrainH = 0;
         for (int i = 0; i<4; i++){
-            sumProjctH += partsOfProjectH[i];
+            sumProjectH += partsOfProjectH[i];
             sumTerrainH += partsOfTerrainH[i];
         }
-        return (sumProjctH - sumTerrainH)/squareSize;
+        return ((sumProjectH - sumTerrainH)/4);
     }
 
     private double calculateAvgHDiff(CalculatedSquares.SingleSquare square1){

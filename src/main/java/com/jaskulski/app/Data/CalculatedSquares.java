@@ -83,6 +83,13 @@ public class CalculatedSquares {
             zeroSquarePoints.add(new SquarePoint(x1, y1, h1, tH1));
         }
 
+        public void setAreasAndVolumes(double addA1, double addV1, double subA1, double subV1){
+            this.addArea = addA1;
+            this.addVolume = addV1;
+            this.subtractArea = subA1;
+            this.subtractVolume = subV1;
+        }
+
         @Data
         public class SquarePoint {
             double ordinateX;

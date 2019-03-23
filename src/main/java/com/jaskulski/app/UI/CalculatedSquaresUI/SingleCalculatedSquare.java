@@ -46,27 +46,27 @@ public class SingleCalculatedSquare extends JPanel {
     }
 
     public void setAddAText(double addA1) {
-        String addAreaAndVolume = String.format("P = %.1f", addA1);
-        addAreaAndVolume = rightPad(addAreaAndVolume, 8, ' ');
-        lblAddAText.setText(addAreaAndVolume);
+        String addArea = String.format("P = %.1f", addA1);
+        addArea = rightPad(addArea, 8, ' ');
+        lblAddAText.setText(addArea);
     }
 
     public void setAddVText(double addV1) {
-        String addAreaAndVolume = String.format("V = %.2f", addV1);
-        addAreaAndVolume = rightPad(addAreaAndVolume, 8, ' ');
-        lblAddVText.setText(addAreaAndVolume);
+        String addVolume = String.format("V = %.2f", addV1);
+        addVolume = rightPad(addVolume, 15, ' ');
+        lblAddVText.setText(addVolume);
     }
 
     public void setSubAText(double subA1) {
-        String subAreaAndVolume = String.format("P = %.2f", subA1);
-        subAreaAndVolume = rightPad(subAreaAndVolume, 8, ' ');
-        lblSubAText.setText(subAreaAndVolume);
+        String subArea = String.format("P = %.2f", subA1);
+        subArea = rightPad(subArea, 8, ' ');
+        lblSubAText.setText(subArea);
     }
 
     public void setSubVText(double subV1) {
-        String subAreaAndVolume = String.format("V = %.2f", subV1);
-        subAreaAndVolume = rightPad(subAreaAndVolume, 8, ' ');
-        lblSubVText.setText(subAreaAndVolume);
+        String subVolume = String.format("V = %.2f", subV1);
+        subVolume = rightPad(subVolume, 15, ' ');
+        lblSubVText.setText(subVolume);
     }
 
     private void initiateSingleSquareLabels(){

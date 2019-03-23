@@ -20,7 +20,7 @@ public class ChangePanelListener implements ActionListener {
         changeAction();
     }
 
-    public void changeAction(){
+    public void changeAction() {
         UILauncher.changePanel(newPanel);
     }
 }

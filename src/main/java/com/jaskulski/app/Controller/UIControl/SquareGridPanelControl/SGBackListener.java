@@ -14,7 +14,7 @@ public class SGBackListener extends ChangePanelListener {
         super(UILauncher1, panel1);
     }
 
-    public void changeAction(){
+    public void changeAction() {
         StartingConditionsSerializer sCSerializer = new StartingConditionsSerializer();
         StartingConditions startingConditions = sCSerializer.deserializeSCFromFixedPath();
         StartingConditionsFiller sCFiller = new StartingConditionsFiller(startingConditions, (NewProjectInitiatorPanel) newPanel);

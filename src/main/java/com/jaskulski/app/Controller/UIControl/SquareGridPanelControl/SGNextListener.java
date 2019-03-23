@@ -16,7 +16,6 @@ public class SGNextListener extends SGSaveListener {
     public StartingConditions startingConditions;
     private CalculatedSquares calculatedSquares;
     private CalculatedSquaresCalculator cSCalculator;
-    private CalculatedSquaresFrame cSFrame;
 
     public SGNextListener(SquareGrid sG1, StartingConditions sC1, SquareGridPanel sGPanel1) {
         super(sG1, sC1, sGPanel1);
@@ -32,14 +31,14 @@ public class SGNextListener extends SGSaveListener {
         initiateNewFrameAction();
     }
 
-    protected void calculateAction(){
+    protected void calculateAction() {
         super.calculateAction();
         cSCalculator.calculateCS();
         cSCalculator.calculateAllAreasAndVolumes();
     }
 
     private void initiateNewFrameAction() {
-        cSFrame = new CalculatedSquaresFrame(calculatedSquares);
+        CalculatedSquaresFrame cSFrame = new CalculatedSquaresFrame(calculatedSquares);
         CalculatedSquaresPanel pnlCS = new CalculatedSquaresPanel(calculatedSquares);
         JScrollPane scroller = new JScrollPane(pnlCS);
         cSFrame.add(scroller, BorderLayout.CENTER);

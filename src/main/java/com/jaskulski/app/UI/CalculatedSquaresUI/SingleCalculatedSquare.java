@@ -1,20 +1,16 @@
 package com.jaskulski.app.UI.CalculatedSquaresUI;
 
 import com.jaskulski.app.UI.UIParameters;
+
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
 
 import static org.apache.commons.lang3.StringUtils.rightPad;
 
-
 public class SingleCalculatedSquare extends JPanel {
     private JLabel lblIndex;
-    private JLabel lblOrdXY;
-    private JLabel lblAdd;
-    private JLabel lblSub;
 
-    private JLabel lblIndexText;
     private JLabel lblOrdXYText;
 
     private JLabel lblAddAText;
@@ -25,21 +21,20 @@ public class SingleCalculatedSquare extends JPanel {
 
     private GridBagConstraints GBC;
 
-    public SingleCalculatedSquare(int index1){
+    public SingleCalculatedSquare(int index1) {
         GridBagLayout GBL = new GridBagLayout();
         GBC = new GridBagConstraints();
-        GBC.insets = new Insets(1,3,1,5);
+        GBC.insets = new Insets(1, 3, 1, 5);
         this.setLayout(GBL);
 
         initiateSingleSquareLabels();
 
-        lblIndex.setText("Nr "+ index1);
-    //    lblIndexText.setText(String.valueOf(index1));
+        lblIndex.setText("Nr " + index1);
 
         setSquareStyle();
     }
 
-    public void setXYText(double x1, double y1){
+    public void setXYText(double x1, double y1) {
         String xY = String.format("%.2f-%.2f", x1, y1);
         xY = rightPad(xY, 10, ' ');
         lblOrdXYText.setText(xY);
@@ -69,13 +64,13 @@ public class SingleCalculatedSquare extends JPanel {
         lblSubVText.setText(subVolume);
     }
 
-    private void initiateSingleSquareLabels(){
+    private void initiateSingleSquareLabels() {
         lblIndex = new JLabel("Nr: ");
-        lblOrdXY = new JLabel("X - Y: ");
-        lblAdd = new JLabel("Nasyp");
-        lblSub = new JLabel("Wykop");
+        JLabel lblOrdXY = new JLabel("X - Y: ");
+        JLabel lblAdd = new JLabel("Nasyp");
+        JLabel lblSub = new JLabel("Wykop");
 
-        lblIndexText = new JLabel();
+        JLabel lblIndexText = new JLabel();
         lblOrdXYText = new JLabel();
 
         lblAddAText = new JLabel();
@@ -109,21 +104,21 @@ public class SingleCalculatedSquare extends JPanel {
 
         GBC.gridx = 0;
         GBC.gridy = 2;
-        this.add(lblAddAText,GBC);
+        this.add(lblAddAText, GBC);
 
         GBC.gridy = 3;
-        this.add(lblAddVText,GBC);
+        this.add(lblAddVText, GBC);
 
         GBC.gridx = 2;
         GBC.gridy = 2;
-        this.add(lblSubAText,GBC);
+        this.add(lblSubAText, GBC);
 
         GBC.gridy = 3;
-        this.add(lblSubVText,GBC);
+        this.add(lblSubVText, GBC);
 
     }
 
-    private void setSquareStyle(){
+    private void setSquareStyle() {
         this.setBackground(Color.white);
         UIParameters.setFontToAll(this, UIParameters.fontSmall);
         this.setBorder(new LineBorder(Color.black));

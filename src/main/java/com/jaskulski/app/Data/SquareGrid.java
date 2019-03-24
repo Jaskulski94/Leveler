@@ -23,7 +23,7 @@ public class SquareGrid implements Serializable {
     }
 
     @Data
-    public class SquareCorner implements Serializable{
+    public class SquareCorner implements Serializable {
         public int index;
         public double terrainOrdinate;
         public double projectOrdinate;
@@ -36,19 +36,19 @@ public class SquareGrid implements Serializable {
     }
 
     @Data
-    public class ZeroPoint implements Serializable{
+    public class ZeroPoint implements Serializable {
         public double ordinateX;
         public double ordinateY;
         public double ordinateH;
 
-        public ZeroPoint(double x1, double y1, double h1){
+        public ZeroPoint(double x1, double y1, double h1) {
             ordinateX = x1;
             ordinateY = y1;
             ordinateH = h1;
         }
     }
 
-    public ZeroPoint createZeroPoints (double x1, double y1, double h1){
+    public ZeroPoint createZeroPoints(double x1, double y1, double h1) {
         return (new ZeroPoint(x1, y1, h1));
     }
 }

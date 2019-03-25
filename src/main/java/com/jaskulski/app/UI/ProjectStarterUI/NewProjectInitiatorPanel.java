@@ -15,7 +15,6 @@ public class NewProjectInitiatorPanel extends JPanel {
     public SlopeInitiator pnlBSlope;
     public JTextField txtSquares;
     public JTextField txtField;
-    private UILauncherFrame UILauncher;
 
     public NewProjectInitiatorPanel(UILauncherFrame UILauncher1) {
         initiateProjectWithUILauncher(UILauncher1);
@@ -26,15 +25,12 @@ public class NewProjectInitiatorPanel extends JPanel {
     }
 
     private void initiateProjectWithUILauncher(UILauncherFrame UILauncher1) {
-        this.UILauncher = UILauncher1;
-
         initiateProject();
 
         WhiteButton btnStartingConditions = new WhiteButton("Dalej");
-        btnStartingConditions.addActionListener(new NewProjectInitiatorListener(UILauncher, this));
+        btnStartingConditions.addActionListener(new NewProjectInitiatorListener(UILauncher1, this));
         this.add(btnStartingConditions);
         setCenterAlignment(this);
-
     }
 
     private void initiateProject() {
@@ -94,13 +90,10 @@ public class NewProjectInitiatorPanel extends JPanel {
     private void setCenterAlignment(JComponent component) {
         component.setAlignmentX(Component.CENTER_ALIGNMENT);
         component.setAlignmentY(Component.CENTER_ALIGNMENT);
-        if (component instanceof Container) {
-            for (Component child : ((Container) component).getComponents()) {
-                setCenterAlignment((JComponent) child);
-            }
+        for (Component child : component.getComponents()) {
+            setCenterAlignment((JComponent) child);
         }
     }
-
 
     public class SlopeInitiator extends JPanel {
         public JTextField txtSide;

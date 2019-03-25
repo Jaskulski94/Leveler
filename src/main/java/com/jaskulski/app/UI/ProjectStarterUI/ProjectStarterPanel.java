@@ -12,9 +12,9 @@ import java.awt.*;
 
 public class ProjectStarterPanel extends JPanel {
 
-    UILauncherFrame UILauncher;
+    private UILauncherFrame UILauncher;
 
-    public ProjectStarterPanel(){
+    public ProjectStarterPanel() {
     }
 
     public ProjectStarterPanel(UILauncherFrame UILauncher1) {
@@ -22,12 +22,12 @@ public class ProjectStarterPanel extends JPanel {
         initializeProject();
     }
 
-    public void startEmptyProjectStarter(UILauncherFrame UILauncher1){
+    public void startEmptyProjectStarter(UILauncherFrame UILauncher1) {
         this.UILauncher = UILauncher1;
         initializeProject();
     }
 
-    private void initializeProject(){
+    private void initializeProject() {
         this.setLayout(new GridLayout(3, 1));
         JLabel lblTitle = new JLabel("Niwelator");
         lblTitle.setFont(UIParameters.fontBig);
@@ -44,7 +44,6 @@ public class ProjectStarterPanel extends JPanel {
 
         WhiteButton btnLoadProject = new WhiteButton("Otwórz istniejący projekt");
         btnLoadProject.addActionListener(new LoadProjectListener(UILauncher));
-    //    btnLoadProject.addActionListener(cPListener);
         this.add(btnLoadProject);
 
         this.setVisible(true);

@@ -13,7 +13,6 @@ import javax.swing.*;
 import java.awt.*;
 
 public class SquareGridPanel extends JPanel {
-    private JLabel lblPanelName;
     private UILauncherFrame UILauncher;
     private int sizeX, sizeY;
     public JTextField[][] txtSquares;
@@ -37,7 +36,7 @@ public class SquareGridPanel extends JPanel {
         initializeSquareGridPanel();
     }
 
-    private void initializeSquareGridPanel(){
+    private void initializeSquareGridPanel() {
         this.sizeX = startingConditions.getSizeX();
         this.sizeY = startingConditions.getSizeY();
         squareGrid = new SquareGrid(sizeX, sizeY);
@@ -46,7 +45,7 @@ public class SquareGridPanel extends JPanel {
 
         this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 
-        lblPanelName = new JLabel();
+        JLabel lblPanelName = new JLabel();
         lblPanelName.setText("Rzędne terenowe");
         lblPanelName.setAlignmentX(Component.CENTER_ALIGNMENT);
         this.add(lblPanelName);
@@ -64,10 +63,10 @@ public class SquareGridPanel extends JPanel {
         JPanel pnlSquareGrid = new JPanel();
         pnlSquareGrid.setLayout(gridBagLayout);
 
-        Dimension dimSquaresMax = new Dimension(UIParameters.frameWidth*sizeX/4, UIParameters.frameHeight*sizeY/10);
+        Dimension dimSquaresMax = new Dimension(UIParameters.frameWidth * sizeX / 4, UIParameters.frameHeight * sizeY / 10);
         pnlSquareGrid.setMaximumSize(dimSquaresMax);
 
-        Dimension dimSquaresPref = new Dimension(UIParameters.frameWidth, UIParameters.frameHeight*sizeY/10);
+        Dimension dimSquaresPref = new Dimension(UIParameters.frameWidth, UIParameters.frameHeight * sizeY / 10);
         pnlSquareGrid.setPreferredSize(dimSquaresPref);
 
         addTextFields(pnlSquareGrid);
@@ -76,7 +75,7 @@ public class SquareGridPanel extends JPanel {
         this.add(Box.createVerticalGlue());
 
         JPanel pnlButtons = new JPanel();
-        Dimension dimButtons = new Dimension(UIParameters.frameWidth, (int) Math.round(UIParameters.frameHeight*0.2));
+        Dimension dimButtons = new Dimension(UIParameters.frameWidth, (int) Math.round(UIParameters.frameHeight * 0.2));
         pnlButtons.setMaximumSize(dimButtons);
         pnlButtons.setLayout(new GridBagLayout());
 
@@ -88,7 +87,7 @@ public class SquareGridPanel extends JPanel {
         UIParameters.setFontToAll(pnlButtons, UIParameters.fontMedium);
     }
 
-    private void addButtons(JPanel panel1){
+    private void addButtons(JPanel panel1) {
         WhiteButton btnPrevious = new WhiteButton("Cofnij");
         btnPrevious.addActionListener(new SGBackListener(UILauncher, new NewProjectInitiatorPanel(UILauncher)));
 

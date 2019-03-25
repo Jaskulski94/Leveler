@@ -23,8 +23,8 @@ public class UIParameters {
         frameWidth = dimScreen.width / 3;
         frameHeight = dimScreen.height * 2 / 3;
         dimFrame = new Dimension(frameWidth, frameHeight);
-        dimFrame2 = new Dimension(frameWidth*2, (int) dimScreen.getHeight() - 100);
-        int y = (int) dimScreen.getHeight()/6;
+        dimFrame2 = new Dimension(frameWidth * 2, (int) dimScreen.getHeight() - 100);
+        int y = (int) dimScreen.getHeight() / 6;
         dimFrameSmall = new Dimension(y, y);
     }
 

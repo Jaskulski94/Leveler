@@ -9,7 +9,6 @@ import javax.swing.*;
 
 public class ShowSCFrame extends JFrame {
     private StartingConditions startingConditions;
-    private StartingConditionsFiller sCFiller;
 
     public ShowSCFrame(StartingConditions startingConditions1) {
         this.startingConditions = startingConditions1;
@@ -31,8 +30,8 @@ public class ShowSCFrame extends JFrame {
         public CheckProjectInitiatorPanel() {
         }
 
-        public void fillAll(){
-            sCFiller = new StartingConditionsFiller(startingConditions, this);
+        public void fillAll() {
+            StartingConditionsFiller sCFiller = new StartingConditionsFiller(startingConditions, this);
             sCFiller.fillFields();
         }
 

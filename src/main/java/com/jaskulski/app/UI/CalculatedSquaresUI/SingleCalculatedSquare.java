@@ -10,11 +10,7 @@ import static org.apache.commons.lang3.StringUtils.rightPad;
 
 public class SingleCalculatedSquare extends JPanel {
     private JLabel lblIndex;
-    private JLabel lblOrdXY;
-    private JLabel lblAdd;
-    private JLabel lblSub;
 
-    private JLabel lblIndexText;
     private JLabel lblOrdXYText;
 
     private JLabel lblAddAText;
@@ -34,7 +30,6 @@ public class SingleCalculatedSquare extends JPanel {
         initiateSingleSquareLabels();
 
         lblIndex.setText("Nr "+ index1);
-    //    lblIndexText.setText(String.valueOf(index1));
 
         setSquareStyle();
     }
@@ -71,11 +66,11 @@ public class SingleCalculatedSquare extends JPanel {
 
     private void initiateSingleSquareLabels(){
         lblIndex = new JLabel("Nr: ");
-        lblOrdXY = new JLabel("X - Y: ");
-        lblAdd = new JLabel("Nasyp");
-        lblSub = new JLabel("Wykop");
+        JLabel lblOrdXY = new JLabel("X - Y: ");
+        JLabel lblAdd = new JLabel("Nasyp");
+        JLabel lblSub = new JLabel("Wykop");
 
-        lblIndexText = new JLabel();
+        JLabel lblIndexText = new JLabel();
         lblOrdXYText = new JLabel();
 
         lblAddAText = new JLabel();

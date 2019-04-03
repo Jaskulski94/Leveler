@@ -33,7 +33,15 @@ public class StartingConditions implements Serializable {
     public void setSizes() {
         sizeX = (int) (slopeX.side / squareSide);
         sizeY = (int) (slopeY.side / squareSide);
-        System.out.println("Slope x: " + sizeX + " Slope y: " + sizeY);
+        System.out.println("Slope x: "+ sizeX + " Slope y: "+ sizeY);
+    }
+
+    public void printAll() {
+        System.out.println(squareSide + " " + fieldLean);
+        System.out.println("Slope A:");
+        System.out.println(slopeX.side + " " + slopeX.slopeWidth + " " + slopeX.slopeTilt);
+        System.out.println("Slope B:");
+        System.out.println(slopeY.side + " " + slopeY.slopeWidth + " " + slopeY.slopeTilt);
     }
 
     public boolean isDivisible(StartingConditions.Slope slope1) {
